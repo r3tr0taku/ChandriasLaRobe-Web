@@ -49,16 +49,6 @@ body {
   visibility: hidden;
 }
 
-.form-box.login img {
-  width: 50px;
-  margin-left: -180px;
-}
-
-.form-box.register img {
-  width: 50px;
-  margin-left: -300px;
-}
-
 .container.active .form-box.register {
   visibility: visible;
 }
@@ -67,10 +57,25 @@ form {
   width: 100%;
 }
 
-.container h1{
-  font-size: 36px; 
-  margin: -58px 0 45px;
+.container h1 {
+  font-size: 36px;
+  margin: -10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
+
+.form-box.login img,
+.form-box.register img {
+  width: 50px;
+  margin: 0;
+}
+
+/* .container h1{
+  font-size: 36px; 
+  margin: -10px 0;
+} */
 
 .input-box {
   position: relative;
