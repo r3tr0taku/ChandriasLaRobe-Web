@@ -29,6 +29,7 @@ body {
     height: 100vh;
     background: var(--body-color);
     transition: var(--tran-05);
+    overflow: hidden;
 }
 
 body.dark {
@@ -63,7 +64,7 @@ body.dark {
 /* ====== Reusable CSS ====== */
 
 .sidebar .text {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--text-color);
     transition: var(--tran-03);
@@ -84,7 +85,7 @@ body.dark {
 
 .sidebar li {
     height: 50px;
-    margin-top: 10px;
+    margin-top: 6px;
     list-style: none;
     display: flex;
     align-items: center;
@@ -95,7 +96,7 @@ body.dark {
     align-items: center;
     justify-content: center;
     min-width: 60px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .sidebar li .icon,
@@ -160,7 +161,7 @@ body.dark .sidebar header .toggle {
 }
 
 .sidebar .menu{
-    margin-top: 35px;
+    margin-top: 17px;
 }
 
 .sidebar .search-box {
