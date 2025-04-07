@@ -30,6 +30,7 @@ body {
     background: var(--body-color);
     transition: var(--tran-05);
     overflow-y: auto;
+    
 }
 
 body.dark {
@@ -289,6 +290,32 @@ body.dark .switch::before {
     margin: 8px 40px;
 }
 
+.search-and-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex-direction: row;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;              
+}
+
+.add-product-btn, .edit-product-btn,.delete-product-btn {
+    position: relative;
+    right: 20px;
+    background: var(--sidebar-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: var(--tran-03);
+}
+
 .sidebar.close ~ .page-name {
     left: 88px;
     width: calc(100% - 88px);
@@ -419,7 +446,7 @@ body.dark .switch::before {
 
 .container {
     display: grid;
-    place-items: center;
+    place-items: left;
     margin-inline: 1.5rem;
     padding-block: 5rem;
     box-sizing: border-box;
@@ -554,9 +581,9 @@ body.dark .switch::before {
     border-radius: 6px;
     padding: 4px 8px;
     width: 40%;
-    margin-top: 10px;
-    margin-left: 0%;
+    margin-left: 4.8%;
     gap: 4px;    
+    border: 1px solid var(--text-color);
     font-size: 30px;
     color: var(--text-color);
     transition: var(--tran-04);
