@@ -47,4 +47,59 @@ document.addEventListener("DOMContentLoaded", () => {
         popup.classList.remove("show");
         popup.classList.add("hidden");
     });
+
+//ZURICH 
+
+    function triggerFileUpload() {
+        document.getElementById('fileInput').click();
+      }
+      
+      document.getElementById('fileInput').addEventListener('change', function(e) {
+        const box = document.getElementById('uploadBox');
+        const files = Array.from(e.target.files).map(file => file.name).join(', ');
+        box.innerHTML = `<p>${files}</p>`;
+      });
+      
+      const regions = {
+        'NCR': ['Manila', 'Quezon City', 'Makati', 'Pasig'],
+        'Region I': ['Laoag', 'San Fernando', 'Vigan'],
+        'Region II': ['Tuguegarao', 'Cauayan', 'Ilagan'],
+        'Region III': ['Angeles', 'Balanga', 'Cabanatuan'],
+        'Region IV-A': ['Antipolo', 'Batangas City', 'Lucena'],
+        'Region IV-B': ['Calapan', 'Puerto Princesa'],
+        'Region V': ['Legazpi', 'Naga'],
+        'CAR': ['Baguio'],
+        'Region VI': ['Iloilo City', 'Bacolod'],
+        'Region VII': ['Cebu City', 'Tagbilaran'],
+        'Region VIII': ['Tacloban', 'Ormoc'],
+        'Region IX': ['Zamboanga City', 'Dipolog'],
+        'Region X': ['Cagayan de Oro', 'Iligan'],
+        'Region XI': ['Davao City', 'Tagum'],
+        'Region XII': ['General Santos', 'Koronadal'],
+        'CARAGA': ['Butuan', 'Surigao'],
+        'ARMM': ['Cotabato City', 'Marawi']
+      };
+      
+      const regionSelect = document.getElementById('region');
+      const citySelect = document.getElementById('city');
+      
+      Object.keys(regions).forEach(region => {
+        const option = document.createElement('option');
+        option.value = region;
+        option.textContent = region;
+        regionSelect.appendChild(option);
+      });
+      
+      regionSelect.addEventListener('change', () => {
+        const selectedRegion = regionSelect.value;
+        const cities = regions[selectedRegion] || [];
+      
+        citySelect.innerHTML = '<option value="">Select City</option>';
+        cities.forEach(city => {
+          const option = document.createElement('option');
+          option.value = city;
+          option.textContent = city;
+          citySelect.appendChild(option);
+        });
+      });
 });

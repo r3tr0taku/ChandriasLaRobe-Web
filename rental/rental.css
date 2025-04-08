@@ -29,13 +29,14 @@ body {
     height: 100vh;
     background: var(--body-color);
     transition: var(--tran-05);
-    overflow: hidden;
+    overflow-y: visible;
+    overflow-x: hidden;
 }
 
 body.dark {
     --body-color: #181914;
     --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
+    --primary-color: #ccc;
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #CCC;
@@ -157,7 +158,7 @@ header .image-text .header-text {
 }
 
 body.dark .sidebar header .toggle {
-    color: var(--text-color);
+    color: var(--body-color);
 }
 
 .sidebar .menu{
@@ -433,3 +434,85 @@ body.dark .switch::before {
     border-radius: 10px;
     text-align: center;
 }
+
+.container {
+    max-width: 75%;
+    margin-left: 3%;
+    background: var(--sidebar-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    padding: 2rem;
+    justify-content: center;
+
+  }
+
+  .container .expanded {
+    max-width: 100%;
+    margin-left: 0;
+    
+
+  }
+
+  .container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+  }
+
+  .container form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .form-group {
+    flex: 1 1 calc(33% - 1rem);
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group.full-width {
+    flex: 1 1 100%;
+  }
+  .container label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  .container input, 
+  .container select, 
+  .container textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  .container textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  .upload-box {
+    border: 2px dashed var(--primary-color);
+    border-radius: 8px;
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-color);
+  }
+  .upload-box span {
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .submit-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--body-color);
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 2rem;
+  }
+  .submit-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }

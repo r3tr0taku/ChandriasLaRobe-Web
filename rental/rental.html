@@ -122,7 +122,118 @@
 
     <section class="page-name">
         <div class="text">Rental</div>
+
+        <div class="container">
+            <h2>Gown Rental Form</h2>
+            <form id="gownForm">
+              <div class="form-group">
+                <label>Client First Name *</label>
+                <input type="text" required />
+              </div>
+              <div class="form-group">
+                <label>Client Last Name *</label>
+                <input type="text" required />
+              </div>
+              <div class="form-group">
+                <label>Client Contact *</label>
+                <input type="text" required />
+              </div>
+              
+              <div class="form-group">
+                <label>Event Date *</label>
+                <input type="date" required />
+              </div>
+              <div class="form-group">
+                <label>Rental Start Date *</label>
+                <input type="date" required />
+              </div>
+              <div class="form-group">
+                <label>Rental End Date *</label>
+                <input type="date" required />
+              </div>
+
+              <div class="form-group">
+                <label>Event Type *</label>
+                <select required>
+                  <option value="">Select Event Type</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="prom">Prom</option>
+                  <option value="gala">Debut</option>
+                  <option value="gala">Sagala</option>
+                  <option value="gala">Grad Ball</option>
+                  <option value="gala">Company</option>
+                  <option value="gala">Indoor</option>
+                  <option value="gala">Outdoor</option>
+                  <option value="gala">Other Event</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Gown Size *</label>
+                <select required>
+                  <option value="">Select Size</option>
+                  <option value="XS">XS</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                  <option value="XL">XXL</option>
+                  <option value="XL">XXXL</option>
+                  <option value="XL">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Gown Style *</label>
+                <select required>
+                  <option value="">Select Style</option>
+                  <option value="ball-gown">Ball Gown</option>
+                  <option value="long-gown">Long Gown</option>
+                  <option value="wedding-gown">Wedding Gown</option>
+                  <option value="fairy-gown">Fairy Gown</option>
+                  <option value="suit">Suit</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Rental Fee *</label>
+                <input type="text" required />
+              </div>
+              <div class="form-group">
+                <label>Region *</label>
+                <select id="region" required>
+                  <option value="">Select Region</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>City *</label>
+                <select id="city" required>
+                  <option value="">Select City</option>
+                </select>
+              </div>
+              <div class="form-group full-width">
+                <label>Complete Address *</label>
+                <input type="text" required />
+              </div>
+              <div class="form-group full-width">
+                <label>Repair / Additional Notes</label>
+                <textarea></textarea>
+              </div>
+              <div class="form-group full-width">
+                <label>Upload Proof of Payment</label>
+                <div class="upload-box" id="uploadBox">
+                  Drag your images here, or <span onclick="triggerFileUpload()">browse</span><br/>
+                  <small>Supported: JPG, JPEG, PNG</small>
+                  <input type="file" id="fileInput" multiple style="display:none;" accept="image/*" />
+                </div>
+              </div>
+              <button type="submit" class="submit-btn">Submit Rental</button>
+            </form>
+          </div>
+
+          
     </section>
+
+    
 
     <script src="rental.js"></script>
 
