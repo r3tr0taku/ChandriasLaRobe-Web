@@ -6,7 +6,7 @@
 ## ⚠️ CTTO to the owner of the Login and Sign up form.
 
 ### 🌐 **Now User & Admin-Based**  
-The **Chandria's La Robe** system is now connected via **SQL Workbench database**, ensuring seamless interaction between the **desktop application, admin-based website, and user-based website**.  
+The **Chandria's La Robe** system is now connected via **Firebase database**, ensuring seamless interaction between the **Admin-based website, and User-based website**.  
 The admin and user perspectives will vary depending on the logged-in account.
 
 ---
