@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("User logged out");
         popup.classList.remove("show");
         popup.classList.add("hidden");
-        window.location.href = "/authentication/authentication.html";
+        window.location.href = "../authentication.html";
     });
 
     // Cancel logout
