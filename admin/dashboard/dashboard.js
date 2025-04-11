@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.querySelector("body"),
         sidebar = body.querySelector(".sidebar"),
         toggle = body.querySelector(".toggle"),
-        searchBox = body.querySelector(".search-box"),
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
 
@@ -14,11 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Sidebar toggle (chevron)
     toggle.addEventListener("click", () => {
         sidebar.classList.toggle("close");
-    });
-
-    // Search expands sidebar
-    searchBox.addEventListener("click", () => {
-        sidebar.classList.remove("close");
     });
 
     // Mode toggle

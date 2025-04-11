@@ -435,15 +435,18 @@ body.dark .switch::before {
     text-align: center;
 }
 
+/*  content */
+
 .container {
-    max-width: 75%;
+    max-width: 100%;
     margin-left: 3%;
+    margin-right: 3%;
     background: var(--sidebar-color);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     padding: 2rem;
     justify-content: center;
-
+    
   }
 
   .container .expanded {
