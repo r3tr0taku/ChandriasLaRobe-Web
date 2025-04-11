@@ -58,6 +58,27 @@ body.dark {
     z-index: 100;
 }
 
+.sidebar .image-text .image img {
+    width: 70%;
+    height: 20%;        /* or whatever size you want */      /* maintain aspect ratio */
+    border-radius: 8px;  /* optional: rounded corners */  /* optional: cover the entire area */
+    object-position: center; /* optional: center the image */
+    margin-top: 10%;
+}
+
+.sidebar.close .image-text .image img {
+    width: 100%;
+}
+
+.bottom-content {
+    margin-bottom: 10%; /* try adjusting the number */
+}
+
+.sidebar.close .bottom-content {
+    margin-bottom: 0;
+}
+
+
 .sidebar.close {
     width: 88px;
 }
@@ -297,7 +318,7 @@ body.dark .switch::before {
     position: relative;
     left: 250px;
     height: 100vh;
-    width: calc(100%-250px);
+    width: calc(100% - 250px);
     background: var(--body-color);
     transition: var(--tran-05);
 }
@@ -312,6 +333,7 @@ body.dark .switch::before {
 .sidebar.close ~ .page-name {
     left: 88px;
     width: calc(100% - 88px);
+    
 }
 
 /* POP UP */
@@ -446,8 +468,9 @@ body.dark .switch::before {
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     padding: 2rem;
     justify-content: center;
-    
   }
+
+
 
   .container .expanded {
     max-width: 100%;

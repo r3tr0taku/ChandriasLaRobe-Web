@@ -32,6 +32,26 @@ body {
     overflow: hidden;
 }
 
+.sidebar .image-text .image img {
+    width: 70%;
+    height: 20%;        /* or whatever size you want */      /* maintain aspect ratio */
+    border-radius: 8px;  /* optional: rounded corners */  /* optional: cover the entire area */
+    object-position: center; /* optional: center the image */
+    margin-top: 10%;
+}
+
+.sidebar.close .image-text .image img {
+    width: 100%;
+}
+
+.bottom-content {
+    margin-bottom: 10%; /* try adjusting the number */
+}
+
+.sidebar.close .bottom-content {
+    margin-bottom: 0;
+}
+
 body.dark {
     --body-color: #181914;
     --sidebar-color: #242526;
