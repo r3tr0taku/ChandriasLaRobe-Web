@@ -475,8 +475,6 @@ body.dark .switch::before {
   .container .expanded {
     max-width: 100%;
     margin-left: 0;
-    
-
   }
 
   .container h2 {
