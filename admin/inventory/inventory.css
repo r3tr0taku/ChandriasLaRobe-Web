@@ -71,7 +71,7 @@ body.dark {
     margin-bottom: 10%; /* try adjusting the number */
 }
 
-.custom-sidebar.close .bottom-content {
+.custom-sidebar.close .custom-bottom-content {
     margin-bottom: 0;
 }
 

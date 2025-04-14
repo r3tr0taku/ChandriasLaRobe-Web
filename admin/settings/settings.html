@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <title>Chandria's La Robe - Web System</title>
-        <link rel="stylesheet" href="/admin/dashboard/dashboard.css"/>
+        <link rel="stylesheet" href="/admin/settings/settings.css"/>
 
         <!-- BOOTSTRAP CDN -->
         <link
@@ -44,7 +44,7 @@
     </head>
 
     <body>
-        <div class="custom-sidebar close">
+        <nav class="custom-sidebar close">
             <header>
                 <div class="custom-image-text">
                     <span class="custom-image">
@@ -59,8 +59,8 @@
                 <div class="custom-menu">
 
                     <ul class="custom-menu-links">
-                        <li class="custom-nav-link active">
-                            <a href="#">
+                        <li class="custom-nav-link">
+                            <a href="/admin/dashboard/Dashboard.html">
                                 <i class="bx bxs-dashboard custom-icon"></i>
                                 <span class="custom-text custom-nav-text"
                                     >Dashboard</span
@@ -104,8 +104,8 @@
                             </a>
                         </li>
 
-                        <li class="custom-nav-link">
-                            <a href="/admin/settings/settings.html">
+                        <li class="custom-nav-link active">
+                            <a href="#">
                                 <i class="bx bxs-cog custom-icon"></i>
                                 <span class="custom-text custom-nav-text"
                                     >Settings</span
@@ -154,8 +154,32 @@
         </nav>
 
         <section class="custom-page-name">
-            <div class="custom-text">Dashboard</div>
-    
+            <div class="custom-text">Settings</div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-5">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h1 class="card-title text-center mb-4">
+                                    Profile
+                                </h1>
+                                <h5>
+                                    User Email: <span id="user-email"></span>
+                                </h5>
+
+                                <!-- LOGOUT BUTTON -->
+                                <button
+                                    type="submit"
+                                    class="btn btn-danger w-100 mt-3"
+                                    id="signOut-btn"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- BOOTSTRAP CDN -->
@@ -176,6 +200,6 @@
         <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
         <!-- EXTERNAL SCRIPT -->
         <script type="module" src="./script/test_Profile.js"></script>
-        <script src="/admin/dashboard/dashboard.js"></script>
+        <script src="/admin/settings/settings.js"></script>
     </body>
 </html>
