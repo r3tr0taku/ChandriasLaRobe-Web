@@ -27,4 +27,5 @@ yarn-error.log*
 # Environment files (local configs)
 /.env.*
 
-firebase-config.js
+admin/firebase-config.js
+
