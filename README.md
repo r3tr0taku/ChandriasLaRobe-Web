@@ -12,7 +12,7 @@ The admin and user perspectives will vary depending on the logged-in account.
 ---
 
 ## 📖 About the Project  
-**Chandria's La Robe** is a comprehensive **gown and suit management system** designed to streamline the rental process for customers and administrators.  
+**Chandria's La Robe** is a comprehensive **Gown and Suit Management System** designed to streamline the rental process for customers and administrators.  
 It offers a seamless experience for **browsing, scheduling, renting, and managing inventories**, while providing **rich analytics and customer insights** for administrators.
 
 ---
@@ -23,11 +23,9 @@ This project delivers a **fully integrated, role-based system**:
 
 - A **client-focused website** for convenient product browsing, scheduling, and rental reservations.
 - An **admin-based website** for managing inventory, transactions, and analytics.
-- A **desktop application for admins** with high-security offline management.
 
 ### 🔄 **System Integration**
-- All platforms are connected to an **SQL Workbench database**.
-- Communication is handled via a **RESTful API**, allowing real-time data synchronization.
+- All platforms are connected to **Firebase Database**.
 - **User and admin access vary based on login credentials**, ensuring a secure and personalized experience.
 
 ---
@@ -45,7 +43,7 @@ This project delivers a **fully integrated, role-based system**:
    - Allows customers to book appointments for **measurements, fittings, and rental processes**.
 
 4. **🛒 Online Reservation System**  
-   - Users can reserve products online, which will be reflected in the **SQL Workbench database**.
+   - Users can reserve products online, which will be reflected in the **Firebase Database**.
 
 5. **💬 Customer Support**  
    - Provides a contact form for **customer inquiries and support**.
@@ -89,8 +87,7 @@ Both the **admin website** and **desktop application** offer the following featu
 
 - The **client-based website** allows customers to browse, reserve, and schedule rentals.  
 - The **admin-based website** includes **inventory, transactions, and rental management**.  
-- The **desktop application** provides a **high-security environment** for managing operations.  
-- **All systems are connected via SQL Workbench and APIs**, ensuring real-time data updates and secure interactions.  
+- **All systems are connected via Firebase Database**, ensuring real-time data updates and secure interactions.  
 - **User and admin views change based on login credentials**, providing a personalized experience.  
 
 This system ensures a **seamless, efficient, and professional gown & suit rental process**! 👗🎩✨  
