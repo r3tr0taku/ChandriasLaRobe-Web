@@ -140,19 +140,12 @@
                 <input type="text" required />
               </div>
               
+              <!-- Automatic calculation of Pick Up Date and Return Date -->
               <div class="form-group">
                 <label>Event Date *</label>
                 <input type="date" required />
               </div>
-              <div class="form-group">
-                <label>Rental Start Date *</label>
-                <input type="date" required />
-              </div>
-              <div class="form-group">
-                <label>Rental End Date *</label>
-                <input type="date" required />
-              </div>
-
+              
               <div class="form-group">
                 <label>Event Type *</label>
                 <select required>
@@ -183,18 +176,38 @@
                   <option value="XL">Other</option>
                 </select>
               </div>
+
+              <!-- Checkbox for Accessories -->
               <div class="form-group">
-                <label>Gown Style *</label>
-                <select required>
-                  <option value="">Select Style</option>
-                  <option value="ball-gown">Ball Gown</option>
-                  <option value="long-gown">Long Gown</option>
-                  <option value="wedding-gown">Wedding Gown</option>
-                  <option value="fairy-gown">Fairy Gown</option>
-                  <option value="suit">Suit</option>
-                  <option value="other">Other</option>
-                </select>
+                <label for="dropdownBtn">Additional *</label>
+                <div class="dropdown-wrapper">
+                  <div class="dropdown-btn" id="dropdownBtn">Select Additional</div>
+                  <div class="dropdown-content" id="dropdownContent">
+                    <div class="option-group">
+                      <label class="option">
+                        <input type="radio" name="accessories" value="with" required />
+                        W/ Accessories (+500)
+                      </label>
+                      <label class="option">
+                        <input type="radio" name="accessories" value="without" required />
+                        W/o Accessories
+                      </label>
+                    </div>
+                    <div class="option-group">
+                      <label class="option">
+                        <input type="checkbox" name="wings" value="additional" />
+                        Additional Wings (+500)
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <div class="form-group">
+                <label>Product Code *</label>
+                <input type="text" required />
+              </div>
+
               <div class="form-group">
                 <label>Rental Fee *</label>
                 <input type="text" required />
