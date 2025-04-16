@@ -1,108 +1,175 @@
-/* styles.css */
+/* Base styles remain the same */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  body {
-    height: 100vh;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  body::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    height: 60%;
-    background: linear-gradient(to right, 
-      #FFFFFF 0%, 
-      #F6DAD7 13%, 
-      #F2C9C6 26%, 
-      #EFBCB8 39%, 
-      #EAAAA5 62%, 
-      #E79D97 81%
-    );
-    clip-path: polygon(0 0, 100% 0, 200% 50%, 0 100%);
-    z-index: -1;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(
+    to right,
+    #FFFFFF 0%,
+    #F6DAD7 13%,
+    #F2C9C6 26%,
+    #EFBCB8 39%,
+    #EAAAA5 62%,
+    #E79D97 81%
+  );
+  clip-path: polygon(0 0, 100% 0, 200% 50%, 0 100%);
+  z-index: -1;
+}
+
+.custom-container {
+  background: white;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 400px;
+  text-align: center;
+  z-index: 1;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.remember input {
+  margin-right: 0.5rem;
+}
+
+.button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #222;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logo-bar {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.logo-bar img {
+  height: 40px;
+  margin-right: 0.5rem;
+  margin-left: 5%;
+}
+
+.logo-bar span {
+  font-weight: bold;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
   .custom-container {
-    background: white;
-    padding: 2rem 2.5rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 400px;
-    text-align: center;
-    z-index: 1;
+    width: 90%; /* Adjust the container width */
+    padding: 1.5rem; /* Reduce padding for smaller screens */
   }
-  
+
   .title {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.25rem; /* Slightly smaller title font size */
   }
-  
+
   .subtitle {
-    font-size: 0.8rem;
-    color: #888;
-    margin-bottom: 1.5rem;
+    font-size: 0.75rem; /* Adjust subtitle font size */
   }
-  
-  input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    border: 1px solid #aaa;
-    border-radius: 4px;
+
+  input[type="text"],
+  input[type="password"] {
+    padding: 0.5rem; /* Reduce input padding */
   }
-  
-  .remember {
-    display: flex;
-    align-items: center;
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-  }
-  
-  .remember input {
-    margin-right: 0.5rem;
-  }
-  
+
   .button {
-    margin-top: 1.5rem;
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #222;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+    padding: 0.5rem; /* Adjust button padding */
   }
-  
-  .logo-bar {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    display: flex;
-    align-items: center;
-    z-index: 1;
+
+  body::before {
+    height: 50%; /* Adjust background size for smaller devices */
   }
-  
+
   .logo-bar img {
-    height: 40px;
-    margin-right: 0.5rem;
-    margin-left: 5%;
+    height: 30px; /* Reduce logo size */
   }
-  
-  .logo-bar span {
-    font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 1rem; /* Smaller title font for extra small screens */
   }
-  
+
+  .subtitle {
+    font-size: 0.7rem; /* Subtitle font adjustment */
+  }
+
+  .button {
+    font-size: 0.9rem; /* Adjust button text size */
+  }
+
+  body {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .logo-bar {
+    top: 1rem;
+    left: 1rem; /* Adjust logo positioning */
+  }
+
+  .custom-container {
+    margin-top: 2rem; /* Add spacing for mobile view */
+    width: 95%; /* Stretch container almost full width */
+  }
+
+  body::before {
+    height: 40%; /* Further reduce background size */
+  }
+}
