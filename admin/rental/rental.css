@@ -519,6 +519,23 @@ body.dark .switch::before {
     font-size: 1rem;
   }
 
+  /* For WebKit-based browsers (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Removes unwanted margin */
+}
+
+/* Optional: Add styling to the input field */
+.no-spinner {
+    border: 1px solid gray; /* Customize border */
+    border-radius: 5px; /* Optional rounded corners */
+    padding: 10px; /* Space within the field */
+    width: 100%; /* Match the width of other form fields */
+    background-color: #fff; /* Optional: Background styling */
+}
+
+  
   .form-group input,
   .form-group select,
   .form-group textarea {
