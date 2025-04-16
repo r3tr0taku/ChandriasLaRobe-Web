@@ -249,6 +249,8 @@ body.dark .sidebar li a:hover .text {
     background: var(--primary-color-light);
     position: relative;
     border-radius: 6px;
+    transition: var(--tran-05);
+
 }
 
 .menu-bar .mode .moon-sun {
@@ -256,6 +258,7 @@ body.dark .sidebar li a:hover .text {
     width: 60px;
     display: flex;
     align-items: center;
+    transition: var(--tran-03);
 }
 
 .menu-bar .mode i {

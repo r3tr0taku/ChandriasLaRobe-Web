@@ -83,25 +83,6 @@
             </div>
 
             <div class="bottom-content">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bxs-log-out icon'></i>
-                        <span class="text nav-text">Log out</span>
-                    </a>
-                </li>
-
-                <div id="confirmation-popup" class="popup hidden">
-                    <div class="popup-content">
-                        <h2>Log out Confirmation</h2>
-                        <p>Are you sure you want to log out?</p>
-                
-                        <div class="button-group">
-                            <button id="confirm-logout" class="confirm-button">Yes, Log out</button>
-                            <button id="cancel-logout" class="cancel-button">No</button>
-                        </div>
-                    </div>
-                </div>
-
             <li class="mode">
                 <div class="moon-sun">
                     <i class='bx bxs-moon icon moon'></i>
@@ -163,21 +144,6 @@
                 </select>
               </div>
 
-              <div class="form-group">
-                <label>Gown Size</label>
-                <select required>
-                  <option value="">Select Size</option>
-                  <option value="XS">XS</option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
-                  <option value="XL">XXL</option>
-                  <option value="XL">XXXL</option>
-                  <option value="XL">Other</option>
-                </select>
-              </div>
-
               <div class="form-group1">
                 <label>Accessories?</label>
                 <div class="dropdown-wrapper">
@@ -208,7 +174,6 @@
                   </div>
                 </div>
               </div>
-                      
 
               <div class="form-group">
                 <label>Product Code</label>
@@ -219,6 +184,22 @@
                 <label>Rental Fee</label>
                 <input type="text" required />
               </div>
+
+              <div class="form-group">
+                <label>Type of Payment</label>
+                <select required>
+                  <option value="">Select Payment
+                  </option>
+                  <option value="downpayment">Down Payment</option>
+                  <option value="fullpayment">Full Payment</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Balance</label>
+                <input type="text" required />
+              </div>
+
               <div class="form-group">
                 <label>Region</label>
                 <select id="region" required>

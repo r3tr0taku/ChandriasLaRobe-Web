@@ -247,6 +247,7 @@ body.dark .sidebar li a:hover .text {
     background: var(--primary-color-light);
     position: relative;
     border-radius: 6px;
+    transition: var(--tran-05);
 }
 
 .menu-bar .mode .moon-sun {

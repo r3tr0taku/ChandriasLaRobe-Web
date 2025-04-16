@@ -26,25 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
       modeText.innerText = body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
   });
 
-  // Logout confirmation popup
-  logoutBtn?.addEventListener("click", (e) => {
-      e.preventDefault();
-      popup.classList.add("show");
-      popup.classList.remove("hidden");
-  });
-
-  confirmLogout?.addEventListener("click", () => {
-      console.log("User logged out");
-      popup.classList.remove("show");
-      popup.classList.add("hidden");
-      window.location.href = "../authentication.html";
-  });
-
-  cancelLogout?.addEventListener("click", () => {
-      popup.classList.remove("show");
-      popup.classList.add("hidden");
-  });
-
 // Get the dropdown elements
 const dropdownWrapper = document.querySelector(".dropdown-wrapper");
 
@@ -78,7 +59,6 @@ document.addEventListener("click", (event) => {
     dropdownBtn.style.border = "1px solid gray"; // Reset border to original
   }
 });
-
 
 // Reset dropdown styling when clicking outside
 document.addEventListener("click", (event) => {
