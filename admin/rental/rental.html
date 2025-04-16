@@ -149,7 +149,8 @@
               <div class="form-group">
                 <label>Event Type *</label>
                 <select required>
-                  <option value="">Select Event Type</option>
+                  <option value="">Select Event Type
+                  </option>
                   <option value="wedding">Wedding</option>
                   <option value="prom">Prom</option>
                   <option value="gala">Debut</option>
@@ -177,31 +178,37 @@
                 </select>
               </div>
 
-              <!-- Checkbox for Accessories -->
-              <div class="form-group">
-                <label for="dropdownBtn">Additional *</label>
+              <div class="form-group1">
+                <label>Additional *</label>
                 <div class="dropdown-wrapper">
-                  <div class="dropdown-btn" id="dropdownBtn">Select Additional</div>
+                  <!-- Dropdown button to toggle visibility -->
+                  <div class="dropdown-btn" id="dropdownBtn">
+                    Select Additional
+                  </div>
+                  <!-- Dropdown content with radio and checkbox inputs -->
                   <div class="dropdown-content" id="dropdownContent">
                     <div class="option-group">
+                      <!-- Radio buttons for mutually exclusive options -->
                       <label class="option">
-                        <input type="radio" name="accessories" value="with" required />
-                        W/ Accessories (+500)
+                        <input type="radio" name="accessories" value="with" />
+                        W/ Accessories
                       </label>
                       <label class="option">
-                        <input type="radio" name="accessories" value="without" required />
+                        <input type="radio" name="accessories" value="without" />
                         W/o Accessories
                       </label>
                     </div>
                     <div class="option-group">
+                      <!-- Checkbox for additional selection -->
                       <label class="option">
                         <input type="checkbox" name="wings" value="additional" />
-                        Additional Wings (+500)
+                        Additional Wings
                       </label>
                     </div>
                   </div>
                 </div>
               </div>
+                      
 
               <div class="form-group">
                 <label>Product Code *</label>

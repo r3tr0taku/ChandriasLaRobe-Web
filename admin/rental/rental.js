@@ -45,19 +45,48 @@ document.addEventListener("DOMContentLoaded", () => {
       popup.classList.add("hidden");
   });
 
-  // Dropdown toggle
-  dropdownBtn?.addEventListener("click", (e) => {
-      e.stopPropagation(); // Prevent document click from firing
-      dropdownContent.style.display =
-          dropdownContent.style.display === "block" ? "none" : "block";
-  });
+// Get the dropdown elements
+const dropdownWrapper = document.querySelector(".dropdown-wrapper");
 
-  // Close dropdown when clicking outside
-  document.addEventListener("click", function (e) {
-      if (!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
-          dropdownContent.style.display = "none";
-      }
-  });
+// Toggle dropdown visibility and border styles
+dropdownBtn.addEventListener("click", (event) => {
+  event.stopPropagation(); // Prevent triggering the document listener
+  dropdownWrapper.classList.toggle("active");
+  if (dropdownWrapper.classList.contains("active")) {
+    dropdownBtn.style.border = "2px solid black"; // Thick border when dropdown is active
+  } else {
+    dropdownBtn.style.border = "1px solid gray"; // Thin border when inactive
+  }
+});
+
+// Update dropdown button text based on multiple selections
+dropdownContent.addEventListener("click", (event) => {
+  const clickedInput = event.target.closest("input[type='radio'], input[type='checkbox']"); // Find clicked input
+  if (clickedInput) {
+    // Get all checked inputs and concatenate their labels
+    const selectedLabels = Array.from(dropdownContent.querySelectorAll("input:checked"))
+      .map((input) => input.closest("label").textContent.trim()); // Get the labels of checked inputs
+    dropdownBtn.textContent = selectedLabels.join(", ") || "Select Additional"; // Concatenate with a comma or reset text
+    dropdownBtn.style.border = "2px solid black"; // Highlight the border
+  }
+});
+
+// Close dropdown and reset styling when clicking outside
+document.addEventListener("click", (event) => {
+  if (!dropdownWrapper.contains(event.target)) {
+    dropdownWrapper.classList.remove("active"); // Close the dropdown
+    dropdownBtn.style.border = "1px solid gray"; // Reset border to original
+  }
+});
+
+
+// Reset dropdown styling when clicking outside
+document.addEventListener("click", (event) => {
+  if (!dropdownWrapper.contains(event.target)) {
+    dropdownWrapper.classList.remove("active");
+    dropdownBtn.style.border = "1px solid gray"; // Reset border to thin gray
+  }
+});
 
   // File upload box
   fileInput?.addEventListener("change", function (e) {
