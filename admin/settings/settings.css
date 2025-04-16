@@ -229,6 +229,7 @@ body.dark .custom-sidebar li a:hover .custom-text {
     background: var(--primary-color-light);
     position: relative;
     border-radius: 6px;
+    transition: var(--tran-05);
 }
 
 .custom-menu-bar .custom-mode .custom-moon-sun {
