@@ -197,8 +197,8 @@
                 <select required>
                   <option value="">Select Payment
                   </option>
-                  <option value="downpayment">Down Payment</option>
-                  <option value="fullpayment">Full Payment</option>
+                  <option value="dp">Down Payment</option>
+                  <option value="fp">Full Payment</option>
                 </select>
               </div>
 
@@ -233,14 +233,15 @@
                 <label>Repair / Additional Notes</label>
                 <textarea></textarea>
               </div>
+
               <div class="form-group full-width">
                 <label>Upload Proof of Payment</label>
                 <div class="upload-box" id="uploadBox">
-                  Drag your images here, or <span onclick="triggerFileUpload()">browse</span><br/>
+                  Drag your images here, or <span id="browseSpan">browse</span><br />
                   <small>Supported: JPG, JPEG, PNG</small>
-                  <input type="file" id="fileInput" multiple style="display:none;" accept="image/*" />
                 </div>
-              </div>
+                <input type="file" id="fileInput" multiple style="display: none;" accept="image/*" />                      
+
               <button type="submit" class="submit-btn">Submit Rental</button>
             </form>
           </div>
