@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.querySelector("body"),
-        sidebar = body.querySelector(".custom-sidebar"),
-        toggle = body.querySelector(".custom-toggle"),
-        modeSwitch = body.querySelector(".custom-toggle-switch"),
-        modeText = body.querySelector(".custom-mode-text");
+        sidebar = body.querySelector(".sidebar"),
+        toggle = body.querySelector(".toggle"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
 
     // Sidebar toggle (chevron)
     toggle.addEventListener("click", () => {
