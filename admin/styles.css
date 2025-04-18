@@ -33,7 +33,7 @@ body::before {
     #EAAAA5 62%,
     #E79D97 81%
   );
-  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
   z-index: -1;
 }
 
@@ -42,10 +42,10 @@ body::before {
   padding: 2rem 2.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;
-  border-radius: 4px;
   width: 400px;
   text-align: center;
   z-index: 1;
+  border: 1px solid #000;
 }
 
 .title {
@@ -63,15 +63,15 @@ input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 0.75rem;
-  margin: 0.5rem 0;
-  border: 1px solid #aaa;
-  border-radius: 4px;
+  margin: 0;
+  border: 1px solid #000;
+  border-radius: 0;
 }
 
 .remember {
   display: flex;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   font-size: 0.85rem;
 }
 
@@ -172,4 +172,27 @@ input[type="password"] {
   body::before {
     height: 40%; /* Further reduce background size */
   }
+}
+
+.password-field {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.password-field input[type="password"],
+.password-field input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+  border: 1px solid #000;
+  border-radius: 0;
+  font-size: 1.1rem;
+}
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #222;
+  cursor: pointer;
 }

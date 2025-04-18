@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     // BOOTSTRAP TOAST
     const toastElement = $("#loginToast");
-    const loginToast = new bootstrap.Toast(toastElement[0]); // make sure to pass the DOM element, not jQuery object
+    const loginToast = new bootstrap.Toast(toastElement[0]);
 
     // FLAG TO PREVENT IMMEDIATE REDIRECT AFTER LOGIN
     let isLoggingIn = false;
@@ -18,9 +18,8 @@ $(document).ready(function () {
     // Check if user is already signed in, if so, redirect to profile page
     onAuthStateChanged(auth, user => {
         if (user && !isLoggingIn) {
-            // Delay just a bit to allow UI elements to load before redirecting
             setTimeout(() => {
-                window.location.href = "/admin/dashboard/dashboard.html"; // Redirect to profile page if already logged in
+                window.location.href = "/admin/dashboard/dashboard.html";
             }, 100);
         }
     });
@@ -72,4 +71,16 @@ $(document).ready(function () {
         // Re-enable the login button after login attempt
         loginBtn.removeClass("disabled").text("Login");
     });
+
+    // Password toggle functionality (fix: only run once DOM is ready)
+    const passwordInput = document.getElementById('input-password');
+    const togglePassword = document.getElementById('togglePassword');
+    if (passwordInput && togglePassword) {
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('bx-show');
+            this.classList.toggle('bx-hide');
+        });
+    }
 });
