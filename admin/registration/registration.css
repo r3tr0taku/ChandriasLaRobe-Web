@@ -62,25 +62,25 @@ body::before {
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 0.75rem;
+  padding: .80rem 0.75rem;
   margin: 0;
   border: 1px solid #000;
   border-radius: 0;
+  font-size: 1rem;
+  background: #fff;
+  color: #555;
+  box-sizing: border-box;
 }
 
-.remember {
-  display: flex;
-  align-items: center;
-  margin-top: 1rem;
-  font-size: 0.85rem;
+.password-field input[type="password"],
+.password-field input[type="text"] {
+  padding: 1.25rem 2.5rem 1.25rem 0.75rem; /* extra right padding for eye icon */
+  font-size: 1.25rem;
 }
 
-.remember input {
-  margin-right: 0.5rem;
-}
 
 .button {
-  margin-top: 1.5rem;
+  margin-top: 0;
   width: 100%;
   padding: 0.75rem;
   background-color: #222;
@@ -195,29 +195,4 @@ input[type="password"] {
   font-size: 1rem;
   color: #222;
   cursor: pointer;
-}
-
-input[type="checkbox"] {
-  accent-color: #FFF !important;
-}
-
-.remember input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
-  accent-color: #111;
-  background: #fff;
-  border: 1px solid #111;
-  border-radius: 0;
-  cursor: pointer;
-  vertical-align: middle;
-  margin-right: 0.75rem;
-  appearance: auto;
-  box-sizing: border-box;
-  transition: border-color 0.2s;
-}
-
-.remember input[type="checkbox"]:focus,
-.remember input[type="checkbox"]:active {
-  border: 2px solid #111;
-  box-shadow: 0 0 0 2px #8882;
 }

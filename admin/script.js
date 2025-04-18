@@ -38,7 +38,7 @@ $(document).ready(function () {
         const password = $password.val();
 
         // Disable the login button while attempting login
-        loginBtn.addClass("disabled").text("Logging In...");
+        loginBtn.addClass("disabled").text("PROCEEDING...");
 
         // Set logging in flag to true so we don’t auto-redirect before toast
         isLoggingIn = true;
@@ -69,7 +69,7 @@ $(document).ready(function () {
         }
 
         // Re-enable the login button after login attempt
-        loginBtn.removeClass("disabled").text("Login");
+        loginBtn.removeClass("disabled").text("PROCEED");
     });
 
     // Password toggle functionality (fix: only run once DOM is ready)
