@@ -42,7 +42,7 @@ body.dark {
   margin-top: 0;
   display: flex;
   align-items: center;
-  background: #fff;
+  background: #222;
   border-radius: 1rem;
   border: 1.5px solid #222;
   box-shadow: none;
@@ -95,7 +95,7 @@ body.dark {
   outline: none;
   font-weight: 600;
   font-size: 1rem;
-  color: #222;
+  color: var(--blackandwhite-color);
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
