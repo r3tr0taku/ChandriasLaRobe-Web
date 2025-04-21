@@ -113,102 +113,61 @@
         </form>
       </div>
 
-      <!-- POS HERE -->
+      <div class="pos-tabs">
+        <button class="tab-btn active" data-tab="products">Products</button>
+        <button class="tab-btn" data-tab="accessories">Additional</button>
+      </div>
+      
       <div class="pos-layout">
-          <div class="pos-products">
-
-            <!-- POS CARD IS HERE -->
-              <div class="pos-card">
-                  <img src="/admin/images/long-gown.png" alt="Gown" class="pos-img">
-                  <div class="pos-info">
-                      <div class="pos-name">Long Gown</div>
-                      <div class="pos-price">₱1,200</div>
-                  </div>
-              </div>
-
-              <div class="pos-card">
-                <img src="/admin/images/long-gown.png" alt="Gown" class="pos-img">
-                <div class="pos-info">
-                    <div class="pos-name">Long Gown</div>
-                    <div class="pos-price">₱1,200</div>
-                </div>
-            </div>
-
-            <div class="pos-card">
-              <img src="/admin/images/long-gown.png" alt="Gown" class="pos-img">
-              <div class="pos-info">
-                  <div class="pos-name">Long Gown</div>
-                  <div class="pos-price">₱1,200</div>
-              </div>
-          </div>
-
+        <div class="pos-products tab-content active" id="products">
+          <!-- Product cards here -->
           <div class="pos-card">
             <img src="/admin/images/long-gown.png" alt="Gown" class="pos-img">
             <div class="pos-info">
-                <div class="pos-name">Long Gown</div>
-                <div class="pos-price">₱1,200</div>
-            </div>
-        </div>
-
-        <div class="pos-card">
-          <img src="/admin/images/long-gown.png" alt="Gown" class="pos-img">
-          <div class="pos-info">
               <div class="pos-name">Long Gown</div>
               <div class="pos-price">₱1,200</div>
+            </div>
           </div>
-      </div>
-
-      <div class="pos-card">
-        <img src="/admin/images/long-gown.png" alt="Gown" class="pos-img">
-        <div class="pos-info">
-            <div class="pos-name">Long Gown</div>
-            <div class="pos-price">₱1,200</div>
+          <!-- ...more product cards... -->
         </div>
-    </div>
-
-    <div class="pos-card">
-      <img src="/admin/images/long-gown.png" alt="Gown" class="pos-img">
-      <div class="pos-info">
-          <div class="pos-name">Long Gown</div>
-          <div class="pos-price">₱1,200</div>
-      </div>
-  </div>
-
-  <div class="pos-card">
-    <img src="/admin/images/long-gown.png" alt="Gown" class="pos-img">
-    <div class="pos-info">
-        <div class="pos-name">Long Gown</div>
-        <div class="pos-price">₱1,200</div>
-    </div>
-</div>
-
-              <!-- Add more .pos-card as needed -->
+      
+        <div class="pos-accessories tab-content" id="accessories">
+          <!-- Accessories cards here -->
+          <div class="pos-card">
+            <img src="/admin/images/accessory-sets.png" alt="Accessory" class="pos-img">
+            <div class="pos-info">
+              <div class="pos-name">Accessories</div>
+              <div class="pos-price">₱500</div>
+            </div>
           </div>
-          <div class="pos-cart-summary">
-              <div class="cart-title">Cart Summary</div>
-              <div class="cart-items">
-                  <div class="cart-item">
-                      <span>Long Gown</span>
-                      <span>₱1,200</span>
-                  </div>
-                  <!-- More items as needed -->
-              </div>
-              <div class="cart-details">
-                  <div class="cart-row">
-                      <span>Item Pickup</span>
-                      <span>₱0.00</span>
-                  </div>
-                  <div class="cart-row">
-                      <span>Includes GST</span>
-                      <span>₱15.91</span>
-                  </div>
-              </div>
-              <div class="cart-total">
-                  <span>Total</span>
-                  <span>₱1,215.91</span>
-              </div>
-              <button class="cart-checkout-btn">Checkout</button>
+          <!-- ...more accessory cards... -->
+        </div>
+      
+        <div class="pos-cart-summary">
+          <div class="cart-title">Cart Summary</div>
+          <div class="cart-items">
+            <div class="cart-item">
+              <span>Long Gown</span>
+              <span>₱1,200</span>
+            </div>
+            <!-- More items as needed -->
           </div>
+          <div class="cart-details">
+            <div class="cart-row">
+              <span>Item Pickup</span>
+              <span>₱0.00</span>
+            </div>
+            <div class="cart-row">
+              <span>Includes GST</span>
+              <span>₱15.91</span>
+            </div>
+          </div>
+          <div class="cart-total">
+            <span>Total</span>
+            <span>₱1,215.91</span>
+          </div>
+          <button class="cart-checkout-btn">Checkout</button>
+        </div>
       </div>
   </section>
 
