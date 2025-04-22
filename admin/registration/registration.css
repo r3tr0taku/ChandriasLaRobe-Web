@@ -177,7 +177,6 @@ input[type="password"] {
 .password-field {
   position: relative;
   width: 100%;
-  margin-bottom: 1.5rem;
 }
 .password-field input[type="password"],
 .password-field input[type="text"] {
@@ -195,4 +194,8 @@ input[type="password"] {
   font-size: 1rem;
   color: #222;
   cursor: pointer;
+}
+
+.mb-3 {
+  margin-bottom: 1.5em;
 }

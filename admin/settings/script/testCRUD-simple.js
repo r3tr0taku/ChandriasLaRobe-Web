@@ -8,7 +8,7 @@ import {
     getDocs,
     getDoc
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
-import { app } from "../../firebase-sdk.js";
+import { app } from "/admin/chandrias-sdk.js";
 
 $(document).ready(function () {
     // VARIABLE DB

@@ -4,33 +4,83 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Chandria's La Robe</title>
-        <link rel="stylesheet" href="/admin/registration/registration.css" />
+        <link rel="stylesheet" href="./registration.css" />
 
-        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <!-- NOTYF CDN -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+        />
     </head>
     <body>
-
         <div class="logo-bar">
             <img src="/admin/images/chandriaslogo.png" alt="Logo" />
         </div>
 
         <div class="custom-container">
-            <div class="title">SIGN UP</div>
-            <div class="subtitle">All Around Gown Rental System</div>
-        
-            <input type="text" placeholder="Username" id="input-username" />
+            <form>
+                <div class="title">SIGN UP</div>
+                <div class="subtitle">All Around Gown Rental System</div>
 
-            <input type="text" placeholder="Email" id="input-email" />
-        
-            <div class="password-field">
-                <input type="password" placeholder="Password" id="input-password" />
-                <i class='bx bx-show eye-icon' id="togglePassword"></i>
-            </div>
-        
-            <button type="submit" class="button" id="login-btn">CREATE AN ACCOUNT</button>
+                <input
+                    type="text"
+                    placeholder="Username"
+                    id="input-username"
+                    required
+                />
+
+                <input
+                    type="text"
+                    placeholder="Email"
+                    id="input-email"
+                    required
+                />
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        id="input-password"
+                        required
+                    />
+                    <i class="bx bx-show eye-icon" id="togglePassword"></i>
+                </div>
+                <div class="password-field mb-3">
+                    <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        id="confirm-password"
+                        required
+                    />
+                    <i
+                        class="bx bx-show eye-icon"
+                        id="toggleConfirmPassword"
+                    ></i>
+                </div>
+
+                <button type="submit" class="button" id="signUp-btn">
+                    CREATE AN ACCOUNT
+                </button>
+            </form>
         </div>
 
-        <script type="module" src="/admin/registration/registration.js"></script>
+        <!-- BCRYPT CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+        <!-- NOTYF CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+        <!-- JQUERY CDN -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- EXTERNAL SCRIPT -->
+        <script type="module" src="./script/registration.js"></script>
     </body>
 </html>
