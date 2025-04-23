@@ -181,5 +181,24 @@
 
     <script src="rental.js"></script>
 
+    <!-- Accessory Selection Modal -->
+    <div id="accessory-modal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal" style="cursor:pointer;float:right;font-size:1.5em;">&times;</span>
+        <h3>Select Accessory Types</h3>
+        <form id="accessory-form">
+          <label><input type="checkbox" name="accessoryType" value="Bracelet"> Bracelet</label><br>
+          <label><input type="checkbox" name="accessoryType" value="Earrings"> Earrings</label><br>
+          <label><input type="checkbox" name="accessoryType" value="Necklace"> Necklace</label><br>
+          <label><input type="checkbox" name="accessoryType" value="Rings"> Rings</label><br>
+          <label><input type="checkbox" name="accessoryType" value="Crown"> Crown</label><br>
+          <label><input type="checkbox" name="accessoryType" value="Bag"> Bag</label><br>
+          <label><input type="checkbox" name="accessoryType" value="Gloves"> Gloves</label><br>
+          <label><input type="checkbox" name="accessoryType" value="Pins"> Pins</label><br>
+        </form>
+        <button id="save-accessory-types">Save</button>
+      </div>
+    </div>
+
 </body>
 </html>
