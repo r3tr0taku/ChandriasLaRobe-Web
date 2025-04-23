@@ -202,6 +202,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target == accessoryModal) accessoryModal.style.display = 'none';
   };
 
+  // --- Select All Accessories logic ---
+  const selectAll = document.getElementById('select-all-accessories');
+  if (selectAll && accessoryForm) {
+    selectAll.addEventListener('change', function() {
+      const checkboxes = accessoryForm.querySelectorAll('input[name="accessoryType"]');
+      checkboxes.forEach(cb => cb.checked = selectAll.checked);
+    });
+    accessoryForm.addEventListener('change', function(e) {
+      if (e.target.name === 'accessoryType') {
+        const checkboxes = accessoryForm.querySelectorAll('input[name="accessoryType"]');
+        selectAll.checked = Array.from(checkboxes).every(cb => cb.checked);
+      }
+    });
+  }
+
   // --- Add click listeners to accessory cards (Additional tab) ---
   document.querySelectorAll('#accessories .pos-card').forEach(card => {
     card.addEventListener('click', function () {
