@@ -567,21 +567,29 @@ body.dark {
   color: var (--secondary-text-color);
 }
 #customer-modal .close-modal.customer-close {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 3;
-  font-size: 1.7em;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  z-index: 10;
+  font-size: 2.2em;
   color: var(--secondary-text-color);
   background: none;
   border: none;
   transition: color 0.2s;
-  z-index: 2;
   cursor: pointer;
+  box-shadow: none;
+  padding: 0;
 }
-
 #customer-modal .close-modal.customer-close:hover {
   color: #e74c3c;
+}
+
+@media (max-width: 600px) {
+  #customer-modal .close-modal.customer-close {
+    top: 1vh;
+    right: 2vw;
+    font-size: 2em;
+  }
 }
 
 @media (max-width: 600px) {
@@ -618,6 +626,8 @@ body.dark {
   transform: none; /* Remove transform */
   overflow: hidden; /* Ensures children are clipped to border radius */
   padding-top: 1.2rem;
+  min-height: 600px;
+  max-height: 98vh;
 }
 .customer-modal-scroll {
   height: 100%;
