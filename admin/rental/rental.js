@@ -399,4 +399,49 @@ document.addEventListener("DOMContentLoaded", () => {
       this.value = this.value.replace(/[^0-9]/g, '');
     });
   }
+
+  // --- Payment Type Logic ---
+  const paymentType = document.getElementById('payment-type');
+  const totalPayment = document.getElementById('total-payment');
+  const remainingBalance = document.getElementById('remaining-balance');
+  const rentalFeeInput = document.getElementById('client-rental-fee');
+
+  function updatePaymentFields() {
+    const rentalFee = parseFloat(rentalFeeInput.value.replace(/[^\d.]/g, '')) || 0;
+    if (paymentType.value === 'full') {
+      totalPayment.value = rentalFee;
+      totalPayment.readOnly = true;
+      remainingBalance.value = 0;
+    } else if (paymentType.value === 'down') {
+      totalPayment.value = '';
+      totalPayment.readOnly = false;
+      remainingBalance.value = rentalFee;
+    } else {
+      totalPayment.value = '';
+      totalPayment.readOnly = true;
+      remainingBalance.value = '';
+    }
+  }
+
+  if (paymentType) {
+    paymentType.addEventListener('change', updatePaymentFields);
+  }
+
+  if (totalPayment) {
+    totalPayment.addEventListener('input', function() {
+      const rentalFee = parseFloat(rentalFeeInput.value.replace(/[^\d.]/g, '')) || 0;
+      let payment = parseFloat(totalPayment.value) || 0;
+      if (paymentType.value === 'down') {
+        const minDown = rentalFee / 2;
+        if (payment < minDown && payment > 0) {
+          totalPayment.setCustomValidity('Down payment must be at least half of the rental fee.');
+        } else if (payment <= 0) {
+          totalPayment.setCustomValidity('Down payment must be greater than 0.');
+        } else {
+          totalPayment.setCustomValidity('');
+        }
+        remainingBalance.value = Math.max(rentalFee - payment, 0).toFixed(2);
+      }
+    });
+  }
 });

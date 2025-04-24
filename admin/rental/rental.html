@@ -235,6 +235,20 @@
               <label>Rental Fee<br><input type="text" id="client-rental-fee" readonly></label>
             </div>
             <div class="customer-form-row">
+              <label>Event Date<br><input type="date" id="event-date" required></label>
+              <label>Payment Type<br>
+                <select id="payment-type" required>
+                  <option value="">Select Payment Type</option>
+                  <option value="full">Full Payment</option>
+                  <option value="down">Down Payment</option>
+                </select>
+              </label>
+            </div>
+            <div class="customer-form-row">
+              <label>Total Payment<br><input type="number" id="total-payment" min="0" step="0.01" required></label>
+              <label>Remaining Balance<br><input type="number" id="remaining-balance" readonly></label>
+            </div>
+            <div class="customer-form-row">
               <label>Region<br>
                 <select id="client-region" required></select>
               </label>
