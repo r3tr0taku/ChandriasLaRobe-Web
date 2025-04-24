@@ -485,8 +485,11 @@ body.dark {
   transform: unset;
   max-height: 96vh;
   overflow-y: auto;
-  padding-top: 3.5rem;
-  scroll-padding-top: 3.5rem;
+  padding-top: 2.5rem;
+  scroll-padding-top: 1.5rem;
+  padding-right: 2.2rem; /* Add extra right padding for scrollbar */
+  box-sizing: border-box;
+  background-clip: padding-box;
 }
 #customer-modal .modal-content {
   max-width: 700px; /* match wider modal */
@@ -576,9 +579,11 @@ body.dark {
   z-index: 2;
   cursor: pointer;
 }
+
 #customer-modal .close-modal.customer-close:hover {
   color: #e74c3c;
 }
+
 @media (max-width: 600px) {
   #customer-modal .modal-content {
     width: 97vw !important;
@@ -611,13 +616,43 @@ body.dark {
   position: relative;
   top: 0; /* Reset top position */
   transform: none; /* Remove transform */
+  overflow: hidden; /* Ensures children are clipped to border radius */
+  padding-top: 1.2rem;
+}
+.customer-modal-scroll {
+  height: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  background: transparent;
+  padding-right: 0.5em;
+  padding-top: 0;
+  border-right: 12px solid transparent; /* Moves scrollbar to the right */
+  padding-left: 2em;
+}
+.customer-modal-scroll::-webkit-scrollbar {
+  width: 14px; /* wider scrollbar area */
+  background: transparent;
+}
+.customer-modal-scroll::-webkit-scrollbar-thumb {
+  background: var(--secondary-text-color);
+  border-radius: 18px;
+  border: 3px solid transparent; /* creates space around the thumb */
+  background-clip: padding-box;
+}
+.customer-modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin-right: 4px; /* visually shifts the thumb right */
+}
+.customer-modal-scroll::-webkit-scrollbar-corner {
+  background: transparent;
 }
 .customer-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.2em 1.2em;
   width: 100%;
-  margin-top: 20%;
+  margin-top: 0;
 }
 .customer-form-row {
   display: contents;
@@ -836,12 +871,13 @@ body.dark {
   justify-content: center;
   position: relative;
   margin-bottom: 1.2em;
+  margin-top: 0;
 }
 .customer-form-header h2 {
   flex: 1;
   text-align: center;
   margin: 0;
-  margin-top: 5%;
+  /* margin-top: 5%; */
   font-size: 1.4em;
   font-weight: 700;
   color: var(--secondary-text-color);
