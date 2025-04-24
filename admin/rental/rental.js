@@ -371,10 +371,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Concatenate all product names/codes in the cart
     const productCodes = cart.products.map(p => p.name).join(', ');
     document.getElementById('client-product-code').value = productCodes;
-    // Additional: list accessories/wings
-    const additionalArr = [];
+    // Additional: list accessories/wings with quantity
+    let additionalArr = [];
+    // Count wings
+    const wingsCount = cart.accessories.filter(a => a.name.toLowerCase().includes('wing')).length;
     if (cart.accessories.some(a => a.name.toLowerCase().includes('accessor'))) additionalArr.push('Accessory');
-    if (cart.accessories.some(a => a.name.toLowerCase().includes('wing'))) additionalArr.push('Wings');
+    if (wingsCount > 0) additionalArr.push(`Wings${wingsCount > 1 ? ' x' + wingsCount : ''}`);
     document.getElementById('client-additional').value = additionalArr.join(', ');
     // Rental Fee
     document.getElementById('client-rental-fee').value = document.getElementById('cart-total-amount').textContent || '';
