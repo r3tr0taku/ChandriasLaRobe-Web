@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const price = parseInt(card.querySelector('.pos-price').textContent.replace(/[^\d]/g, ''));
       // Only add if not already in cart
       if (cart.products.some(p => p.name === name && p.price === price)) {
-        alert('This product is already in the cart.');
+        showErrorModal('This product is already in the cart.');
         return;
       }
       cart.products.push({ name, price });
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Count how many of this product are in the cart
       const productCount = cart.products.length;
       if (countOfThis >= productCount) {
-        alert(`You can only add as many '${name}' as products selected.`);
+        showErrorModal(`You can only add as many '${name}' as products selected.`);
         return;
       }
       // If it's an accessory (not wings), add to cart with empty types, but do NOT show modal
@@ -244,4 +244,157 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Initialize cart summary on load ---
   updateCartSummary();
+
+  // --- Error Modal Logic ---
+  const errorModal = document.getElementById('error-modal');
+  const errorModalMsg = document.getElementById('error-modal-message');
+  const errorModalOk = document.getElementById('error-modal-ok');
+  const errorModalClose = document.querySelector('.error-close');
+
+  function showErrorModal(message) {
+    if (errorModal && errorModalMsg) {
+      errorModalMsg.textContent = message;
+      errorModal.style.display = 'block';
+    }
+  }
+  if (errorModalOk) errorModalOk.onclick = () => errorModal.style.display = 'none';
+  if (errorModalClose) errorModalClose.onclick = () => errorModal.style.display = 'none';
+  window.addEventListener('click', function(event) {
+    if (event.target === errorModal) errorModal.style.display = 'none';
+  });
+
+  // --- Product & Accessory Search Functionality ---
+  const searchInput = document.querySelector('.pos-search-bar input[type="text"]');
+  function filterCards() {
+    const query = searchInput.value.trim().toLowerCase();
+    // Helper: normalize price for matching
+    function normalizePrice(str) {
+      return str.replace(/[^\d]/g, ''); // digits only
+    }
+    // Helper: allow matching with or without commas
+    function priceMatches(priceText, query) {
+      const priceDigits = normalizePrice(priceText);
+      const queryDigits = normalizePrice(query);
+      return (
+        priceText.toLowerCase().includes(query) ||
+        priceDigits.includes(queryDigits)
+      );
+    }
+    // Filter product cards
+    document.querySelectorAll('#products .pos-card').forEach(card => {
+      const name = card.querySelector('.pos-name').textContent.toLowerCase();
+      const priceText = card.querySelector('.pos-price').textContent;
+      if (name.includes(query) || priceMatches(priceText, query)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    // Filter accessory cards
+    document.querySelectorAll('#accessories .pos-card').forEach(card => {
+      const name = card.querySelector('.pos-name').textContent.toLowerCase();
+      const priceText = card.querySelector('.pos-price').textContent;
+      if (name.includes(query) || priceMatches(priceText, query)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+  if (searchInput) {
+    searchInput.addEventListener('input', filterCards);
+    // Optional: also filter on search icon click
+    const searchIcon = document.querySelector('.pos-search-bar .search-icon');
+    if (searchIcon) searchIcon.addEventListener('click', filterCards);
+  }
+
+  // --- Customer Modal Logic ---
+  const customerModal = document.getElementById('customer-modal');
+  const customerClose = document.querySelector('.customer-close');
+  const customerForm = document.getElementById('customer-form');
+  const rentalFeeField = document.getElementById('client-rental-fee');
+  const checkoutBtn = document.getElementById('cart-checkout-btn');
+  const cartTotalAmount = document.getElementById('cart-total-amount');
+
+  if (checkoutBtn && customerModal) {
+    checkoutBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Check if there is at least one product in the cart
+      if (!cart.products.length) {
+        showErrorModal('Please add at least one product to the cart before proceeding.');
+        return;
+      }
+      // Set rental fee from cart summary
+      if (rentalFeeField && cartTotalAmount) {
+        rentalFeeField.value = cartTotalAmount.textContent || '';
+      }
+      customerModal.style.display = 'block';
+    });
+  }
+  if (customerClose) customerClose.onclick = () => customerModal.style.display = 'none';
+  window.addEventListener('click', function(event) {
+    if (event.target === customerModal) customerModal.style.display = 'none';
+  });
+  customerForm && customerForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // You can handle form submission here (e.g., send data to backend)
+    customerModal.style.display = 'none';
+    showErrorModal('Customer form submitted! (Demo only)'); // Replace with success modal or real logic
+  });
+
+  // --- Customer Modal Luzon Regions and City Logic ---
+  const luzonRegions = {
+    'Region I': ['Laoag', 'Vigan', 'San Fernando', 'Alaminos', 'Batac', 'Candon', 'Urdaneta', 'Dagupan', 'San Carlos', 'Rosales', 'Agoo', 'Bauang', 'Sual', 'Pozorrubio', 'Lingayen', 'Bayambang', 'Sison', 'Sto. Tomas', 'Bani', 'Burgos', 'Agno'],
+    'Region II': ['Tuguegarao', 'Cauayan', 'Ilagan', 'Santiago', 'Bayombong', 'Solano', 'Aparri', 'Roxas', 'Naguilian', 'Cabagan', 'Tumauini', 'San Mateo', 'Echague', 'Jones', 'Alicia', 'San Mariano', 'Gamu', 'San Pablo', 'Maddela', 'Diffun'],
+    'Region III': ['San Fernando', 'Angeles', 'Olongapo', 'Balanga', 'Cabanatuan', 'Gapan', 'Malolos', 'Meycauayan', 'San Jose del Monte', 'Tarlac City', 'Mabalacat', 'Palayan', 'San Jose', 'Bocaue', 'Marilao', 'Baliuag', 'Guiguinto', 'Plaridel', 'Sta. Maria', 'San Miguel', 'San Rafael'],
+    'Region IV-A': ['Calamba', 'Antipolo', 'Batangas City', 'Lucena', 'Tanauan', 'Lipa', 'San Pablo', 'Tayabas', 'Cavite City', 'Tagaytay', 'Trece Martires', 'Dasmariñas', 'Imus', 'Bacoor', 'Binan', 'Cabuyao', 'San Pedro', 'Sta. Rosa', 'San Mateo', 'Rodriguez'],
+    'Region IV-B': ['Calapan', 'Puerto Princesa', 'Romblon', 'Boac', 'Mamburao', 'San Jose', 'Sablayan', 'Roxas', 'Bongabong', 'Pinamalayan', 'Naujan', 'Victoria', 'Aborlan', 'Brooke’s Point', 'Coron', 'El Nido', 'Rizal', 'Bataraza', 'Narra', 'Quezon'],
+    'Region V': ['Legazpi', 'Naga', 'Sorsogon', 'Iriga', 'Tabaco', 'Ligao', 'Masbate City', 'Daet', 'Tigaon', 'Polangui', 'Libmanan', 'Pili', 'Sorsogon City', 'Bulusan', 'Donsol', 'Gubat', 'Jovellar', 'Bulan', 'Irosin', 'Matnog', 'Barcelona'],
+    'NCR': ['Manila', 'Quezon City', 'Caloocan', 'Las Piñas', 'Makati', 'Malabon', 'Mandaluyong', 'Marikina', 'Muntinlupa', 'Navotas', 'Parañaque', 'Pasay', 'Pasig', 'Pateros', 'San Juan', 'Taguig', 'Valenzuela'],
+    'CAR': ['Baguio', 'Tabuk', 'Bangued', 'La Trinidad', 'Bontoc', 'Lagawe', 'Kiangan', 'Banaue', 'Sagada', 'Sabangan', 'Tadian', 'Besao', 'Paracelis', 'Natonin', 'Barlig', 'Sadanga', 'Sabangan', 'Tadian', 'Besao', 'Paracelis', 'Natonin']
+  };
+  const regionSelect = document.getElementById('client-region');
+  const citySelect = document.getElementById('client-city');
+  if (regionSelect && citySelect) {
+    regionSelect.innerHTML = '<option value="">Select Region</option>' +
+      Object.keys(luzonRegions).map(region => `<option value="${region}">${region}</option>`).join('');
+    regionSelect.addEventListener('change', function() {
+      const cities = luzonRegions[this.value] || [];
+      citySelect.innerHTML = '<option value="">Select City</option>' +
+        cities.map(city => `<option value="${city}">${city}</option>`).join('');
+    });
+    // Always set city dropdown to 'Select City' by default
+    citySelect.innerHTML = '<option value="">Select City</option>';
+  }
+  // --- Auto-fill Product Code, Additional, Rental Fee ---
+  function updateCustomerModalFields() {
+    // Concatenate all product names/codes in the cart
+    const productCodes = cart.products.map(p => p.name).join(', ');
+    document.getElementById('client-product-code').value = productCodes;
+    // Additional: list accessories/wings
+    const additionalArr = [];
+    if (cart.accessories.some(a => a.name.toLowerCase().includes('accessor'))) additionalArr.push('Accessory');
+    if (cart.accessories.some(a => a.name.toLowerCase().includes('wing'))) additionalArr.push('Wings');
+    document.getElementById('client-additional').value = additionalArr.join(', ');
+    // Rental Fee
+    document.getElementById('client-rental-fee').value = document.getElementById('cart-total-amount').textContent || '';
+  }
+  if (checkoutBtn && customerModal) {
+    checkoutBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (!cart.products.length) {
+        showErrorModal('Please add at least one product to the cart before proceeding.');
+        return;
+      }
+      updateCustomerModalFields();
+      customerModal.style.display = 'block';
+    });
+  }
+  // --- Restrict Client Contact to Numbers Only ---
+  const clientContact = document.getElementById('client-contact');
+  if (clientContact) {
+    clientContact.addEventListener('input', function() {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+  }
 });

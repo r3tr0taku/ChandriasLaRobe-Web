@@ -172,7 +172,7 @@
               <span>Total</span>
               <span id="cart-total-amount"></span>
             </div>
-            <button class="cart-checkout-btn">Checkout</button>
+            <button class="cart-checkout-btn" id="cart-checkout-btn">Proceed</button>
           </div>
         </div>
 
@@ -198,6 +198,59 @@
           <label><input type="checkbox" name="accessoryType" value="Pins"> Pins</label><br>
         </form>
         <button id="save-accessory-types">Save</button>
+      </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal" style="display:none;z-index:10000;">
+      <div class="modal-content" style="max-width:350px;text-align:center;">
+        <span class="close-modal error-close" style="cursor:pointer;float:right;font-size:1.5em;">&times;</span>
+        <h3 style="color:#e74c3c;margin-bottom:1em;">Error</h3>
+        <div id="error-modal-message" style="margin-bottom:1.5em;color:#c0392b;"></div>
+        <button id="error-modal-ok" style="padding:.5em 1.5em;background:#e74c3c;color:#fff;border:none;border-radius:6px;cursor:pointer;">OK</button>
+      </div>
+    </div>
+
+    <!-- Customer Form Modal -->
+    <div id="customer-modal" class="modal" style="display:none;">
+      <div class="customer-modal-content customer-modal-flex">
+        <div class="customer-modal-title-row">
+          <h3 class="customer-modal-title"></h3>
+          <span class="close-modal customer-close">&times;</span>
+        </div>
+        <form id="customer-form" autocomplete="off" class="customer-form-grid">
+          <div class="customer-form-header">
+            <h2>Customer Information</h2>
+            <span class="close-modal customer-close" title="Close">&times;</span>
+          </div>
+          <div class="customer-form-row">
+            <label>Client First Name<br><input type="text" id="client-first-name" required></label>
+            <label>Client Last Name<br><input type="text" id="client-last-name" required></label>
+          </div>
+          <div class="customer-form-row">
+            <label>Client Contact<br><input type="text" id="client-contact" required pattern="[0-9]*" inputmode="numeric"></label>
+            <label>Product Code<br><input type="text" id="client-product-code" readonly></label>
+          </div>
+          <div class="customer-form-row">
+            <label>Additional<br><input type="text" id="client-additional" readonly></label>
+            <label>Rental Fee<br><input type="text" id="client-rental-fee" readonly></label>
+          </div>
+          <div class="customer-form-row">
+            <label>Region<br>
+              <select id="client-region" required></select>
+            </label>
+            <label>City<br>
+              <select id="client-city" required></select>
+            </label>
+          </div>
+          <div class="customer-form-row customer-form-address">
+            <label>Address<br><input type="text" id="client-address" required></label>
+          </div>
+          <div class="customer-form-row customer-form-notes">
+            <label>Additional Notes / Repair<br><textarea id="client-notes" rows="2"></textarea></label>
+          </div>
+          <button type="submit" id="customer-form-submit">Submit</button>
+        </form>
       </div>
     </div>
 </body>

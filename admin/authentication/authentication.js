@@ -70,7 +70,7 @@ $(document).ready(function () {
         const password = $password.val();
 
         // Disable the login button while attempting login
-        loginBtn.attr("disabled", true).text("Logging In...");
+        loginBtn.attr("disabled", true).text("PROCEEDING...");
 
         // Set logging in flag to true so we don’t auto-redirect before toast
         isLoggingIn = true;
