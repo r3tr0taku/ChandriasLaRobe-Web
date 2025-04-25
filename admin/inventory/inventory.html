@@ -1,83 +1,572 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chandria's La Robe</title>
-    <link rel="stylesheet" href="/admin/sidebar/sidebar.css" />
-    <!-- BOX-ICON CDN -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-</head>
-<body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="/admin/images/chandriaslogo.png" alt="logo" />
-                </span>
-            </div>
-            <i class="bx bx-chevron-right toggle"></i>
-        </header>
-        <div class="menu-bar">
-            <div class="menu">
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="/admin/dashboard/Dashboard.html">
-                            <i class="bx bxs-dashboard icon"></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-link active">
-                        <a href="#">
-                            <i class="bx bxs-t-shirt icon"></i>
-                            <span class="text nav-text">Inventory</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/admin/schedule/schedule.html">
-                            <i class="bx bxs-calendar icon"></i>
-                            <span class="text nav-text">Schedule</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/admin/rental/rental.html">
-                            <i class="bx bxs-package icon"></i>
-                            <span class="text nav-text">Rental</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/admin/customer-logs/customer-logs.html">
-                            <i class="bx bxs-user icon"></i>
-                            <span class="text nav-text">Customer Logs</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="/admin/settings/settings.html">
-                            <i class="bx bxs-cog icon"></i>
-                            <span class="text nav-text">Settings</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="bottom-content">
-                <li class="mode">
-                    <div class="moon-sun">
-                        <i class="bx bxs-moon icon moon"></i>
-                        <i class="bx bxs-sun icon sun"></i>
-                    </div>
-                    <span class="mode-text text">Dark Mode</span>
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </div>
-        </div>
-    </nav>
-    <section class="page-name">
-        <div class="text">Inventory</div>
-    </section>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="./inventory.js"></script>
-</body>
+        <title>Chandria's La Robe</title>
+        <link rel="stylesheet" href="inventory.css" />
+        <link rel="stylesheet" href="fileupload.css" />
+
+        <!-- BOX-ICON CDN -->
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+            rel="stylesheet"
+        />
+
+        <!-- NOTYF CDN -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+        />
+    </head>
+
+    <body>
+        <!-- SPINNER -->
+        <div class="container-spinner d-none" id="spinner">
+            <div class="spinner"></div>
+            <div class="spinner-text" id="spinner-text">Uploading</div>
+        </div>
+        <!-- // -->
+        <nav class="custom-sidebar close">
+            <header>
+                <div class="custom-image-text">
+                    <span class="custom-image">
+                        <img src="/admin/images/chandriaslogo.png" alt="logo" />
+                    </span>
+                </div>
+
+                <i class="bx bx-chevron-right custom-toggle"></i>
+            </header>
+
+            <div class="custom-menu-bar">
+                <div class="custom-menu">
+                    <ul class="custom-menu-links">
+                        <li class="custom-nav-link custom-active">
+                            <a href="/admin/dashboard/Dashboard.html">
+                                <i class="bx bxs-dashboard custom-icon"></i>
+                                <span class="custom-text custom-nav-text"
+                                    >Dashboard</span
+                                >
+                            </a>
+                        </li>
+
+                        <li class="custom-nav-link active">
+                            <a href="#">
+                                <i class="bx bxs-t-shirt custom-icon"></i>
+                                <span class="custom-text custom-nav-text"
+                                    >Inventory</span
+                                >
+                            </a>
+                        </li>
+
+                        <li class="custom-nav-link">
+                            <a href="/admin/schedule/schedule.html">
+                                <i class="bx bxs-calendar custom-icon"></i>
+                                <span class="custom-text custom-nav-text"
+                                    >Schedule</span
+                                >
+                            </a>
+                        </li>
+
+                        <li class="custom-nav-link">
+                            <a href="/admin/rental/rental.html">
+                                <i class="bx bxs-package custom-icon"></i>
+                                <span class="custom-text custom-nav-text"
+                                    >Rental</span
+                                >
+                            </a>
+                        </li>
+
+                        <li class="custom-nav-link">
+                            <a href="/admin/customer-logs/customer-logs.html">
+                                <i class="bx bxs-user custom-icon"></i>
+                                <span class="custom-text custom-nav-text"
+                                    >Customer Logs</span
+                                >
+                            </a>
+                        </li>
+
+                        <li class="custom-nav-link">
+                            <a href="/admin/settings/settings.html">
+                                <i class="bx bxs-cog custom-icon"></i>
+                                <span class="custom-text custom-nav-text"
+                                    >Settings</span
+                                >
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="custom-bottom-content">
+                    <li class="custom-mode">
+                        <div class="custom-moon-sun">
+                            <i class="bx bxs-moon custom-icon custom-moon"></i>
+                            <i class="bx bxs-sun custom-icon custom-sun"></i>
+                        </div>
+                        <span class="custom-mode-text custom-text"
+                            >Dark Mode</span
+                        >
+
+                        <div class="custom-toggle-switch">
+                            <span class="custom-switch"></span>
+                        </div>
+                    </li>
+                </div>
+            </div>
+        </nav>
+
+        <section class="custom-page-name">
+            <div class="custom-text">Inventory</div>
+            <div class="container-fluid">
+                <!--Search and Button-->
+                <div class="search-and-button">
+                    <div class="search-box">
+                        <i class="bx bx-search icon"></i>
+                        <input type="text" placeholder="Search" />
+                    </div>
+
+                    <div class="button-container">
+                        <button
+                            class="custom-btn primary-btn ms-auto mt-2 mb-3"
+                            data-open="addProductModal"
+                        >
+                            Add Product
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ADD PRODUCT MODAL -->
+                <div id="addProductModal" class="custom-modal">
+                    <div class="custom-modal-content">
+                        <span
+                            class="custom-close-button"
+                            data-close="addProductModal"
+                            >&times;</span
+                        >
+                        <h2>Add Product</h2>
+
+                        <form>
+                            <!-- Image Preview -->
+                            <div class="file-upload-container">
+                                <div class="drop-zone" id="add-dropzone-front">
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        id="add-file-front-img"
+                                        hidden
+                                    />
+                                    <label
+                                        for="add-file-front-img"
+                                        class="upload-label"
+                                        id="add-upload-label-front"
+                                    >
+                                        <img
+                                            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
+                                            alt="Upload"
+                                            class="upload-icon"
+                                        />
+                                        <p>Select Front View Image</p>
+                                    </label>
+                                </div>
+
+                                <div class="drop-zone" id="add-dropzone-back">
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        id="add-file-back-img"
+                                        hidden
+                                    />
+                                    <label
+                                        for="add-file-back-img"
+                                        class="upload-label"
+                                        id="add-upload-label-back"
+                                    >
+                                        <img
+                                            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
+                                            alt="Upload"
+                                            class="upload-icon"
+                                        />
+                                        <p>Select Back View Image</p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Name & Code -->
+                            <input
+                                type="text"
+                                id="add-product-code"
+                                placeholder="Product Code"
+                                required
+                            />
+
+                            <!-- PRICE INPUT -->
+                            <div class="price-input">
+                                <div class="price-symbol">₱</div>
+                                <input
+                                    type="number"
+                                    placeholder="Product Prize"
+                                    id="add-product-prize"
+                                />
+                                <div class="price-suffix">.00</div>
+                            </div>
+
+                            <!-- SIZE SELECT -->
+                            <select id="add-product-size">
+                                <option>Select Size</option>
+                                <option value="XSM">Extra Small</option>
+                                <option value="SM">Small</option>
+                                <option value="MD">Medium</option>
+                                <option value="LG">Large</option>
+                                <option value="XLG">Extra Large</option>
+                            </select>
+
+                            <!-- COLOR SELECT -->
+                            <select id="add-product-color">
+                                <option selected>Select Color</option>
+                                <option value="red" style="color: red">
+                                    Red
+                                </option>
+                                <option value="blue" style="color: blue">
+                                    Blue
+                                </option>
+                                <option
+                                    value="goldenrod"
+                                    style="color: goldenrod"
+                                >
+                                    Yellow
+                                </option>
+                                <option value="green" style="color: green">
+                                    Green
+                                </option>
+                                <option value="orange" style="color: orange">
+                                    Orange
+                                </option>
+                                <option value="purple" style="color: purple">
+                                    Purple
+                                </option>
+                                <option value="white">White</option>
+                                <option value="black" style="color: black">
+                                    Black
+                                </option>
+                                <option value="gray" style="color: gray">
+                                    Gray
+                                </option>
+                                <option value="brown" style="color: #964B00">
+                                    Brown
+                                </option>
+                                <option value="beige" style="color: #D2B48C">
+                                    Beige
+                                </option>
+                                <option value="cream" style="color: #f5deb3">
+                                    Cream
+                                </option>
+                            </select>
+
+                            <!-- SLEEVE STYLE SELECT -->
+                            <select id="add-product-sleeve">
+                                <option selected>Select Sleeve Style</option>
+                                <option value="Short Sleeves">
+                                    Short Sleeves
+                                </option>
+                                <option value="Long Sleeves">
+                                    Long Sleeves
+                                </option>
+                                <option value="Off Shoulder">
+                                    Off Shoulder
+                                </option>
+                            </select>
+
+                            <!-- CATEGORY SELECT -->
+                            <select id="add-product-category">
+                                <option selected>Select Category</option>
+                                <option value="Ball Gown">Ball Gown</option>
+                                <option value="Long Gown">Long Gown</option>
+                                <option value="Wedding Gown">
+                                    Wedding Gown
+                                </option>
+                                <option value="Fairy Gown">Fairy Gown</option>
+                                <option value="Suits">Suits</option>
+                            </select>
+
+                            <!-- Buttons -->
+                            <div class="modal-buttons">
+                                <button
+                                    class="custom-btn"
+                                    data-close="addProductModal"
+                                >
+                                    Close
+                                </button>
+                                <button
+                                    class="custom-btn primary-btn"
+                                    id="add-product-btn"
+                                >
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- UPDATE PRODUCT MODAL -->
+                <div id="viewProductModal" class="custom-modal">
+                    <div class="custom-modal-content">
+                        <span
+                            class="custom-close-button"
+                            data-close="viewProductModal"
+                            >&times;</span
+                        >
+                        <h2>Product Details</h2>
+                        <form>
+                            <!-- IMAGE PREVIEW -->
+                            <div class="file-upload-container">
+                                <div
+                                    class="drop-zone"
+                                    id="update-dropzone-front"
+                                >
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        id="update-file-front-img"
+                                        hidden
+                                    />
+                                    <label
+                                        for="update-file-front-img"
+                                        class="upload-label"
+                                        id="update-upload-label-front"
+                                    >
+                                        <img
+                                            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
+                                            alt="Upload"
+                                            class="upload-icon"
+                                        />
+                                        <p>Select Front View Image</p>
+                                    </label>
+                                </div>
+
+                                <div
+                                    class="drop-zone"
+                                    id="update-dropzone-back"
+                                >
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        id="update-file-back-img"
+                                        hidden
+                                    />
+                                    <label
+                                        for="update-file-back-img"
+                                        class="upload-label"
+                                        id="update-upload-label-back"
+                                    >
+                                        <img
+                                            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
+                                            alt="Upload"
+                                            class="upload-icon"
+                                        />
+                                        <p>Select Back View Image</p>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- PRODUCT ID -->
+                            <input
+                                type="text"
+                                id="update-product-id"
+                                placeholder="Product ID HERE"
+                                disabled
+                                required
+                                hidden
+                            />
+
+                            <!-- PRODUCT CODE -->
+                            <input
+                                type="text"
+                                id="update-product-code"
+                                placeholder="Product Code"
+                                required
+                            />
+
+                            <!-- PRICE INPUT -->
+                            <div class="price-input">
+                                <div class="price-symbol">₱</div>
+                                <input
+                                    type="number"
+                                    placeholder="Product Prize"
+                                    id="update-product-prize"
+                                />
+                                <div class="price-suffix">.00</div>
+                            </div>
+
+                            <!-- PRODUCT SIZE -->
+                            <select id="update-product-size">
+                                <option>Select Size</option>
+                                <option value="XSM">Extra Small</option>
+                                <option value="SM">Small</option>
+                                <option value="MD">Medium</option>
+                                <option value="LG">Large</option>
+                                <option value="XLG">Extra Large</option>
+                            </select>
+
+                            <!-- SELECT COLOR -->
+                            <select id="update-product-color">
+                                <option selected>Select Color</option>
+                                <option value="red" style="color: red">
+                                    Red
+                                </option>
+                                <option value="blue" style="color: blue">
+                                    Blue
+                                </option>
+                                <option
+                                    value="goldenrod"
+                                    style="color: goldenrod"
+                                >
+                                    Yellow
+                                </option>
+                                <option value="green" style="color: green">
+                                    Green
+                                </option>
+                                <option value="orange" style="color: orange">
+                                    Orange
+                                </option>
+                                <option value="purple" style="color: purple">
+                                    Purple
+                                </option>
+                                <option value="white">White</option>
+                                <option value="black" style="color: black">
+                                    Black
+                                </option>
+                                <option value="gray" style="color: gray">
+                                    Gray
+                                </option>
+                                <option value="brown" style="color: #964B00">
+                                    Brown
+                                </option>
+                                <option value="beige" style="color: #D2B48C">
+                                    Beige
+                                </option>
+                                <option value="cream" style="color: #f5deb3">
+                                    Cream
+                                </option>
+                            </select>
+
+                            <!-- SELECT SLEEVE -->
+                            <select id="update-product-sleeve">
+                                <option selected>Sleeve Style</option>
+                                <option value="Short Sleeves">
+                                    Short Sleeves
+                                </option>
+                                <option value="Long Sleeves">
+                                    Long Sleeves
+                                </option>
+                                <option value="Off Shoulder">
+                                    Off Shoulder
+                                </option>
+                            </select>
+
+                            <!-- SELECT CATEGORY -->
+                            <select id="update-product-category">
+                                <option selected>Select Category</option>
+                                <option value="Ball Gown">Ball Gown</option>
+                                <option value="Long Gown">Long Gown</option>
+                                <option value="Wedding Gown">
+                                    Wedding Gown
+                                </option>
+                                <option value="Fairy Gown">Fairy Gown</option>
+                                <option value="Suits">Suits</option>
+                            </select>
+
+                            <!-- MODAL BUTTONS -->
+                            <div class="modal-buttons">
+                                <button
+                                    class="custom-btn"
+                                    data-close="viewProductModal"
+                                >
+                                    Close
+                                </button>
+                                <button
+                                    class="custom-btn primary-btn"
+                                    id="update-product-btn"
+                                >
+                                    Update
+                                </button>
+                            </div>
+                        </form>
+                        <!-- // -->
+                    </div>
+                </div>
+
+                <!-- CARDS -->
+                <div class="card_container">
+                    <!-- // -->
+                    <!--                     <article class="card_article card">
+    <div class="card_data">
+        <span
+            class="card_color"
+            style="background-color: #f5deb3"
+        ></span>
+        <img
+            src="./nakko.jpeg"
+            alt="image"
+            class="card_img"
+            id="product-img"
+        />
+        <h2 class="card_title" id="product-code">
+            Thai LG Green
+        </h2>
+        <p class="card_size" id="product-size">
+            Size: Extra Large
+        </p>
+        <p class="card_sleeve" id="product-sleeve">
+            Sleeve: No Sleeve
+        </p>
+        <span class="card_category" id="product-category"
+            >Long Gown</span
+        >
+        <div class="product-actions">
+            <a
+                href="#"
+                class="action-btn edit-btn"
+                aria-label="Edit"
+                data-open="viewProductModal"
+            >
+                <i class="fi fi-rr-edit"></i>
+            </a>
+
+            <a
+                href="#"
+                class="action-btn delete-btn"
+                aria-label="Delete"
+            >
+                <i class="fi fi-rr-trash"></i>
+            </a>
+        </div>
+    </div>
+</article>
+-->
+                    <!-- // -->
+                </div>
+            </div>
+        </section>
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+        <!-- EXTERNAL SCRIPT -->
+        <script src="script.js"></script>
+        <!-- NOTYF CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <!-- JQUERY JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+        <!-- CUSTOM SCRIPT -->
+        <script type="module" src="inventory.js"></script>
+    </body>
 </html>
