@@ -4,30 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-   <!--=============== FLATICON ===============-->
-   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <!--=============== FLATICON ===============-->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
 
-   <!--=============== SWIPER CSS ===============-->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css" />
-
-    <title>Chandria's La Robe</title>
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+ 
+ 
+     <!--=============== CSS ===============-->
+     <link rel="stylesheet" href="assets/css/styles.css" />
+ 
+     <title>Chandria's La Robe</title>
+  </head>
   <body>
     <!--=============== HEADER ===============-->
     <header class="header">
 
       <nav class="nav container">
-        <a href="index.html" class="nav-logo">
+        <a href="../index.html" class="nav-logo">
           <img src="assets/img/logo1.png" alt="" class="nav-logo-img">
         </a>
 
         <div class="nav-menu" id="nav-menu">
           <ul class="nav-list">
             <li class="nav-item">
-              <a href="index.html" class="nav-link">Home</a>
+              <a href="../index.html" class="nav-link">Home</a>
             </li>
 
             <li class="nav-item">
@@ -71,29 +72,32 @@
 
     <!--=============== MAIN ===============-->
     <main class="main">
+
       <!--=============== BREADCRUMB ===============-->
       <section class="breadcrumb">
         <ul class="breadcrumb-list flex container">
-          <li><a href="index.html" class="breadcrumb-link">Home</a></li>
+          <li><a href="../index.html" class="breadcrumb-link">Home</a></li>
           <li><span class="breadcrum-link">></span></li>
-          <li><span class="breadcrum-link">Favorites</span></li>
+          <li><span class="breadcrum-link">Shop</span></li>
+          <li><span class="breadcrum-link">></span></li>
+          <li><span class="breadcrum-link">Cart</span></li>
         </ul>
       </section>
 
-      <!--=============== FAVORITES ===============-->
-      <section class="wishlist section-lg container">
+      <!--=============== CART ===============-->
+      <section class="cart section-lg container">
         <div class="table-container">
           <table class="table">
             <tr>
               <th>Image</th>
               <th>Name</th>
               <th>Price</th>
-              <th>Availability Status</th>
-              <th>Action</th>
+              <th>Quantity</th>
+              <th>Total</th>
               <th>Remove</th>
             </tr>
-            <tbody id="wishlist-body">
-             <tr>
+
+            <tr>
               <td>
                 <img src="assets/img/product-6-1.jpg" alt="" class="table-img">
               </td>
@@ -107,16 +111,16 @@
                 <span class="table-price">₱900</span>
               </td>
               <td>
-                <span class="table-status">Available</span>
+                <input type="number" value="0" min="0" class="quantity">
               </td>
               <td>
-                <a href="" class="btn btn btn-sm">Add to Rent List</a>
+                <span class="table-total">₱--</span>
               </td>
               <td>
                 <i class="fi fi-rs-trash table-trash"></i>
               </td>
             </tr>
-         
+
             <tr>
               <td>
                 <img src="assets/img/product-7-1.jpg" alt="" class="table-img">
@@ -131,34 +135,10 @@
                 <span class="table-price">₱900</span>
               </td>
               <td>
-                <span class="table-status">Reserved</span>
+                <input type="number" value="0" min="0" class="quantity">
               </td>
               <td>
-                <a href="" class="btn btn btn-sm">Add to Rent List</a>
-              </td>
-              <td>
-                <i class="fi fi-rs-trash table-trash"></i>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <img src="assets/img/product-8-1.jpg" alt="" class="table-img">
-              </td>
-
-              <td>
-                <h3 class="table-title">Colorful Pattern Shirt</h3>
-                <p class="table-description">A red gown is a long, often formal dress, typically worn</p>
-              </td>
-
-              <td>
-                <span class="table-price">₱900</span>
-              </td>
-              <td>
-                <span class="table-status">Unavailable</span>
-              </td>
-              <td>
-                <a href="" class="btn btn btn-sm">Add to Rent List</a>
+                <span class="table-total">₱--</span>
               </td>
               <td>
                 <i class="fi fi-rs-trash table-trash"></i>
@@ -179,21 +159,32 @@
                 <span class="table-price">₱900</span>
               </td>
               <td>
-                <span class="table-status">Available</span>
+                <input type="number" value="0" min="0" class="quantity">
               </td>
               <td>
-                <a href="" class="btn btn btn-sm">Add to Rent List</a>
+                <span class="table-total">₱--</span>
               </td>
               <td>
                 <i class="fi fi-rs-trash table-trash"></i>
               </td>
             </tr>
 
-          </tbody>
-            
           </table>
+       
+          
         </div>
+        <div class="cart-actions">
+          <a href="" class="btn flex btn-md">
+            <i class="fi-rs-pencil"></i> Edit List
+          </a>
+
+          <a href="checkout.html" class="btn flex btn-md">
+            <i class="fi-rs-shopping-bag"></i> Rent Now
+          </a>
+        </div>
+       
       </section>
+
 
     <!--=============== SWIPER JS ===============-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
