@@ -125,17 +125,13 @@
             <div class="custom-text">Inventory</div>
             <div class="container-fluid">
                 <!--Search and Button-->
-                <div class="search-and-button">
-                    <div class="search-box">
+                <div class="search-and-button" style="display: flex; align-items: center; gap: 1rem; justify-content: space-between; margin-right: 2.5rem;">
+                    <div class="search-box" style="flex: 1; max-width: 350px; min-width: 180px; width: 220px; margin-left: 0; margin-right: 0.5rem;">
                         <i class="bx bx-search icon"></i>
                         <input type="text" placeholder="Search" />
                     </div>
-
-                    <div class="button-container">
-                        <button
-                            class="custom-btn primary-btn ms-auto mt-2 mb-3"
-                            data-open="addProductModal"
-                        >
+                    <div style="display: flex; align-items: center;">
+                        <button class="custom-btn primary-btn ms-auto mt-2 mb-3" data-open="addProductModal" style="margin-left: 1.5rem; min-width: 120px;">
                             Add Product
                         </button>
                     </div>
@@ -149,165 +145,80 @@
                             data-close="addProductModal"
                             >&times;</span
                         >
-                        <h2>Add Product</h2>
-
+                        <h2 style="color: var(--secondary-text-color); transition: var(--tran-04);">Add Product</h2>
                         <form>
-                            <!-- Image Preview -->
+                            <!-- Image Preview (side by side like edit modal) -->
                             <div class="file-upload-container">
                                 <div class="drop-zone" id="add-dropzone-front">
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        id="add-file-front-img"
-                                        hidden
-                                    />
-                                    <label
-                                        for="add-file-front-img"
-                                        class="upload-label"
-                                        id="add-upload-label-front"
-                                    >
-                                        <img
-                                            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
-                                            alt="Upload"
-                                            class="upload-icon"
-                                        />
+                                    <input type="file" accept="image/*" id="add-file-front-img" hidden />
+                                    <label for="add-file-front-img" class="upload-label" id="add-upload-label-front">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
                                         <p>Select Front View Image</p>
                                     </label>
                                 </div>
-
                                 <div class="drop-zone" id="add-dropzone-back">
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        id="add-file-back-img"
-                                        hidden
-                                    />
-                                    <label
-                                        for="add-file-back-img"
-                                        class="upload-label"
-                                        id="add-upload-label-back"
-                                    >
-                                        <img
-                                            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
-                                            alt="Upload"
-                                            class="upload-icon"
-                                        />
+                                    <input type="file" accept="image/*" id="add-file-back-img" hidden />
+                                    <label for="add-file-back-img" class="upload-label" id="add-upload-label-back">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
                                         <p>Select Back View Image</p>
                                     </label>
                                 </div>
                             </div>
-
-                            <!-- Name & Code -->
-                            <input
-                                type="text"
-                                id="add-product-code"
-                                placeholder="Product Code"
-                                required
-                            />
-
-                            <!-- PRICE INPUT -->
+                            <!-- Product Code -->
+                            <input type="text" id="add-product-code" placeholder="Product Code" required />
+                            <!-- Price Input -->
                             <div class="price-input">
                                 <div class="price-symbol">₱</div>
-                                <input
-                                    type="number"
-                                    placeholder="Product Prize"
-                                    id="add-product-prize"
-                                />
+                                <input type="number" placeholder="Product Prize" id="add-product-prize" />
                                 <div class="price-suffix">.00</div>
                             </div>
-
-                            <!-- SIZE SELECT -->
+                            <!-- Size Select -->
                             <select id="add-product-size">
                                 <option>Select Size</option>
-                                <option value="XSM">Extra Small</option>
-                                <option value="SM">Small</option>
-                                <option value="MD">Medium</option>
-                                <option value="LG">Large</option>
-                                <option value="XLG">Extra Large</option>
+                                <option value="XS">Extra Small (XS)</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                                <option value="XL">Extra Large (XL)</option>
+                                <option value="XXL">2XL (XXL)</option>
+                                <option value="XXXL">3XL (XXXL)</option>
                             </select>
-
-                            <!-- COLOR SELECT -->
+                            <!-- Color Select -->
                             <select id="add-product-color">
                                 <option selected>Select Color</option>
-                                <option value="red" style="color: red">
-                                    Red
-                                </option>
-                                <option value="blue" style="color: blue">
-                                    Blue
-                                </option>
-                                <option
-                                    value="goldenrod"
-                                    style="color: goldenrod"
-                                >
-                                    Yellow
-                                </option>
-                                <option value="green" style="color: green">
-                                    Green
-                                </option>
-                                <option value="orange" style="color: orange">
-                                    Orange
-                                </option>
-                                <option value="purple" style="color: purple">
-                                    Purple
-                                </option>
+                                <option value="red" style="color: red">Red</option>
+                                <option value="blue" style="color: blue">Blue</option>
+                                <option value="goldenrod" style="color: goldenrod">Yellow</option>
+                                <option value="green" style="color: green">Green</option>
+                                <option value="orange" style="color: orange">Orange</option>
+                                <option value="purple" style="color: purple">Purple</option>
                                 <option value="white">White</option>
-                                <option value="black" style="color: black">
-                                    Black
-                                </option>
-                                <option value="gray" style="color: gray">
-                                    Gray
-                                </option>
-                                <option value="brown" style="color: #964B00">
-                                    Brown
-                                </option>
-                                <option value="beige" style="color: #D2B48C">
-                                    Beige
-                                </option>
-                                <option value="cream" style="color: #f5deb3">
-                                    Cream
-                                </option>
+                                <option value="black" style="color: black">Black</option>
+                                <option value="gray" style="color: gray">Gray</option>
+                                <option value="brown" style="color: #964B00">Brown</option>
+                                <option value="beige" style="color: #D2B48C">Beige</option>
+                                <option value="cream" style="color: #f5deb3">Cream</option>
                             </select>
-
-                            <!-- SLEEVE STYLE SELECT -->
+                            <!-- Sleeve Style Select -->
                             <select id="add-product-sleeve">
                                 <option selected>Select Sleeve Style</option>
-                                <option value="Short Sleeves">
-                                    Short Sleeves
-                                </option>
-                                <option value="Long Sleeves">
-                                    Long Sleeves
-                                </option>
-                                <option value="Off Shoulder">
-                                    Off Shoulder
-                                </option>
+                                <option value="Short Sleeves">Short Sleeves</option>
+                                <option value="Long Sleeves">Long Sleeves</option>
+                                <option value="Off Shoulder">Off Shoulder</option>
                             </select>
-
-                            <!-- CATEGORY SELECT -->
+                            <!-- Category Select -->
                             <select id="add-product-category">
                                 <option selected>Select Category</option>
                                 <option value="Ball Gown">Ball Gown</option>
                                 <option value="Long Gown">Long Gown</option>
-                                <option value="Wedding Gown">
-                                    Wedding Gown
-                                </option>
+                                <option value="Wedding Gown">Wedding Gown</option>
                                 <option value="Fairy Gown">Fairy Gown</option>
                                 <option value="Suits">Suits</option>
                             </select>
-
-                            <!-- Buttons -->
+                            <!-- Modal Buttons -->
                             <div class="modal-buttons">
-                                <button
-                                    class="custom-btn"
-                                    data-close="addProductModal"
-                                >
-                                    Close
-                                </button>
-                                <button
-                                    class="custom-btn primary-btn"
-                                    id="add-product-btn"
-                                >
-                                    Submit
-                                </button>
+                                <button class="custom-btn" data-close="addProductModal">Close</button>
+                                <button class="custom-btn primary-btn" id="add-product-btn">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -321,54 +232,21 @@
                             data-close="viewProductModal"
                             >&times;</span
                         >
-                        <h2>Product Details</h2>
+                        <h2 style="color: var(--secondary-text-color); transition: var(--tran-04);">Product Details</h2>
                         <form>
-                            <!-- IMAGE PREVIEW -->
+                            <!-- Image Preview -->
                             <div class="file-upload-container">
-                                <div
-                                    class="drop-zone"
-                                    id="update-dropzone-front"
-                                >
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        id="update-file-front-img"
-                                        hidden
-                                    />
-                                    <label
-                                        for="update-file-front-img"
-                                        class="upload-label"
-                                        id="update-upload-label-front"
-                                    >
-                                        <img
-                                            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
-                                            alt="Upload"
-                                            class="upload-icon"
-                                        />
+                                <div class="drop-zone" id="update-dropzone-front">
+                                    <input type="file" accept="image/*" id="update-file-front-img" hidden />
+                                    <label for="update-file-front-img" class="upload-label" id="update-upload-label-front">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
                                         <p>Select Front View Image</p>
                                     </label>
                                 </div>
-
-                                <div
-                                    class="drop-zone"
-                                    id="update-dropzone-back"
-                                >
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        id="update-file-back-img"
-                                        hidden
-                                    />
-                                    <label
-                                        for="update-file-back-img"
-                                        class="upload-label"
-                                        id="update-upload-label-back"
-                                    >
-                                        <img
-                                            src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
-                                            alt="Upload"
-                                            class="upload-icon"
-                                        />
+                                <div class="drop-zone" id="update-dropzone-back">
+                                    <input type="file" accept="image/*" id="update-file-back-img" hidden />
+                                    <label for="update-file-back-img" class="upload-label" id="update-upload-label-back">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
                                         <p>Select Back View Image</p>
                                     </label>
                                 </div>
@@ -406,11 +284,13 @@
                             <!-- PRODUCT SIZE -->
                             <select id="update-product-size">
                                 <option>Select Size</option>
-                                <option value="XSM">Extra Small</option>
-                                <option value="SM">Small</option>
-                                <option value="MD">Medium</option>
-                                <option value="LG">Large</option>
-                                <option value="XLG">Extra Large</option>
+                                <option value="XS">Extra Small (XS)</option>
+                                <option value="S">Small (S)</option>
+                                <option value="M">Medium (M)</option>
+                                <option value="L">Large (L)</option>
+                                <option value="XL">Extra Large (XL)</option>
+                                <option value="XXL">2XL (XXL)</option>
+                                <option value="XXXL">3XL (XXXL)</option>
                             </select>
 
                             <!-- SELECT COLOR -->
@@ -498,6 +378,29 @@
                             </div>
                         </form>
                         <!-- // -->
+                    </div>
+                </div>
+
+                <!-- ERROR MODAL -->
+                <div id="error-modal" class="custom-modal">
+                    <div class="custom-modal-content" style="max-width:400px;text-align:center;">
+                        <span class="custom-close-button error-close" data-close="error-modal">&times;</span>
+                        <h2 style="color:#c00;">Error</h2>
+                        <div id="error-modal-message" style="margin:1.5rem 0;"></div>
+                        <button class="custom-btn primary-btn" id="error-modal-ok">OK</button>
+                    </div>
+                </div>
+
+                <!-- CONFIRM MODAL -->
+                <div id="confirm-modal" class="custom-modal">
+                    <div class="custom-modal-content" style="max-width:400px;text-align:center;">
+                        <span class="custom-close-button confirm-close" data-close="confirm-modal">&times;</span>
+                        <h2 style="color:var(--secondary-text-color);">Confirm</h2>
+                        <div id="confirm-modal-message" style="margin:1.5rem 0;"></div>
+                        <div style="display:flex;justify-content:center;gap:1.5rem;">
+                            <button class="custom-btn primary-btn" id="confirm-modal-ok">OK</button>
+                            <button class="custom-btn" id="confirm-modal-cancel">Cancel</button>
+                        </div>
                     </div>
                 </div>
 

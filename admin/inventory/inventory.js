@@ -8,7 +8,42 @@ import {
     doc,
     getDocs,
     getDoc
-} from "chandrias-sdk.js";
+} from "./chandrias-sdk.js";
+
+function showErrorModal(message) {
+    const modal = document.getElementById('error-modal');
+    const msg = document.getElementById('error-modal-message');
+    msg.textContent = message;
+    modal.classList.add('show');
+}
+
+// --- Confirm Modal Logic ---
+function showConfirmModal(message, onConfirm) {
+    const modal = document.getElementById('confirm-modal');
+    const msg = document.getElementById('confirm-modal-message');
+    msg.textContent = message;
+    modal.classList.add('show');
+    // Remove previous listeners
+    const okBtn = document.getElementById('confirm-modal-ok');
+    const cancelBtn = document.getElementById('confirm-modal-cancel');
+    const closeBtn = document.querySelector('.confirm-close');
+    function cleanup() {
+        modal.classList.remove('show');
+        okBtn.removeEventListener('click', okHandler);
+        cancelBtn.removeEventListener('click', cancelHandler);
+        closeBtn.removeEventListener('click', cancelHandler);
+    }
+    function okHandler() {
+        cleanup();
+        if (onConfirm) onConfirm();
+    }
+    function cancelHandler() {
+        cleanup();
+    }
+    okBtn.addEventListener('click', okHandler);
+    cancelBtn.addEventListener('click', cancelHandler);
+    closeBtn.addEventListener('click', cancelHandler);
+}
 
 $(document).ready(function () {
     // NOTYF
@@ -19,62 +54,97 @@ $(document).ready(function () {
         }
     });
 
+    // Error modal close logic
+    $(document).on('click', '.error-close, #error-modal-ok', function() {
+        $('#error-modal').removeClass('show');
+    });
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('error-modal');
+        if (event.target === modal) modal.classList.remove('show');
+    });
+
     // INITIATING FIRESTORE
     const chandriaDB = getFirestore(appCredential);
+
+    // Helper to normalize size abbreviations
+    function normalizeSize(size) {
+        if (!size) return '';
+        const map = {
+            'XSM': 'XS', 'XS': 'XS',
+            'SM': 'S', 'S': 'S',
+            'MD': 'M', 'M': 'M',
+            'LG': 'L', 'L': 'L',
+            'XLG': 'XL', 'XL': 'XL',
+            'XXL': 'XXL', '2XL': 'XXL',
+            'XXXL': 'XXXL', '3XL': 'XXXL'
+        };
+        return map[size.toUpperCase()] || size;
+    }
+
     // DISPLAYING CARDS
     async function loadProducts() {
-        const querySnapshot = await getDocs(collection(chandriaDB, "products"));
-        // $("#card_container").empty(); // Clear existing cards
-
-        querySnapshot.forEach(doc => {
-            const data = doc.data();
-
-            // Create the card HTML
-            const card = $(`
-                      <article class="card_article card">
-                        <div class="card_data">
-                            <span
-                                class="card_color"
-                                style="background-color: ${data.color}"
-                                data-color="${data.color}"
-                            ></span>
-                            <img
-                                src="${data.frontImageUrl}"
-                                alt="image"
-                                class="card_img"
-                                id="product-img"
-                            />
-                            <h2 class="card_title">${data.productCode}</h2>
-                            <p class="card_size">Size: ${data.size}</p>
-                            <p class="card_sleeve">Sleeve: ${data.productSleeve}</p>
-                            <span class="card_category">${data.category}</span>
-                            <div class="product-actions">
-                                <a
-                                    href="#"
-                                    class="action-btn edit-btn"
-                                    aria-label="Edit"
-                                    data-open="viewProductModal"
-                                    data-id="${doc.id}"
-                                >
-                                    <i class="fi fi-rr-edit"></i>
-                                </a>
-
-                                <a
-                                    href="#"
-                                    class="action-btn delete-btn"
-                                    aria-label="Delete"
-                                    data-id="${doc.id}"
-                                >
-                                    <i class="fi fi-rr-trash"></i>
-                                </a>
-                            </div>
+        try {
+            const container = $(".card_container");
+            container.empty(); // Clear existing cards to avoid duplicates
+            const querySnapshot = await getDocs(collection(chandriaDB, "products"));
+            if (querySnapshot.empty) {
+                container.append('<div style="margin:2rem;">No products found in inventory.</div>');
+                return;
+            }
+            querySnapshot.forEach(doc => {
+                const data = doc.data();
+                // Defensive: check for required fields
+                if (!data.frontImageUrl || !data.productCode) {
+                    console.warn("Product missing image or code:", doc.id, data);
+                    return;
+                }
+                // Create the card HTML
+                const card = $(`
+                  <article class="card_article card">
+                    <div class="card_data">
+                        <span
+                            class="card_color"
+                            style="background-color: ${data.color}"
+                            data-color="${data.color}"
+                        ></span>
+                        <img
+                            src="${data.frontImageUrl}"
+                            alt="image"
+                            class="card_img"
+                            id="product-img"
+                        />
+                        <h2 class="card_title">${data.productCode}</h2>
+                        <p class="card_size">Size: ${normalizeSize(data.size)}</p>
+                        <p class="card_sleeve">Sleeve: ${data.productSleeve}</p>
+                        <span class="card_category">${data.category}</span>
+                        <div class="product-actions">
+                            <a
+                                href="#"
+                                class="action-btn edit-btn"
+                                aria-label="Edit"
+                                data-open="viewProductModal"
+                                data-id="${doc.id}"
+                            >
+                                <i class="fi fi-rr-edit"></i>
+                            </a>
+                            <a
+                                href="#"
+                                class="action-btn delete-btn"
+                                aria-label="Delete"
+                                data-id="${doc.id}"
+                            >
+                                <i class="fi fi-rr-trash"></i>
+                            </a>
                         </div>
-                    </article>
-        `);
-
-            // Append to container
-            $(".card_container").append(card);
-        });
+                    </div>
+                </article>
+                `);
+                container.append(card);
+            });
+        } catch (err) {
+            console.error("Error loading products from Firebase:", err);
+            $(".card_container").append('<div style="color:red;margin:2rem;">Failed to load products. Check your connection or Firebase rules.</div>');
+        }
     }
     loadProducts();
 
@@ -87,17 +157,17 @@ $(document).ready(function () {
         const backFile = $("#add-file-back-img")[0].files[0];
 
         if (!frontFile && !backFile) {
-            notyf.error("Please select both Front and Back View images.");
+            showErrorModal("Please select both Front and Back View images.");
             return;
         }
 
         if (!frontFile) {
-            notyf.error("Please select a Front View image.");
+            showErrorModal("Please select a Front View image.");
             return;
         }
 
         if (!backFile) {
-            notyf.error("Please select a Back View image.");
+            showErrorModal("Please select a Back View image.");
             return;
         }
 
@@ -116,7 +186,7 @@ $(document).ready(function () {
         requiredFields.forEach(selector => {
             const value = $(selector).val().trim();
             if (!value) {
-                notyf.error(
+                showErrorModal(
                     `Please fill out ${selector.replace(
                         "#add-product-",
                         "Product "
@@ -129,7 +199,7 @@ $(document).ready(function () {
 
         const selectCategory = $("#add-product-category").val();
         if (selectCategory == "Select Category") {
-            notyf.error("Select a Category.");
+            showErrorModal("Select a Category.");
             return;
         }
 
@@ -202,7 +272,7 @@ $(document).ready(function () {
                                 id="product-img"
                             />
                             <h2 class="card_title" id="product-code">${newData.productCode}</h2>
-                            <p class="card_size" id="product-size">${newData.size}</p>
+                            <p class="card_size" id="product-size">Size: ${normalizeSize(newData.size)}</p>
                             <p class="card_sleeve" id="product-sleeve">${newData.productSleeve}</p>
                             <span class="card_category" id="product-category">${newData.category}</span>
                             <div class="product-actions">
@@ -249,7 +319,7 @@ $(document).ready(function () {
             }, 900);
         } catch (err) {
             console.error("Upload failed:", err);
-            alert("There was an error uploading the product.");
+            showErrorModal("There was an error uploading the product.");
         }
 
         spinner.addClass("d-none");
@@ -294,16 +364,26 @@ $(document).ready(function () {
                 $("#update-product-id").val(productId);
                 $("#update-product-code").val(data.productCode);
                 $("#update-product-prize").val(data.prize);
-                $("#update-product-size").val(data.size);
-                $("#update-product-color").val(data.color);
-                $("#update-product-sleeve").val(data.productSleeve);
-                $("#update-product-category").val(data.category);
+
+                // Helper to set dropdown and always show value
+                function setDropdownValue(selector, value) {
+                    const $select = $(selector);
+                    if (value && $select.find(`option[value='${value}']`).length === 0) {
+                        // Add missing value as a temporary option
+                        $select.append(`<option value='${value}' hidden>${value}</option>`);
+                    }
+                    $select.val(value);
+                }
+                setDropdownValue("#update-product-size", data.size);
+                setDropdownValue("#update-product-color", data.color);
+                setDropdownValue("#update-product-sleeve", data.productSleeve);
+                setDropdownValue("#update-product-category", data.category);
             } else {
-                notyf.error("Product not found.");
+                showErrorModal("Product not found.");
             }
         } catch (error) {
             console.error("Error getting product:", error);
-            notyf.error("Failed to load product.");
+            showErrorModal("Failed to load product.");
         }
     });
 
@@ -313,7 +393,7 @@ $(document).ready(function () {
 
         const productId = $("#update-product-id").val();
         if (!productId) {
-            notyf.error("Product ID not found.");
+            showErrorModal("Product ID not found.");
             return;
         }
 
@@ -330,7 +410,7 @@ $(document).ready(function () {
         requiredFields.forEach(selector => {
             const value = $(selector).val().trim();
             if (!value) {
-                notyf.error(
+                showErrorModal(
                     `Please fill out ${selector.replace(
                         "#view-product-",
                         "Product "
@@ -431,7 +511,7 @@ $(document).ready(function () {
                 );
                 card.find(".card_title").text(updatedData.productCode);
                 
-                card.find(".card_size").text(`Size: ${updatedData.size}`);
+                card.find(".card_size").text(`Size: ${normalizeSize(updatedData.size)}`);
                 card.find(".card_sleeve").text(`Sleeve: ${updatedData.productSleeve}`);
                 card.find(".card_category").text(updatedData.category);
                 card.find(".card_color").css("background-color", updatedData.color);
@@ -444,31 +524,26 @@ $(document).ready(function () {
             //
         } catch (error) {
             console.error("Error updating product:", error);
-            notyf.error("Failed to update product.");
+            showErrorModal("Failed to update product.");
         } finally {
             $("#spinner").addClass("d-none");
         }
     });
 
     // DELETE CARD FUNCTION
-    $(".card_container").on("click", ".delete-btn", async function () {
+    $(".card_container").on("click", ".delete-btn", function () {
         const productId = $(this).data("id");
         const card = $(this).closest(".card");
-
-        const confirmed = confirm(
-            "Are you sure you want to delete this product?"
-        );
-
-        if (confirmed) {
+        showConfirmModal('Are you sure you want to delete this product?', async function () {
             try {
-                await deleteDoc(doc(chandriaDB, "products", productId));
-                notyf.success("Product Deleted!");
-                card.remove(); // REMOVES THE DISPLAYED CARD
+                await deleteDoc(doc(chandriaDB, 'products', productId));
+                notyf.success('Product Deleted!');
+                card.remove();
             } catch (error) {
-                console.error("Error deleting product:", error);
-                notyf.error("Failed to delete product.");
+                console.error('Error deleting product:', error);
+                showErrorModal('Failed to delete product.');
             }
-        }
+        });
     });
 
     // COLOR PREVIEW
@@ -555,6 +630,36 @@ $(document).ready(function () {
             };
 
             reader.readAsDataURL(file);
+        }
+    });
+
+    // Prevent background scroll when any modal is open (strict)
+    function setBodyScrollLock(lock) {
+        if (lock) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+        } else {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
+    }
+    // Open modal: lock scroll
+    $(document).on('click', '[data-open="addProductModal"], [data-open="viewProductModal"]', function() {
+        setBodyScrollLock(true);
+    });
+    // Close modal: unlock scroll
+    $(document).on('click', '[data-close="addProductModal"], [data-close="viewProductModal"]', function() {
+        setBodyScrollLock(false);
+    });
+    // Also unlock scroll when clicking modal close X or background
+    $(document).on('click', '.custom-close-button', function() {
+        setBodyScrollLock(false);
+    });
+    $(window).on('click', function(e) {
+        if ($(e.target).hasClass('custom-modal')) {
+            setBodyScrollLock(false);
         }
     });
 });

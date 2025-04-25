@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-------------------------------- FLATICON --------------------------------->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+
+    <!---------------------------------- SWIPER CSS ---------------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+
+    <!-------------------------------- CSS --------------------------------->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Chandria's La Robe</title>
+  </head>
+  <body>
+    <!-------------------------------- HEADER -------------------------------->
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/img/logo1.png" alt="" class="nav-logo-img">
+        </a>
+
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link active-link">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="shop.html" class="nav-link">Shop</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="accounts.html" class="nav-link">Profile</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a href="login-register.html" class="nav-link">Login</a>
+            </li>
+          </ul>
+
+          <div class="header-search">
+            <input type="text" placeholder="Search" class="form-input">
+            <button class="search-btn">
+              <img src="assets/img/search.png" alt="">
+
+            </button>
+          </div>
+        </div>
+
+        <div class="header-user-actions">
+          <a href="wishlist.html" class="header-action-btn">
+            <img src="assets/img/icon-heart.svg" alt="">
+            <span class="count">3</span>
+          </a>
+
+          <a href="cart.html" class="header-action-btn">
+            <img src="assets/img/icon-cart.svg" alt="">
+            <span class="count">3</span>
+          </a>
+
+        </div>
+
+      </nav>
+    </header>
+
+    <!--------------------------------MAIN -------------------------------->
+    <main class="main">
+      <!-------------------------------- HOME -------------------------------->
+      <section class="home section-lg">
+        <div class="home-container container grid">
+          <div class="home-content">
+            <span class="home-subtitle">Discover Elegance in Every Outfit</span>
+            <h1 class="home-title">Premium Attire for
+                              <span>Every Occasion</span>
+            </h1>
+            <p class="home-description">
+              Stylish Rentals, Hassle-Free Experience
+            </p>
+            <a href="shop.html" class="btn">Rent Now</a>
+          </div>
+
+          <img src="assets/img/home-img3.png" alt="" class="home-img">
+        </div>
+      </section>
+
+      <!-------------------------------- CATEGORIES -------------------------------->
+      <section class="categories container section">
+        <h3 class="section-title">
+          <span>Popular</span> Categories</h3>
+
+          <div class="categories-container swiper">
+            <div class="swiper-wrapper">
+              <a href="shop.html" class="category-item swiper-slide">
+
+                <img src="assets/img/category-1.jpg" alt="" class="category-img">
+
+                <h3 class="category-title">T-shirt</h3>
+              </a>
+
+              <a href="shop.html" class="category-item swiper-slide">
+                
+                <img src="assets/img/category-2.jpg" alt="" class="category-img">
+
+                <h3 class="category-title">Bags</h3>
+              </a>
+
+              <a href="shop.html" class="category-item swiper-slide">
+                
+                <img src="assets/img/category-3.jpg" alt="" class="category-img">
+
+                <h3 class="category-title">Sandal</h3>
+              </a>
+
+              <a href="shop.html" class="category-item swiper-slide">
+                
+                <img src="assets/img/category-4.jpg" alt="" class="category-img">
+
+                <h3 class="category-title">Scarf Cap</h3>
+              </a>
+
+              <a href="shop.html" class="category-item swiper-slide">
+                
+                <img src="assets/img/category-5.jpg" alt="" class="category-img">
+
+                <h3 class="category-title">Shoes</h3>
+              </a>
+
+              <a href="shop.html" class="category-item swiper-slide">
+                
+                <img src="assets/img/category-6.jpg" alt="" class="category-img">
+
+                <h3 class="category-title">Pillowcase</h3>
+              </a>
+
+              <a href="shop.html" class="category-item swiper-slide">
+                
+                <img src="assets/img/category-7.jpg" alt="" class="category-img">
+
+                <h3 class="category-title">Jumpersuits</h3>
+              </a>
+
+              <a href="shop.html" class="category-item swiper-slide">
+                
+                <img src="assets/img/category-8.jpg" alt="" class="category-img">
+
+                <h3 class="category-title">Hats</h3>
+              </a>
+            </div>
+          
+          <div class="swiper-button-next">
+            <i class="fi fi-rs-angle-right"></i>
+          </div>
+          <div class="swiper-button-prev">
+            <i class="fi fi-rs-angle-left"></i>
+          </div>
+
+          </div>
+      </section>
+
+      <!--------------------------------PRODUCTS -------------------------------->
+      <section class="products section container">
+        <div class="tab-btns">
+          <span class="tab-btn active-tab" data-target="#featured">Featured</span>
+          <span class="tab-btn" data-target="#popular">Popular</span>
+          <span class="tab-btn" data-target="#newest">Newest</span>
+        </div>
+
+        <div class="tab-items">
+       <!--------------------------------PRODUCTS (FEATURED)-------------------------------->   
+          <div class="tab-item active-tab" content id="featured">
+            <div class="products-container featured-container grid">
+          
+<!--               <div class="product-item">
+  <div class="product-banner">
+   
+    <a href="details.html" class="product-images">
+    <img src="assets/img/product-1-1.jpg" alt="" class="product-img default">
+    
+    <img src="assets/img/product-1-2.jpg" alt="" class="product-img hover">
+    </a>
+
+    <div class="product-actions">
+      <a href="#" class="action-btn" aria-label="Quick View">
+      <i class="fi fi-rs-eye"></i>
+      </a>
+
+      <a href="#" class="action-btn" aria-label="Add to Favorites">
+        <i class="fi fi-rs-heart"></i>
+        </a>
+
+        <a href="#" class="action-btn" aria-label="share">
+          <i class="fi fi-rs-shuffle"></i>
+          </a>
+    </div>
+
+    <div class="product-badge light-pink">Hot</div>
+
+  </div>
+
+  <div class="product-content">
+    <span class="product-category">Clothing</span>
+    <a href="details.html">
+      <h3 class="product-title">Colorful Pattern Shirts</h3>
+    </a>
+    <div class="product-rating">
+      <i class="fi fi-rs-star"></i>
+      <i class="fi fi-rs-star"></i>
+      <i class="fi fi-rs-star"></i>
+      <i class="fi fi-rs-star"></i>
+      <i class="fi fi-rs-star"></i>
+    </div>
+    <div class="product-price flex">
+        <span class="new-price">₱ 1500/24hr</span>
+        <span class="old-price">₱ 2300/24hr</span>
+    </div>
+
+    <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+      <i class="fi fi-rs-shopping-bag-add"></i>
+      </a>
+  </div>
+</div> -->
+
+            </div>
+          </div>
+       <!--------------------------------PRODUCTS (POPULAR)-------------------------------->   
+          <div class="tab-item" content id="popular">
+            <div class="products-container grid">
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-9-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-9-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-2-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-2-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-green">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-10-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-10-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-orange">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-4-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-4-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-blue">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-11-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-11-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">20%</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-6-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-6-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">10%</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-7-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-7-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-green">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-7-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-7-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+       <!--------------------------------PRODUCTS (NEWEST)--------------------------------> 
+          <div class="tab-item" content id="newest">
+            <div class="products-container grid">
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-1-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-1-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-2-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-2-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-green">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-3-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-3-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-orange">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-4-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-4-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-blue">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-5-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-5-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">20%</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-6-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-6-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">10%</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-7-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-7-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-green">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-7-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-7-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-------------------------------- POLICY -------------------------------->
+      <section class="policy section">
+        <div class="policy-container container grid"></div>
+
+      </section>
+
+      <!-------------------------------- FRESH ON THE RACK -------------------------------->
+      <section class="fresh-ontherack container section">
+
+        <h3 class="section-title">
+          <span>Fresh </span>on the Rack</h3>
+
+          <div class="fresh-container swiper">
+            <div class="swiper-wrapper">
+
+              <div class="product-item swiper-slide">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-9-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-9-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item swiper-slide">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-2-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-2-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-green">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item swiper-slide">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-10-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-10-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-orange">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item swiper-slide">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-4-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-4-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-blue">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item swiper-slide">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-11-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-11-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">20%</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item swiper-slide">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-6-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-6-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">10%</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item swiper-slide">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-7-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-7-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-green">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+
+              <div class="product-item swiper-slide">
+                <div class="product-banner">
+                 
+                  <a href="details.html" class="product-images">
+                  <img src="assets/img/product-7-1.jpg" alt="" class="product-img default">
+                  
+                  <img src="assets/img/product-7-2.jpg" alt="" class="product-img hover">
+                  </a>
+
+                  <div class="product-actions">
+                    <a href="#" class="action-btn" aria-label="Quick View">
+                    <i class="fi fi-rs-eye"></i>
+                    </a>
+
+                    <a href="#" class="action-btn" aria-label="Add to Favorites">
+                      <i class="fi fi-rs-heart"></i>
+                      </a>
+
+                      <a href="#" class="action-btn" aria-label="share">
+                        <i class="fi fi-rs-shuffle"></i>
+                        </a>
+                  </div>
+
+                  <div class="product-badge light-pink">Hot</div>
+
+                </div>
+
+                <div class="product-content">
+                  <span class="product-category">Clothing</span>
+                  <a href="details.html">
+                    <h3 class="product-title">Colorful Pattern Shirts</h3>
+                  </a>
+                  <div class="product-rating">
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                    <i class="fi fi-rs-star"></i>
+                  </div>
+                  <div class="product-price flex">
+                      <span class="new-price">₱ 1500/24hr</span>
+                      <span class="old-price">₱ 2300/24hr</span>
+                  </div>
+
+                  <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
+                    <i class="fi fi-rs-shopping-bag-add"></i>
+                    </a>
+                </div>
+              </div>
+            </div>
+          
+          <div class="swiper-button-next">
+            <i class="fi fi-rs-angle-right"></i>
+          </div>
+          <div class="swiper-button-prev">
+            <i class="fi fi-rs-angle-left"></i>
+          </div>
+
+          </div>
+
+      </section>
+
+      <!--------------------------------SHOWCASE-------------------------------->
+      <section class="showcase section">
+        <div class="showcase-container container grid">
+
+          <div class="showcase-wrapper">
+            <h3 class="section-title">Hot Rentals</h3>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-1.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Rainbow Suit</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-2.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Rainbow Suit</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-3.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Magic Dress</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="showcase-wrapper">
+            <h3 class="section-title">Promotions</h3>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-4.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Rainbow Suit</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-5.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Rainbow Suit</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-6.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Magic Dress</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-wrapper">
+            <h3 class="section-title">Top Rentals</h3>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-7.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Rainbow Suit</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-8.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Rainbow Suit</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-9.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Magic Dress</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="showcase-wrapper">
+            <h3 class="section-title">Trending</h3>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-7.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Rainbow Suit</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-8.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Rainbow Suit</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-item">
+              <a href="details.html" class="showcase-img-box">
+                <img src="assets/img/showcase-img-9.jpg" alt="" class="showcase-img">
+              </a>
+
+              <div class="showcase-content">
+                <a href="details.html">
+                  <h4 class="showcase-title">Magic Dress</h4>
+                </a>
+
+                <div class="showcase-price flex">
+                  <span class="new-price">₱ 999</span>
+                  <span class="old-price">₱ 2500</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+    <!--------------------------------SWIPER JS -------------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <!--------------------------------MAIN JS-------------------------------->
+    <script src="assets/js/main.js"></script>
+    
+        <!-- JQUERY JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+        <!-- EXTERNAL SCRIPT -->
+        <script type="module" src="./assets/script/index.js"></script>
+  </body>
+</html>
