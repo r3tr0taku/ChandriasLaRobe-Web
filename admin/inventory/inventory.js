@@ -203,6 +203,13 @@ $(document).ready(function () {
             return;
         }
 
+        // Price should not be negative
+        const prizeValue = parseFloat($("#add-product-prize").val());
+        if (isNaN(prizeValue) || prizeValue < 0) {
+            showErrorModal("Product price cannot be negative.");
+            return;
+        }
+
         // DISPLAYING SPINNER
         const spinner = $("#spinner");
         spinner.removeClass("d-none");
@@ -420,6 +427,13 @@ $(document).ready(function () {
             }
         });
         if (!isValid) return;
+
+        // Price should not be negative
+        const prizeValue = parseFloat($("#update-product-prize").val());
+        if (isNaN(prizeValue) || prizeValue < 0) {
+            showErrorModal("Product price cannot be negative.");
+            return;
+        }
 
         // CONVERTING TO ALL CAPS
         // let $productCode = $("#view-product-code");

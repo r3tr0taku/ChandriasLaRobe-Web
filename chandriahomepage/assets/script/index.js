@@ -26,7 +26,7 @@ $(document).ready(function () {
                 <div class="product-banner">
 
                  
-                  <a href="details.html" class="product-images" data-id="${doc.id}">
+                  <a href="/chandriahomepage/details.html" class="product-images" data-id="${doc.id}">
                   <img src="${data.frontImageUrl}" alt="" class="product-img default">
                   
                   <img src="${data.backImageUrl}" alt="" class="product-img hover">
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
                 <div class="product-content">
                   <span class="product-category">${data.category}</span>
-                  <a href="details.html" data-id="${doc.id}">
+                  <a href="/chandriahomepage/details.html" data-id="${doc.id}">
                     <h3 class="product-title">${data.productCode}</h3>
                   </a>
                   <div class="product-rating">
