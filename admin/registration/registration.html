@@ -1,72 +1,55 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Chandria's La Robe</title>
-        <link rel="stylesheet" href="./registration.css" />
-
-        <link
-            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-            rel="stylesheet"
-        />
-        <!-- NOTYF CDN -->
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
-        />
-    </head>
-    <body>
-        <div class="logo-bar">
-            <img src="/admin/images/chandriaslogo.png" alt="Logo" />
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    
+    <title>Login Form</title>
+    
+    <!--BoxIcon CDN-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="/admin/styles.css">
+    
+  </head>
+  
+  <body>
+    
+    <div class="container">     
+      <div class="form-box">
+        <form action="">
+          <h1>
+            Sign Up
+          </h1>
+          <div class="input-box">
+            <input type="text" placeholder="Username" required>
+            <i class='bx bxs-user'></i>
+          </div>
+          <div class="input-box">
+            <input type="text" placeholder="Email" required>
+            <i class='bx bxs-envelope'></i>
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="Password" required id="register-password">
+            <i class='bx bxs-lock'></i>
+            <i class='bx bx-show eye-icon' id="toggle-register-password" style="cursor:pointer; position:absolute; right:20px; top:50%; transform:translateY(-50%);"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="Confirm Password" required id="register-confirm-password">
+            <i class='bx bxs-lock'></i>
+            <i class='bx bx-show eye-icon' id="toggle-register-confirm-password" style="cursor:pointer; position:absolute; right:20px; top:50%; transform:translateY(-50%);"></i>
+          </div>
+          <button type="submit" class="btn"> Register </button>
+        </form>
+      </div>  
+      <div class="toggle-box">
+        <div class="toggle-panel toggle-left">
+          <h1>OWNER ONLY</h1>
+          <p> Chandria's La Robe - Web System </p>
         </div>
-
-        <div class="custom-container">
-            <form>
-                <div class="title">SIGN UP</div>
-                <div class="subtitle">All Around Gown Rental System</div>
-
-                <input
-                    type="text"
-                    placeholder="Username"
-                    id="input-username"
-                    required
-                />
-
-                <input
-                    type="text"
-                    placeholder="Email"
-                    id="input-email"
-                    required
-                />
-
-                <div class="password-field">
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        id="input-password"
-                        required
-                    />
-                    <i class="bx bx-show eye-icon" id="togglePassword"></i>
-                </div>
-                <div class="password-field mb-3">
-                    <input
-                        type="password"
-                        placeholder="Confirm Password"
-                        id="confirm-password"
-                        required
-                    />
-                    <i
-                        class="bx bx-show eye-icon"
-                        id="toggleConfirmPassword"
-                    ></i>
-                </div>
-
-                <button type="submit" class="button" id="signUp-btn">
-                    CREATE AN ACCOUNT
-                </button>
-            </form>
-        </div>
+      
+    </div>
 
         <!-- BCRYPT CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
@@ -81,6 +64,6 @@
         ></script>
 
         <!-- EXTERNAL SCRIPT -->
-        <script type="module" src="./script/registration.js"></script>
+        <script type="module" src="./registration.js"></script>
     </body>
 </html>
