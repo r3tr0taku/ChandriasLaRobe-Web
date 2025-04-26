@@ -104,6 +104,7 @@
             <input type="time" id="appointment-time">
         </div>
 
+        <div class="table-scroll-wrapper">
         <table>
             <thead>
                 <tr>
@@ -112,16 +113,48 @@
                     <th>Contact</th>
                     <th>Appointment</th>
                     <th>Status</th>
-                    <th>Product Id</th>
+                    <!-- Removed Product Id column -->
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="appointment-body">
                 <!-- Appointment Rows will be injected here by JS -->
+                <!-- <tr>
+                    <td>101</td>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>2025-04-28 2:00 PM</td>
+                    <td class="status-upcoming">Upcoming</td>
+                    <td><button class="view-product-btn">View</button></td>
+                </tr> -->
+                
             </tbody>
         </table>
+        </div>
     </div>
 </section>
-    <script src="schedule.js"></script>
+
+<!-- Product View Modal -->
+<div id="product-view-modal" class="modal" style="display:none;justify-content:center;align-items:center;">
+    <div class="modal-content">
+        <span class="close" id="product-view-close">&times;</span>
+        <h2 style="text-align:center;margin-bottom:1.2em;">Product Details</h2>
+        <div id="product-view-details" style="display:flex;flex-direction:column;align-items:center;gap:1.2em;">
+            <div style="font-size:1.1em;font-weight:600;letter-spacing:1px;">Product ID: <span id="modal-product-id"></span></div>
+            <!-- Product image is here! -->
+            <img id="modal-product-image" src="/admin/images/accessory-sets.png" alt="Product Image" />
+        </div>
+    </div>
+</div>
+
+<script src="./script.js"></script>
+                    <!-- JQUERY JS -->
+                    <script
+                    src="https://code.jquery.com/jquery-3.7.1.js"
+                    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+                    crossorigin="anonymous"
+                ></script>
+                <!--=============== EXTERNAL SCRIPT ===============-->
+                <script type="module" src="./script/schedule.js"></script>
 </body>
 </html>

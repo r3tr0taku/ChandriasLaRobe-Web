@@ -1,15 +1,45 @@
+body {
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-05);
+    overflow-Y: hidden !important;
+    overflow-x: hidden !important;
+}
+
 .dashboard {
     background: #fff;
     border-radius: 12px;
-    padding: 20px;
-    margin: 20px;
+    padding: 20px 32px; /* Fixed left/right padding for consistent inner spacing */
+    margin: 20px auto; /* Center container horizontally */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-height: 60vh;
+    max-height: 90vh; /* Prevent overflow beyond dashboard */
+    width: 100%;
+    max-width: 1200px; /* Responsive max width */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    margin: 10px auto; /* Center container horizontally on mobile */
+    padding: 10px 8px;
+  }
+}
+
+#search {
+    width: 250px;
+    padding: 8px 12px;
 }
 
 .filters {
+    height: 60px;
+    margin-top: 60px;
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .filters input {
@@ -22,6 +52,12 @@
 table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: auto; /* revert to default for natural column sizing */
+    /* Remove display: block from thead/tbody for normal table layout */
+}
+
+thead, tbody {
+    display: table-row-group;
 }
 
 thead {
@@ -31,10 +67,67 @@ thead {
 th, td {
     padding: 12px 15px;
     text-align: left;
+    /* Optionally set min-width for better alignment */
+}
+
+/* Make table scrollable horizontally if it overflows */
+.table-scroll-wrapper {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: unset;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: #bdbdbd #fff;
+    /* Add padding to the right so the scrollbar doesn't overlap the table heading */
+    padding-right: 10px;
+    box-sizing: border-box;
+    /* Make the scroll area start below the table heading */
+    margin-top: -1px;
+}
+
+.table-scroll-wrapper table {
+    /* Make table width 100% minus scrollbar width to avoid overlap */
+    width: calc(100% - 10px);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* For Webkit browsers (Chrome, Edge, Safari) */
+.table-scroll-wrapper::-webkit-scrollbar {
+    width: 10px;
+    background: #fff;
+}
+.table-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 8px;
+}
+.table-scroll-wrapper::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: #f1f5f9;
+    z-index: 2;
+}
+
+/* Add a spacer row to visually separate thead and tbody for the scrollbar */
+thead::after {
+    content: '';
+    display: table-row;
+    height: 0;
 }
 
 tbody tr {
     border-bottom: 1px solid #e2e8f0;
+    overflow-y: visible;
+}
+
+tbody {
+    /* Remove max-height and overflow-y from tbody for natural table layout */
 }
 
 .status-upcoming {

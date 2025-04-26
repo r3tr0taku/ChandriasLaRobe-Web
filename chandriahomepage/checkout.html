@@ -10,7 +10,11 @@
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
  
- 
+    <!-- NOTYF CDN -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+/>
      <!--=============== CSS ===============-->
      <link rel="stylesheet" href="assets/css/styles.css" />
  
@@ -91,11 +95,11 @@
           <div class="checkout-group">
            
             <form action="" class="form grid">
-              <input type="text" placeholder="Name" class="form-input">
-              <input type="email" placeholder="Email" class="form-input">
+              <input type="text" placeholder="Name" class="form-input" id="customer-name">
+              <input type="email" placeholder="Email" class="form-input" id="customer-email">
               <input type="tel" placeholder="Phone" class="form-input">
-              <input type="date" placeholder="Date" class="form-input">
-              <input type="time" placeholder="Time" class="form-input">
+              <input type="date" placeholder="Date" class="form-input" id="checkout-date">
+              <input type="time" placeholder="Time" class="form-input" id="checkout-time">
 
               <select name="rental-duration" placeholder="Rent Duration" class="form-input">
                 <option value="">Select Rental Duration</option>
@@ -184,7 +188,7 @@
               </tr>
             </table>
             <div class="place-rent">
-            <button class="btn btn-md">
+            <button class="btn btn-md" id="place-rent-btn">
               <i class="fi fi-rs-order-history"></i> Place Rental
             </button>
           </div>
@@ -197,8 +201,18 @@
 
     <!--=============== SWIPER JS ===============-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+            <!-- NOTYF CDN -->
+            <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+                    <!-- JQUERY JS -->
+        <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"
+    ></script>
+    <!--=============== EXTERNAL SCRIPT ===============-->
+    <script type="module" src="./assets/script/checkout.js"></script>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
   </body>
 </html>
