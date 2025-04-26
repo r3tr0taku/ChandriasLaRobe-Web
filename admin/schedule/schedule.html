@@ -7,8 +7,10 @@
 
     <title>Chandria's La Robe - Web System</title>
     <link rel="stylesheet" href="/admin/sidebar/sidebar.css" />
-
+    <link rel="stylesheet" href="/admin/schedule/schedule.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    
 </head>
 
 <body>
@@ -25,7 +27,6 @@
 
         <div class="menu-bar">
             <div class="menu">
-
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="/admin/dashboard/Dashboard.html">
@@ -39,7 +40,6 @@
                             <i class='bx bxs-t-shirt icon'></i>
                             <span class="text nav-text">Inventory</span>
                         </a>
-                        <!-- <i class='bx bxs-chevron-down'></i> -->
                     </li>
 
                     <li class="nav-link active">
@@ -63,48 +63,65 @@
                         </a>
                     </li>
 
-                    <!-- <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-wallet icon'></i>
-                            <span class="text nav-text">Transaction</span>
-                        </a>
-                    </li> -->
-                    
                     <li class="nav-link">
                         <a href="/admin/settings/settings.html">
                             <i class="bx bxs-cog icon"></i>
-                            <span class="text nav-text"
-                                >Settings</span
-                            >
+                            <span class="text nav-text">Settings</span>
                         </a>
                     </li>
-
                 </ul>
             </div>
 
             <div class="bottom-content">
-            <li class="mode">
-                <div class="moon-sun">
-                    <i class='bx bxs-moon icon moon'></i>
-                    <i class='bx bxs-sun icon sun'></i>
-                </div>
-                <span class="mode-text text">Dark Mode</span>
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bxs-moon icon moon'></i>
+                        <i class='bx bxs-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
 
-                <div class="toggle-switch">
-                    <span class="switch"> </span>
-                </div>
-            </li>
-
+                    <div class="toggle-switch">
+                        <span class="switch"> </span>
+                    </div>
+                </li>
             </div>
-
         </div>
     </nav>
 
     <section class="page-name">
         <div class="text">Schedule</div>
-    </section>
+   
 
+    <!-- 🆕 Appointment Dashboard Start -->
+    <div class="dashboard">
+        
+        
+
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search by customer name..." />
+            
+            <input type="date" id="appointment-date">
+            <input type="time" id="appointment-time">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Contact</th>
+                    <th>Appointment</th>
+                    <th>Status</th>
+                    <th>Product Id</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="appointment-body">
+                <!-- Appointment Rows will be injected here by JS -->
+            </tbody>
+        </table>
+    </div>
+</section>
     <script src="schedule.js"></script>
-
 </body>
 </html>

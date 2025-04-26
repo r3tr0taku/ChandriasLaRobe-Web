@@ -220,7 +220,7 @@
         <div class="customer-modal-scroll">
           <form id="customer-form" autocomplete="off" class="customer-form-grid">
             <div class="customer-form-header">
-              <h2>Customer Information</h2>
+              <h2>Rental Information</h2>
             </div>
             <div class="customer-form-row">
               <label>Client First Name<br><input type="text" id="client-first-name" required></label>
@@ -232,10 +232,36 @@
             </div>
             <div class="customer-form-row">
               <label>Additional<br><input type="text" id="client-additional" readonly></label>
+              <label>Event Date<br><input type="date" id="event-date" required></label>
+            </div>
+            <div class="customer-form-row">
+              <label>Event Type<br>
+                <select id="event-type" required>
+                  <option value="">Select Event Type</option>
+                  <option value="Sagala">Sagala</option>
+                  <option value="Grad Ball">Grad Ball</option>
+                  <option value="Debut">Debut</option>
+                  <option value="Prom">Prom</option>
+                  <option value="Other Indoor Events">Other Indoor Events</option>
+                  <option value="Other Outdoor Events">Other Outdoor Events</option>
+                </select>
+              </label>
               <label>Rental Fee<br><input type="text" id="client-rental-fee" readonly></label>
             </div>
             <div class="customer-form-row">
-              <label>Event Date<br><input type="date" id="event-date" required></label>
+              <label>Total Payment<br><input type="number" id="total-payment" min="0" step="0.01" required></label>
+              <label>Remaining Balance<br><input type="number" id="remaining-balance" readonly></label>
+            </div>
+            <div class="customer-form-row">
+              <label>Payment Method<br>
+                <select id="payment-method" required>
+                  <option value="">Select Method</option>
+                  <option value="Cash">Cash</option>
+                  <option value="Gcash">GCash</option>
+                  <option value="Maya">Maya</option>
+                  <option value="GoTyme">GoTyme</option>
+                </select>
+              </label>
               <label>Payment Type<br>
                 <select id="payment-type" required>
                   <option value="">Select Payment Type</option>
@@ -245,8 +271,7 @@
               </label>
             </div>
             <div class="customer-form-row">
-              <label>Total Payment<br><input type="number" id="total-payment" min="0" step="0.01" required></label>
-              <label>Remaining Balance<br><input type="number" id="remaining-balance" readonly></label>
+              <label style="flex:1 1 100%;">Reference No.<br><input type="text" id="reference-no" style="width:100%"></label>
             </div>
             <div class="customer-form-row">
               <label>Region<br>

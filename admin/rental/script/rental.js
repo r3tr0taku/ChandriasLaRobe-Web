@@ -35,4 +35,30 @@ $(document).ready(function () {
         });
     }
     displayProducts();
+
+    // --- EVENT TYPE FEE LOGIC ---
+    // Removed event type logic as requested
+
+    // --- PAYMENT METHOD REFERENCE NO LOGIC ---
+    const paymentMethodSelector = $('#payment-method');
+    const referenceNoInput = $('#reference-no');
+
+    paymentMethodSelector.on('change', function () {
+        let method = $(this).val();
+        if (method === 'Cash') {
+            referenceNoInput.val('CASH').prop('readonly', true);
+        } else {
+            referenceNoInput.val('').prop('readonly', false);
+        }
+    });
+
+    // Optionally, trigger the logic on page load if values are pre-filled
+    eventTypeSelector.trigger('change');
+    paymentMethodSelector.trigger('change');
+
+    // Patch: When modal is shown, trigger the custom event
+    if ($('#customer-modal').is(':visible')) {
+        $('#customer-modal').trigger('showModal');
+    }
 });
+``
