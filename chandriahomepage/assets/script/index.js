@@ -2,12 +2,7 @@ import {
     appCredential,
     getFirestore,
     collection,
-    addDoc,
-    deleteDoc,
-    updateDoc,
-    doc,
-    getDocs,
-    getDoc
+    getDocs
 } from "./chandrias-sdk.js";
 
 $(document).ready(function () {

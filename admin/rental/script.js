@@ -153,20 +153,39 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('cart-total-amount').textContent = `₱${total.toLocaleString()}`;
   }
 
-  // --- Add click listeners to product cards ---
-  document.querySelectorAll('#products .pos-card').forEach(card => {
-    card.addEventListener('click', function () {
-      const name = card.querySelector('.pos-name').textContent;
-      const price = parseInt(card.querySelector('.pos-price').textContent.replace(/[^\d]/g, ''));
-      // Only add if not already in cart
-      if (cart.products.some(p => p.name === name && p.price === price)) {
-        showErrorModal('This product is already in the cart.');
-        return;
-      }
-      cart.products.push({ name, price });
-      updateCartSummary();
-    });
-  });
+  // // --- Add click listeners to product cards ---
+  // document.querySelectorAll('#products .pos-card').forEach(card => {
+  //   card.addEventListener('click', function () {
+  //     const name = card.querySelector('.pos-name').textContent;
+  //     const price = parseInt(card.querySelector('.pos-price').textContent.replace(/[^\d]/g, ''));
+  //     // Only add if not already in cart
+  //     if (cart.products.some(p => p.name === name && p.price === price)) {
+  //       showErrorModal('This product is already in the cart.');
+  //       return;
+  //     }
+  //     cart.products.push({ name, price });
+  //     updateCartSummary();
+  //   });
+  // });
+
+  // --- Add click listener using event delegation for product cards ---
+document.querySelector('#products').addEventListener('click', function (e) {
+  const card = e.target.closest('.pos-card');
+  if (!card) return;
+
+  const name = card.querySelector('.pos-name').textContent;
+  const price = parseInt(card.querySelector('.pos-price').textContent.replace(/[^\d]/g, ''));
+
+  // Only add if not already in cart
+  if (cart.products.some(p => p.name === name && p.price === price)) {
+    showErrorModal('This product is already in the cart.');
+    return;
+  }
+
+  cart.products.push({ name, price });
+  updateCartSummary();
+});
+
 
   // --- Accessory Modal Logic ---
   const accessoryModal = document.getElementById('accessory-modal');
