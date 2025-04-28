@@ -1,92 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Chandria's La Robe - Login</title>
-    <!--BoxIcon CDN-->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/chandriahomepage/assets/css/user_authentication.css">
-    <link rel="stylesheet" href="/admin/styles.css">
-    <!-- NOTYF CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
-  </head>
-  <body>
-    <div class="container">
-      <!-- Left Welcome Panel -->
-      <div class="toggle-box">
-        <div class="toggle-panel toggle-left" style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;">
-          <h1 style="font-size:2.5rem;font-weight:700;margin-bottom:10px;">ADMIN ONLY</h1>
-          <p style="margin-bottom:20px;">Chandria's La Robe - Web System</p>
-          <!-- Register button removed -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+
+        <title>Login Form</title>
+
+        <!--BoxIcon CDN-->
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <!-- NOTYF CDN -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+        />
+        <!-- EXTERNAL CSS -->
+        <link rel="stylesheet" href="/admin/styles.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="form-box login">
+                <!-- LOGIN CONTAINER -->
+                <form>
+                    <h1>Login</h1>
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            placeholder="Email"
+                            id="login-email"
+                            required
+                        />
+                        <i class="bx bxs-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            id="login-password"
+                            required
+                        />
+                        <i
+                            class="bx bx-show eye-icon"
+                            id="toggle-login-password"
+                            style="
+                                cursor: pointer;
+                                position: absolute;
+                                right: 20px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            "
+                        ></i>
+                    </div>
+                    <button type="submit" class="btn" id="login-btn">
+                        Login
+                    </button>
+                </form>
+            </div>
+
+            <div class="form-box register">
+                <form action="">
+                    <h1>Forgot Password</h1>
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            placeholder="Email"
+                            id="forgot-email"
+                            required
+                        />
+                        <i class="bx bxs-user"></i>
+                    </div>
+                    <button type="submit" class="btn" id="submit-forgot-btn">
+                        Submit
+                    </button>
+                </form>
+            </div>
+            <div class="toggle-box">
+                <div class="toggle-panel toggle-left">
+                    <h1>ADMIN ONLY</h1>
+                    <p>Chandria's La Robe - Web System</p>
+                    <button class="btn register-btn">Forgot Password?</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>ADMIN ONLY</h1>
+                    <p>Chandria's La Robe - Web System</p>
+                    <button class="btn login-btn">Back to Login</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- Right Login Panel -->
-      <div class="form-box login" id="login-box">
-        <form id="login-form" autocomplete="off">
-          <h1 style="display:flex;align-items:center;gap:10px;">
-            <span style="font-size:2rem;font-weight:700;">Login</span>
-          </h1>
-          <div class="input-box">
-            <input type="text" placeholder="Username or Email" id="input-email" required>
-            <i class='bx bxs-user'></i>
-          </div>
-          <div class="input-box">
-            <input type="password" placeholder="Password" id="input-password" required>
-            <i class='bx bxs-lock'></i>
-            <i class='bx bx-show eye-icon' id="togglePassword" style="cursor:pointer; position:absolute; right:20px; top:50%; transform:translateY(-50%);"></i>
-          </div>
-          <div class="forgot-link">
-            <a href="#" id="forgot-password"> Forgot Password? </a>
-          </div>
-          <button type="submit" class="btn" id="login-btn"> Login </button>
-        </form>
-      </div>
-      <!-- Forgot Password Panel (hidden by default) -->
-      <div class="form-box forgot" id="forgot-box" style="display:none;">
-        <form id="forgot-form" autocomplete="off">
-          <h1>
-            <img src="/admin/images/chandriaslogo.png" style="height:40px;">
-            Forgot Password
-          </h1>
-          <div class="input-box">
-            <input type="text" id="input-forgot-email" placeholder="Enter Email Here" required />
-            <i class='bx bxs-envelope'></i>
-          </div>
-          <div class="forgot-link">
-            <a href="#" id="back-to-login"> Back To Login </a>
-          </div>
-          <button type="submit" class="btn" id="submit-forgot-btn">SUBMIT</button>
-        </form>
-      </div>
-    </div>
-    <!-- NOTYF CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    <!-- JQUERY CDN -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <!-- FIREBASE SDK & LOGIC -->
-    <script type="module" src="/admin/authentication/authentication.js"></script>
-    <script>
-      // Password visibility toggle for login
-      $(function() {
-        $('#togglePassword').on('click', function() {
-          const input = $('#input-password');
-          const type = input.attr('type') === 'password' ? 'text' : 'password';
-          input.attr('type', type);
-          $(this).toggleClass('bx-show bx-hide');
-        });
-        // Toggle forgot/login forms
-        $('#forgot-password').on('click', function(e) {
-          e.preventDefault();
-          $('#login-box').hide();
-          $('#forgot-box').show();
-        });
-        $('#back-to-login').on('click', function(e) {
-          e.preventDefault();
-          $('#forgot-box').hide();
-          $('#login-box').show();
-        });
-      });
-    </script>
-  </body>
+
+        <!-- NOTYF CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <!-- JQUERY CDN -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+        <!-- EXTERNAL SCRIPT -->
+        <script type="module" src="/admin/authentication/authentication.js"></script>
+    </body>
 </html>

@@ -18,23 +18,23 @@ import {
   deleteDoc,
   updateDoc,
   getDocs,
-  getDoc
+  getDoc,
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
 
 // Import your firebaseConfig from a separate file
-import { firebaseConfig } from "./firebase-config.js";
+import { firebaseConfig } from "/admin/firebase-config.js";
 
 // Initialize Firebase
 const appCredential = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(appCredential);
 const auth = getAuth(appCredential);
 
-const app = initializeApp(firebaseConfig);
 
 export {
-  app,
   appCredential,
   auth,
   onAuthStateChanged,
@@ -46,6 +46,8 @@ export {
   signOut,
   getFirestore,
   doc,
+  query,
+  where,
   setDoc,
   addDoc,
   deleteDoc,

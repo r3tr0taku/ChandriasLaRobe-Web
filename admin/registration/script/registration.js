@@ -1,15 +1,17 @@
 import {
     appCredential,
+    auth,
     getAuth,
+    onAuthStateChanged,
     createUserWithEmailAndPassword,
     validatePassword,
     sendEmailVerification,
     getFirestore,
+    setDoc,
     doc,
-    setDoc
+    query,
+    where
 } from "./chandrias-sdk.js";
-
-const chandriaDB = getFirestore(appCredential);
 
 $(document).ready(function () {
     const notyf = new Notyf({
@@ -18,35 +20,30 @@ $(document).ready(function () {
             y: "top"
         }
     });
+    
+    // INITIALIZING DATABASE
+    const chandriaDB = getFirestore(appCredential);
 
-    const auth = getAuth(appCredential);
-
-    // BCRYPT VARIABLE
-    const bcrypt = window.dcodeIO.bcrypt;
-
-    // VARIABLES
-    const $username = $("#input-username");
-    const $email = $("#input-email");
-    const $password = $("#input-password");
-    const $passwordConfirm = $("#confirm-password");
+    // DOM VARIABLES
+    const $email = $("#signup-email"),
+        $password = $("#signup-password"),
+        $passwordConfirm = $("#confirm-password");
     const signUpBtn = $("#signUp-btn");
-
     // SIGN-UP BUTTON FUNCTION
     signUpBtn.on("click", async function (e) {
         e.preventDefault();
 
         // VARIABLES
-        const username = $("#input-username").val().trim();
-        const email = $("#input-email").val().trim();
-        const password = $("#input-password").val().trim();
-        const passwordConfirm = $("#confirm-password").val().trim();
+        const email = $email.val().trim();
+        const password = $password.val().trim();
+        const passwordConfirm = $passwordConfirm.val().trim();
 
         // DISABLING SIGN-UP BUTTON WHEN SIGNING-UP
         signUpBtn.attr("disabled", true).text("Signing Up...");
 
-        if (!username || !email || !password || !passwordConfirm) {
+        if (!email || !password || !passwordConfirm) {
             notyf.error("Please fill in all fields.");
-            signUpBtn.attr("disabled", false).text("CREATE AN ACCOUNT");
+            signUpBtn.attr("disabled", false).text("Sign Up");
             return;
         }
 
@@ -54,12 +51,8 @@ $(document).ready(function () {
         if (password !== passwordConfirm) {
             notyf.error("Passwords do not match.");
 
-            // CLEARING FORM INPUT
-            $password.val("");
-            $passwordConfirm.val("");
-
             // ENABLING SIGN-UP BUTTON WHEN WRONG CONFIRM PASSWORD
-            signUpBtn.attr("disabled", false).text("CREATE AN ACCOUNT");
+            signUpBtn.attr("disabled", false).text("Sign Up");
             return;
         }
 
@@ -95,7 +88,7 @@ $(document).ready(function () {
                 });
 
                 // ENABLING SIGN-UP BUTTON WHEN WRONG VALIDATION
-                signUpBtn.attr("disabled", false).text("CREATE AN ACCOUNT");
+                signUpBtn.attr("disabled", false).text("Sign Up");
                 return;
             }
 
@@ -109,15 +102,13 @@ $(document).ready(function () {
             // SEND VERIFICATION EMAIL
             await sendEmailVerification(userCredential.user);
 
-            // SAVE USER INFO TO FIRESTORE
-            const hashedPassword = await bcrypt.hash(password, 10); // 10 = salt rounds
-
-            await setDoc(doc(chandriaDB, "users", userCredential.user.uid), {
-                username: username,
-                email: email,
-                password: hashedPassword,
-                createdAt: new Date()
-            });
+            await setDoc(
+                doc(chandriaDB, "adminAccounts", userCredential.user.uid),
+                {
+                    email: email,
+                    createdAt: new Date()
+                }
+            );
 
             // MESSAGE IF SUCCESS
             notyf.open({
@@ -131,7 +122,6 @@ $(document).ready(function () {
             await getAuth().signOut();
 
             // CLEARING FORM INPUTS
-            $username.val("");
             $email.val("");
             $password.val("");
             $passwordConfirm.val("");
@@ -142,21 +132,19 @@ $(document).ready(function () {
         }
 
         // ENABLING SIGN-UP BUTTON AFTER SUCCESS REGISTERING
-        signUpBtn.attr("disabled", false).text("CREATE AN ACCOUNT");
+        signUpBtn.attr("disabled", false).text("Sign Up");
     });
 
     // TOGGLING PASSWORD
-    $("#togglePassword").click(function () {
-        const input = $("#input-password");
-        const type = input.attr("type") === "password" ? "text" : "password";
-        input.attr("type", type);
-        $(this).toggleClass("bx-show bx-hide");
-    });
+    $("#toggle-signup-passwords").click(function () {
+        const input = $("#signup-password");
+        const confirm = $("#confirm-password");
 
-    $("#toggleConfirmPassword").click(function () {
-        const input = $("#confirm-password");
         const type = input.attr("type") === "password" ? "text" : "password";
+
         input.attr("type", type);
+        confirm.attr("type", type);
+
         $(this).toggleClass("bx-show bx-hide");
     });
 });

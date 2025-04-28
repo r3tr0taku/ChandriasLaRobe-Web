@@ -6,7 +6,9 @@ import {
     sendPasswordResetEmail,
     getFirestore,
     collection,
-    getDocs
+    getDocs,
+    query,
+    where
 } from "/admin/chandrias-sdk.js";
 
 $(document).ready(function () {
@@ -23,18 +25,14 @@ $(document).ready(function () {
     // Check if user is already signed in, if so, redirect to profile page
     onAuthStateChanged(auth, user => {
         if (user && !isLoggingIn) {
+            // Delay just a bit to allow UI elements to load before redirecting
             setTimeout(() => {
-                window.location.href = "/admin/dashboard/dashboard.html";
-            }, 100);
+                window.location.href = "/admin/dashboard/Dashboard.html"; // Redirect to profile page if already logged in
+            }, 800);
         }
     });
 
-    // VARIABLES
-    const $email = $("#input-email");
-    const $password = $("#input-password");
-    const $togglePassword = $("#togglePassword");
-    const loginBtn = $("#login-btn");
-
+    // ERROR MESSAGES FORMAT
     const formatErrorMessage = errorCode => {
         let message = "";
 
@@ -61,28 +59,49 @@ $(document).ready(function () {
         return message;
     };
 
+    // DOM VARIABLES
+    const loginBtn = $("#login-btn");
+
     // LOGIN BUTTON FUNCTION
     loginBtn.on("click", async function (e) {
         e.preventDefault();
 
-        // Get email and password
-        const email = $email.val();
-        const password = $password.val();
-
-        // Disable the login button while attempting login
-        loginBtn.attr("disabled", true).text("PROCEEDING...");
-
         // Set logging in flag to true so we don’t auto-redirect before toast
         isLoggingIn = true;
 
+        // Disable the login button while attempting login
+        loginBtn.attr("disabled", true).text("Logging In...");
+
+        const email = $("#login-email").val().trim();
+        const password = $("#login-password").val().trim();
         try {
+            // CHECK IF EMAIL EXISTS IN userAccounts COLLECTION
+            const emailQuery = await getDocs(
+                query(
+                    collection(chandriaDB, "adminAccounts"),
+                    where("email", "==", email)
+                )
+            );
+            // IF EMAIL DOES NOT EXIST, SHOW ERROR AND RETURN
+            if (emailQuery.empty) {
+                notyf.open({
+                    type: "error",
+                    message: "Email is not registered. Please sign up first.",
+                    duration: 5000
+                });
+
+                // Re-enable login button
+                loginBtn.attr("disabled", false).text("Login");
+                return;
+            }
+            
             // Sign in with Firebase Authentication
             const userCredential = await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
-            
+
             // CHECKING IF VERIFIED
             const user = userCredential.user;
             if (!user.emailVerified) {
@@ -108,13 +127,17 @@ $(document).ready(function () {
 
             // Delay redirect to allow toast to show
             setTimeout(() => {
-                window.location.href = "/admin/dashboard/dashboard.html";
-            }, 1100);
+                window.location.href = "/admin/dashboard/Dashboard.html"; // Redirect to dashboard
+            }, 1300);
+            //
         } catch (error) {
             console.error("Unable to Login: " + error.code + error.message);
+
+            // Re-enable the login button after login attempt
+            loginBtn.attr("disabled", false).text("Login");
+
             // Format user-friendly error message
             const errorMsg = formatErrorMessage(error.code);
-
             // If formatErrorMessage returns a message, show it
             if (errorMsg) {
                 notyf.open({
@@ -127,15 +150,12 @@ $(document).ready(function () {
                 notyf.error("Login failed. Please try again.");
             }
         }
-
-        // Re-enable the login button after login attempt
-        loginBtn.attr("disabled", false).text("PROCEED");
     });
 
     // CHECKING EMAIL
     const chandriaDB = getFirestore(appCredential);
     async function emailExistsInFirestore(email) {
-        const usersRef = collection(chandriaDB, "users");
+        const usersRef = collection(chandriaDB, "adminAccounts");
         const snapshot = await getDocs(usersRef);
         const exists = snapshot.docs.some(doc => doc.data().email === email);
         return exists;
@@ -145,7 +165,7 @@ $(document).ready(function () {
     const forgotBtn = $("#submit-forgot-btn");
     forgotBtn.on("click", async function (e) {
         e.preventDefault();
-        const email = $("#input-forgot-email").val().trim();
+        const email = $("#forgot-email").val().trim();
 
         if (email === "") {
             notyf.error("Please enter your email address.");
@@ -166,7 +186,7 @@ $(document).ready(function () {
             const exists = await emailExistsInFirestore(email);
             if (!exists) {
                 notyf.error("Email not found. Please try another.");
-                forgotBtn.attr("disabled", false).text("SUBMIT");
+                forgotBtn.attr("disabled", false).text("Submit");
                 return;
             }
             //
@@ -176,7 +196,7 @@ $(document).ready(function () {
                 message: "Reset link sent! Check your inbox.",
                 duration: 5000
             });
-            forgotBtn.attr("disabled", false).text("SUBMIT");
+            forgotBtn.attr("disabled", false).text("Submit");
         } catch (error) {
             console.error("Reset Error:", error.code, error.message);
             notyf.open({
@@ -184,25 +204,41 @@ $(document).ready(function () {
                 message: "Something went wrong. Please try again.",
                 duration: 5000
             });
-            forgotBtn.attr("disabled", false).text("SUBMIT");
+            forgotBtn.attr("disabled", false).text("Submit");
         }
     });
 
-    // TOGGLE BETWEEN FORGOT PASSWORD
-    $("#forgot-password").on("click", function () {
-        $(".login-container").addClass("hide");
-        $(".forgot-container").addClass("show");
-    });
-    $("#back-to-login").on("click", function () {
-        $(".forgot-container").removeClass("show");
-        $(".login-container").removeClass("hide");
+    // TOGGLE TRIGGER ANIMATION
+    const $container = $(".container");
+    const $registerBtn = $(".register-btn");
+    const $loginBtn = $(".login-btn");
+
+    $registerBtn.on("click", function () {
+        $container.addClass("active");
     });
 
-    // Password toggle functionality (fix: only run once DOM is ready)
-    $togglePassword.on("click", function () {
-        const type =
-            $password.attr("type") === "password" ? "text" : "password";
-        $password.attr("type", type);
-        $(this).toggleClass("bx-show bx-hide");
+    $loginBtn.on("click", function () {
+        $container.removeClass("active");
     });
+
+    $(window).on("resize", function () {
+        $(".container").css("height", $(window).height() + "px");
+    });
+
+    // PASSWORD TOGGLE (MULTIPLE)
+    function setupPasswordToggle(inputId, toggleId) {
+        const $input = $("#" + inputId);
+        const $toggle = $("#" + toggleId);
+
+        if ($input.length && $toggle.length) {
+            $toggle.on("click", function () {
+                const type =
+                    $input.attr("type") === "password" ? "text" : "password";
+                $input.attr("type", type);
+                $(this).toggleClass("bx-show bx-hide");
+            });
+        }
+    }
+
+    setupPasswordToggle("login-password", "toggle-login-password");
 });
