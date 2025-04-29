@@ -37,7 +37,7 @@ $(document).ready(function () {
         if (user && !isLoggingIn) {
             // Delay just a bit to allow UI elements to load before redirecting
             setTimeout(() => {
-                window.location.href = "./test_Profile.html"; // Redirect to profile page if already logged in
+                window.location.href = "../../test_Profile.html"; // Redirect to profile page if already logged in
             }, 800);
         }
     });
@@ -79,7 +79,7 @@ $(document).ready(function () {
         isLoggingIn = true;
 
         // Disable the login button while attempting login
-        loginBtn.attr("disabled", true).text("Logging IN...");
+        loginBtn.attr("disabled", true).text("Logging In...");
 
         const email = $("#login-email").val().trim();
         const password = $("#login-password").val().trim();
@@ -137,7 +137,7 @@ $(document).ready(function () {
 
             // Delay redirect to allow toast to show
             setTimeout(() => {
-                window.location.href = "./test_Profile.html";
+                window.location.href = "../../test_Profile.html";
             }, 1300);
             //
         } catch (error) {
