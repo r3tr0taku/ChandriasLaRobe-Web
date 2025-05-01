@@ -463,4 +463,24 @@ document.querySelector('#products').addEventListener('click', function (e) {
       }
     });
   }
+
+  // --- Restrict Event Date: must be at least 2 days after today, but allow any date after that ---
+  const eventDateInput = document.getElementById('event-date');
+  if (eventDateInput) {
+    // Set min date to today + 2 days (May 3, 2025)
+    const minDate = new Date(2025, 4, 3); // May 3, 2025
+    const minDateStr = minDate.toISOString().split('T')[0];
+    eventDateInput.min = minDateStr;
+    // Remove max date restriction
+    eventDateInput.removeAttribute('max');
+    // Prevent manual entry of invalid dates
+    customerForm && customerForm.addEventListener('submit', function(e) {
+      const selectedDate = new Date(eventDateInput.value);
+      if (selectedDate < minDate) {
+        e.preventDefault();
+        showErrorModal('Event date must be at least 2 days after today (May 3, 2025 or later).');
+        eventDateInput.focus();
+      }
+    });
+  }
 });

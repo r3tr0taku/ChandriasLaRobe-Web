@@ -124,7 +124,6 @@
         <section class="custom-page-name">
             <div class="custom-text">Inventory</div>
             <div class="container-fluid">
-                <!--Search and Button-->
                 <div class="search-and-button" style="display: flex; align-items: center; gap: 1rem; justify-content: space-between; margin-right: 2.5rem;">
                     <div class="search-box" style="flex: 1; max-width: 350px; min-width: 180px; width: 220px; margin-left: 0; margin-right: 0.5rem;">
                         <i class="bx bx-search icon"></i>
@@ -136,326 +135,290 @@
                         </button>
                     </div>
                 </div>
-
-                <!-- ADD PRODUCT MODAL -->
-                <div id="addProductModal" class="custom-modal">
-                    <div class="custom-modal-content">
-                        <span
-                            class="custom-close-button"
-                            data-close="addProductModal"
-                            >&times;</span
-                        >
-                        <h2 style="color: var(--secondary-text-color); transition: var(--tran-04);">Add Product</h2>
-                        <form>
-                            <!-- Image Preview (side by side like edit modal) -->
-                            <div class="file-upload-container">
-                                <div class="drop-zone" id="add-dropzone-front">
-                                    <input type="file" accept="image/*" id="add-file-front-img" hidden />
-                                    <label for="add-file-front-img" class="upload-label" id="add-upload-label-front">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
-                                        <p>Select Front View Image</p>
-                                    </label>
-                                </div>
-                                <div class="drop-zone" id="add-dropzone-back">
-                                    <input type="file" accept="image/*" id="add-file-back-img" hidden />
-                                    <label for="add-file-back-img" class="upload-label" id="add-upload-label-back">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
-                                        <p>Select Back View Image</p>
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- Product Code -->
-                            <input type="text" id="add-product-code" placeholder="Product Code" required />
-                            <!-- Price Input -->
-                            <div class="price-input">
-                                <div class="price-symbol">₱</div>
-                                <input type="number" placeholder="Product Prize" id="add-product-prize" />
-                                <div class="price-suffix">.00</div>
-                            </div>
-                            <!-- Size Select -->
-                            <select id="add-product-size">
-                                <option>Select Size</option>
-                                <option value="XS">Extra Small (XS)</option>
-                                <option value="S">Small (S)</option>
-                                <option value="M">Medium (M)</option>
-                                <option value="L">Large (L)</option>
-                                <option value="XL">Extra Large (XL)</option>
-                                <option value="XXL">2XL (XXL)</option>
-                                <option value="XXXL">3XL (XXXL)</option>
-                            </select>
-                            <!-- Color Select -->
-                            <select id="add-product-color">
-                                <option selected>Select Color</option>
-                                <option value="red" style="color: red">Red</option>
-                                <option value="blue" style="color: blue">Blue</option>
-                                <option value="goldenrod" style="color: goldenrod">Yellow</option>
-                                <option value="green" style="color: green">Green</option>
-                                <option value="orange" style="color: orange">Orange</option>
-                                <option value="purple" style="color: purple">Purple</option>
-                                <option value="white">White</option>
-                                <option value="black" style="color: black">Black</option>
-                                <option value="gray" style="color: gray">Gray</option>
-                                <option value="brown" style="color: #964B00">Brown</option>
-                                <option value="beige" style="color: #D2B48C">Beige</option>
-                                <option value="cream" style="color: #f5deb3">Cream</option>
-                            </select>
-                            <!-- Sleeve Style Select -->
-                            <select id="add-product-sleeve">
-                                <option selected>Select Sleeve Style</option>
-                                <option value="Short Sleeves">Short Sleeves</option>
-                                <option value="Long Sleeves">Long Sleeves</option>
-                                <option value="Off Shoulder">Off Shoulder</option>
-                            </select>
-                            <!-- Category Select -->
-                            <select id="add-product-category">
-                                <option selected>Select Category</option>
-                                <option value="Ball Gown">Ball Gown</option>
-                                <option value="Long Gown">Long Gown</option>
-                                <option value="Wedding Gown">Wedding Gown</option>
-                                <option value="Fairy Gown">Fairy Gown</option>
-                                <option value="Suits">Suits</option>
-                            </select>
-                            <!-- Modal Buttons -->
-                            <div class="modal-buttons">
-                                <button class="custom-btn" data-close="addProductModal">Close</button>
-                                <button class="custom-btn primary-btn" id="add-product-btn">Submit</button>
-                            </div>
-                        </form>
-                    </div>
+                <div class="pos-tabs" style="margin-top: 1.5rem;">
+                    <button class="tab-btn active" data-tab="products">Products</button>
+                    <button class="tab-btn" data-tab="accessories">Additional</button>
                 </div>
-
-                <!-- UPDATE PRODUCT MODAL -->
-                <div id="viewProductModal" class="custom-modal">
-                    <div class="custom-modal-content">
-                        <span
-                            class="custom-close-button"
-                            data-close="viewProductModal"
-                            >&times;</span
-                        >
-                        <h2 style="color: var(--secondary-text-color); transition: var(--tran-04);">Product Details</h2>
-                        <form>
-                            <!-- Image Preview -->
-                            <div class="file-upload-container">
-                                <div class="drop-zone" id="update-dropzone-front">
-                                    <input type="file" accept="image/*" id="update-file-front-img" hidden />
-                                    <label for="update-file-front-img" class="upload-label" id="update-upload-label-front">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
-                                        <p>Select Front View Image</p>
-                                    </label>
-                                </div>
-                                <div class="drop-zone" id="update-dropzone-back">
-                                    <input type="file" accept="image/*" id="update-file-back-img" hidden />
-                                    <label for="update-file-back-img" class="upload-label" id="update-upload-label-back">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
-                                        <p>Select Back View Image</p>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <!-- PRODUCT ID -->
-                            <input
-                                type="text"
-                                id="update-product-id"
-                                placeholder="Product ID HERE"
-                                disabled
-                                required
-                                hidden
-                            />
-
-                            <!-- PRODUCT CODE -->
-                            <input
-                                type="text"
-                                id="update-product-code"
-                                placeholder="Product Code"
-                                required
-                            />
-
-                            <!-- PRICE INPUT -->
-                            <div class="price-input">
-                                <div class="price-symbol">₱</div>
-                                <input
-                                    type="number"
-                                    placeholder="Product Prize"
-                                    id="update-product-prize"
-                                />
-                                <div class="price-suffix">.00</div>
-                            </div>
-
-                            <!-- PRODUCT SIZE -->
-                            <select id="update-product-size">
-                                <option>Select Size</option>
-                                <option value="XS">Extra Small (XS)</option>
-                                <option value="S">Small (S)</option>
-                                <option value="M">Medium (M)</option>
-                                <option value="L">Large (L)</option>
-                                <option value="XL">Extra Large (XL)</option>
-                                <option value="XXL">2XL (XXL)</option>
-                                <option value="XXXL">3XL (XXXL)</option>
-                            </select>
-
-                            <!-- SELECT COLOR -->
-                            <select id="update-product-color">
-                                <option selected>Select Color</option>
-                                <option value="red" style="color: red">
-                                    Red
-                                </option>
-                                <option value="blue" style="color: blue">
-                                    Blue
-                                </option>
-                                <option
-                                    value="goldenrod"
-                                    style="color: goldenrod"
-                                >
-                                    Yellow
-                                </option>
-                                <option value="green" style="color: green">
-                                    Green
-                                </option>
-                                <option value="orange" style="color: orange">
-                                    Orange
-                                </option>
-                                <option value="purple" style="color: purple">
-                                    Purple
-                                </option>
-                                <option value="white">White</option>
-                                <option value="black" style="color: black">
-                                    Black
-                                </option>
-                                <option value="gray" style="color: gray">
-                                    Gray
-                                </option>
-                                <option value="brown" style="color: #964B00">
-                                    Brown
-                                </option>
-                                <option value="beige" style="color: #D2B48C">
-                                    Beige
-                                </option>
-                                <option value="cream" style="color: #f5deb3">
-                                    Cream
-                                </option>
-                            </select>
-
-                            <!-- SELECT SLEEVE -->
-                            <select id="update-product-sleeve">
-                                <option selected>Sleeve Style</option>
-                                <option value="Short Sleeves">
-                                    Short Sleeves
-                                </option>
-                                <option value="Long Sleeves">
-                                    Long Sleeves
-                                </option>
-                                <option value="Off Shoulder">
-                                    Off Shoulder
-                                </option>
-                            </select>
-
-                            <!-- SELECT CATEGORY -->
-                            <select id="update-product-category">
-                                <option selected>Select Category</option>
-                                <option value="Ball Gown">Ball Gown</option>
-                                <option value="Long Gown">Long Gown</option>
-                                <option value="Wedding Gown">
-                                    Wedding Gown
-                                </option>
-                                <option value="Fairy Gown">Fairy Gown</option>
-                                <option value="Suits">Suits</option>
-                            </select>
-
-                            <!-- MODAL BUTTONS -->
-                            <div class="modal-buttons">
-                                <button
-                                    class="custom-btn"
-                                    data-close="viewProductModal"
-                                >
-                                    Close
-                                </button>
-                                <button
-                                    class="custom-btn primary-btn"
-                                    id="update-product-btn"
-                                >
-                                    Update
-                                </button>
-                            </div>
-                        </form>
-                        <!-- // -->
-                    </div>
-                </div>
-
-                <!-- ERROR MODAL -->
-                <div id="error-modal" class="custom-modal">
-                    <div class="custom-modal-content" style="max-width:400px;text-align:center;">
-                        <span class="custom-close-button error-close" data-close="error-modal">&times;</span>
-                        <h2 style="color:#c00;">Error</h2>
-                        <div id="error-modal-message" style="margin:1.5rem 0;"></div>
-                        <button class="custom-btn primary-btn" id="error-modal-ok">OK</button>
-                    </div>
-                </div>
-
-                <!-- CONFIRM MODAL -->
-                <div id="confirm-modal" class="custom-modal">
-                    <div class="custom-modal-content" style="max-width:400px;text-align:center;">
-                        <span class="custom-close-button confirm-close" data-close="confirm-modal">&times;</span>
-                        <h2 style="color:var(--secondary-text-color);">Confirm</h2>
-                        <div id="confirm-modal-message" style="margin:1.5rem 0;"></div>
-                        <div style="display:flex;justify-content:center;gap:1.5rem;">
-                            <button class="custom-btn primary-btn" id="confirm-modal-ok">OK</button>
-                            <button class="custom-btn" id="confirm-modal-cancel">Cancel</button>
+                <div class="pos-layout">
+                    <div class="pos-products tab-content active" id="products">
+                        <div class="card_container">
+                            <!-- Product cards fetched from Firebase (do not modify) -->
+                            <!-- ...existing product card rendering logic... -->
                         </div>
                     </div>
-                </div>
-
-                <!-- CARDS -->
-                <div class="card_container">
-                    <!-- // -->
-                    <!--                     <article class="card_article card">
-    <div class="card_data">
-        <span
-            class="card_color"
-            style="background-color: #f5deb3"
-        ></span>
-        <img
-            src="./nakko.jpeg"
-            alt="image"
-            class="card_img"
-            id="product-img"
-        />
-        <h2 class="card_title" id="product-code">
-            Thai LG Green
-        </h2>
-        <p class="card_size" id="product-size">
-            Size: Extra Large
-        </p>
-        <p class="card_sleeve" id="product-sleeve">
-            Sleeve: No Sleeve
-        </p>
-        <span class="card_category" id="product-category"
-            >Long Gown</span
-        >
-        <div class="product-actions">
-            <a
-                href="#"
-                class="action-btn edit-btn"
-                aria-label="Edit"
-                data-open="viewProductModal"
-            >
-                <i class="fi fi-rr-edit"></i>
-            </a>
-
-            <a
-                href="#"
-                class="action-btn delete-btn"
-                aria-label="Delete"
-            >
-                <i class="fi fi-rr-trash"></i>
-            </a>
-        </div>
-    </div>
-</article>
--->
-                    <!-- // -->
+                    <div class="pos-accessories tab-content" id="accessories">
+                        <!-- Accessories cards or content here if needed -->
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- ADD PRODUCT MODAL -->
+        <div id="addProductModal" class="custom-modal">
+            <div class="custom-modal-content">
+                <span
+                    class="custom-close-button"
+                    data-close="addProductModal"
+                    >&times;</span
+                >
+                <h2 style="color: var(--secondary-text-color); transition: var(--tran-04);">Add Product</h2>
+                <form>
+                    <!-- Image Preview (side by side like edit modal) -->
+                    <div class="file-upload-container">
+                        <div class="drop-zone" id="add-dropzone-front">
+                            <input type="file" accept="image/*" id="add-file-front-img" hidden />
+                            <label for="add-file-front-img" class="upload-label" id="add-upload-label-front">
+                                <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
+                                <p>Select Front View Image</p>
+                            </label>
+                        </div>
+                        <div class="drop-zone" id="add-dropzone-back">
+                            <input type="file" accept="image/*" id="add-file-back-img" hidden />
+                            <label for="add-file-back-img" class="upload-label" id="add-upload-label-back">
+                                <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
+                                <p>Select Back View Image</p>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Product Code -->
+                    <input type="text" id="add-product-code" placeholder="Product Code" required />
+                    <!-- Price Input -->
+                    <div class="price-input">
+                        <div class="price-symbol">₱</div>
+                        <input type="number" placeholder="Product Prize" id="add-product-prize" />
+                        <div class="price-suffix">.00</div>
+                    </div>
+                    <!-- Size Select -->
+                    <select id="add-product-size">
+                        <option>Select Size</option>
+                        <option value="XS">Extra Small (XS)</option>
+                        <option value="S">Small (S)</option>
+                        <option value="M">Medium (M)</option>
+                        <option value="L">Large (L)</option>
+                        <option value="XL">Extra Large (XL)</option>
+                        <option value="XXL">2XL (XXL)</option>
+                        <option value="XXXL">3XL (XXXL)</option>
+                    </select>
+                    <!-- Color Select -->
+                    <select id="add-product-color">
+                        <option selected>Select Color</option>
+                        <option value="red" style="color: red">Red</option>
+                        <option value="blue" style="color: blue">Blue</option>
+                        <option value="goldenrod" style="color: goldenrod">Yellow</option>
+                        <option value="green" style="color: green">Green</option>
+                        <option value="orange" style="color: orange">Orange</option>
+                        <option value="purple" style="color: purple">Purple</option>
+                        <option value="white">White</option>
+                        <option value="black" style="color: black">Black</option>
+                        <option value="gray" style="color: gray">Gray</option>
+                        <option value="brown" style="color: #964B00">Brown</option>
+                        <option value="beige" style="color: #D2B48C">Beige</option>
+                        <option value="cream" style="color: #f5deb3">Cream</option>
+                    </select>
+                    <!-- Sleeve Style Select -->
+                    <select id="add-product-sleeve">
+                        <option selected>Select Sleeve Style</option>
+                        <option value="Short Sleeves">Short Sleeves</option>
+                        <option value="Long Sleeves">Long Sleeves</option>
+                        <option value="Off Shoulder">Off Shoulder</option>
+                    </select>
+                    <!-- Category Select -->
+                    <select id="add-product-category">
+                        <option selected>Select Category</option>
+                        <option value="Ball Gown">Ball Gown</option>
+                        <option value="Long Gown">Long Gown</option>
+                        <option value="Wedding Gown">Wedding Gown</option>
+                        <option value="Fairy Gown">Fairy Gown</option>
+                        <option value="Suits">Suits</option>
+                    </select>
+                    <!-- Modal Buttons -->
+                    <div class="modal-buttons">
+                        <button class="custom-btn" data-close="addProductModal">Close</button>
+                        <button class="custom-btn primary-btn" id="add-product-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- UPDATE PRODUCT MODAL -->
+        <div id="viewProductModal" class="custom-modal">
+            <div class="custom-modal-content">
+                <span
+                    class="custom-close-button"
+                    data-close="viewProductModal"
+                    >&times;</span
+                >
+                <h2 style="color: var(--secondary-text-color); transition: var(--tran-04);">Product Details</h2>
+                <form>
+                    <!-- Image Preview -->
+                    <div class="file-upload-container">
+                        <div class="drop-zone" id="update-dropzone-front">
+                            <input type="file" accept="image/*" id="update-file-front-img" hidden />
+                            <label for="update-file-front-img" class="upload-label" id="update-upload-label-front">
+                                <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
+                                <p>Select Front View Image</p>
+                            </label>
+                        </div>
+                        <div class="drop-zone" id="update-dropzone-back">
+                            <input type="file" accept="image/*" id="update-file-back-img" hidden />
+                            <label for="update-file-back-img" class="upload-label" id="update-upload-label-back">
+                                <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Upload" class="upload-icon" />
+                                <p>Select Back View Image</p>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCT ID -->
+                    <input
+                        type="text"
+                        id="update-product-id"
+                        placeholder="Product ID HERE"
+                        disabled
+                        required
+                        hidden
+                    />
+
+                    <!-- PRODUCT CODE -->
+                    <input
+                        type="text"
+                        id="update-product-code"
+                        placeholder="Product Code"
+                        required
+                    />
+
+                    <!-- PRICE INPUT -->
+                    <div class="price-input">
+                        <div class="price-symbol">₱</div>
+                        <input
+                            type="number"
+                            placeholder="Product Prize"
+                            id="update-product-prize"
+                        />
+                        <div class="price-suffix">.00</div>
+                    </div>
+
+                    <!-- PRODUCT SIZE -->
+                    <select id="update-product-size">
+                        <option>Select Size</option>
+                        <option value="XS">Extra Small (XS)</option>
+                        <option value="S">Small (S)</option>
+                        <option value="M">Medium (M)</option>
+                        <option value="L">Large (L)</option>
+                        <option value="XL">Extra Large (XL)</option>
+                        <option value="XXL">2XL (XXL)</option>
+                        <option value="XXXL">3XL (XXXL)</option>
+                    </select>
+
+                    <!-- SELECT COLOR -->
+                    <select id="update-product-color">
+                        <option selected>Select Color</option>
+                        <option value="red" style="color: red">
+                            Red
+                        </option>
+                        <option value="blue" style="color: blue">
+                            Blue
+                        </option>
+                        <option
+                            value="goldenrod"
+                            style="color: goldenrod"
+                        >
+                            Yellow
+                        </option>
+                        <option value="green" style="color: green">
+                            Green
+                        </option>
+                        <option value="orange" style="color: orange">
+                            Orange
+                        </option>
+                        <option value="purple" style="color: purple">
+                            Purple
+                        </option>
+                        <option value="white">White</option>
+                        <option value="black" style="color: black">
+                            Black
+                        </option>
+                        <option value="gray" style="color: gray">
+                            Gray
+                        </option>
+                        <option value="brown" style="color: #964B00">
+                            Brown
+                        </option>
+                        <option value="beige" style="color: #D2B48C">
+                            Beige
+                        </option>
+                        <option value="cream" style="color: #f5deb3">
+                            Cream
+                        </option>
+                    </select>
+
+                    <!-- SELECT SLEEVE -->
+                    <select id="update-product-sleeve">
+                        <option selected>Sleeve Style</option>
+                        <option value="Short Sleeves">
+                            Short Sleeves
+                        </option>
+                        <option value="Long Sleeves">
+                            Long Sleeves
+                        </option>
+                        <option value="Off Shoulder">
+                            Off Shoulder
+                        </option>
+                    </select>
+
+                    <!-- SELECT CATEGORY -->
+                    <select id="update-product-category">
+                        <option selected>Select Category</option>
+                        <option value="Ball Gown">Ball Gown</option>
+                        <option value="Long Gown">Long Gown</option>
+                        <option value="Wedding Gown">
+                            Wedding Gown
+                        </option>
+                        <option value="Fairy Gown">Fairy Gown</option>
+                        <option value="Suits">Suits</option>
+                    </select>
+
+                    <!-- MODAL BUTTONS -->
+                    <div class="modal-buttons">
+                        <button
+                            class="custom-btn"
+                            data-close="viewProductModal"
+                        >
+                            Close
+                        </button>
+                        <button
+                            class="custom-btn primary-btn"
+                            id="update-product-btn"
+                        >
+                            Update
+                        </button>
+                    </div>
+                </form>
+                <!-- // -->
+            </div>
+        </div>
+
+        <!-- ERROR MODAL -->
+        <div id="error-modal" class="custom-modal">
+            <div class="custom-modal-content" style="max-width:400px;text-align:center;">
+                <span class="custom-close-button error-close" data-close="error-modal">&times;</span>
+                <h2 style="color:#c00;">Error</h2>
+                <div id="error-modal-message" style="margin:1.5rem 0;"></div>
+                <button class="custom-btn primary-btn" id="error-modal-ok">OK</button>
+            </div>
+        </div>
+
+        <!-- CONFIRM MODAL -->
+        <div id="confirm-modal" class="custom-modal">
+            <div class="custom-modal-content" style="max-width:400px;text-align:center;">
+                <span class="custom-close-button confirm-close" data-close="confirm-modal">&times;</span>
+                <h2 style="color:var(--secondary-text-color);">Confirm</h2>
+                <div id="confirm-modal-message" style="margin:1.5rem 0;"></div>
+                <div style="display:flex;justify-content:center;gap:1.5rem;">
+                    <button class="custom-btn primary-btn" id="confirm-modal-ok">OK</button>
+                    <button class="custom-btn" id="confirm-modal-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
 
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 

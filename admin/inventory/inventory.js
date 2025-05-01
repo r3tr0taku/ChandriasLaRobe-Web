@@ -677,3 +677,17 @@ $(document).ready(function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      tabContents.forEach(tc => tc.classList.remove('active'));
+      const tab = this.getAttribute('data-tab');
+      document.getElementById(tab).classList.add('active');
+    });
+  });
+});
