@@ -28,4 +28,4 @@ yarn-error.log*
 /.env.*
 
 admin/firebase-config.js
-
+chandriahomepage/assets/script/firebase-config.js
