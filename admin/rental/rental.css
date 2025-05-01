@@ -3,31 +3,19 @@
   --sidebar-color: #fff;
   --primary-color: hsl(346, 100%, 74%);
   --primary-color-light: #f6f5ff;
-  --toggle-color: #dddd;
+  --toggle-color: #dddd; /* Keep this if used elsewhere, otherwise remove */
   --text-color: #808080;
   --secondary-color: hsl(346, 85%, 90%);
   --secondary-text-color: hsl(346, 100%, 74%);
   --neutral-text-color: #000;
   --opposite-text-color: #fff;
-  
 
-  --tran-02: all 0.2s ease;
-  --tran-03: all 0.3s ease;
-  --tran-04: all 0.4s ease;
-  --tran-05: all 0.5s ease;
-}
 
-body.dark {
-  --body-color: #181914;
-  --sidebar-color: #242526;
-  --primary-color: #3a3b3c;
-  --primary-color-light: #3a3b3c;
-  --toggle-color: #fff;
-  --text-color: #CCC;
-  --secondary-color: #000000;
-  --secondary-text-color: #ccc;
-  --neutral-text-color: #fff;
-  --opposite-text-color: #000;
+  /* Set transitions to none */
+  --tran-02: none; /* all 0.2s ease; */
+  --tran-03: none; /* all 0.3s ease; */
+  --tran-04: none; /* all 0.4s ease; */
+  --tran-05: none; /* all 0.5s ease; */
 }
 
 /* PAGE AND SEARCH */
@@ -99,7 +87,7 @@ body.dark {
   font-size: 1rem;
   color: #000;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  /* transition: background 0.2s, color 0.2s; */ /* Removed transition */
 }
 
 .tab-btn.active {
@@ -136,7 +124,7 @@ body.dark {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: box-shadow 0.2s;
+  /* transition: box-shadow 0.2s; */ /* Removed transition */
   border: 1px solid #eee;
   cursor: pointer;
 }
@@ -274,7 +262,7 @@ body.dark {
   font-size: 1.1rem;
   margin-top: .5rem;
   cursor: pointer;
-  transition: var(--tran-02);
+  /* transition: var(--tran-02); */ /* Removed transition */
   z-index: 12;
 }
 
@@ -311,7 +299,7 @@ body.dark {
   font-size: 1.2rem;
   cursor: pointer;
   margin-left: .5rem;
-  transition: var(--tran-02);
+  /* transition: var(--tran-02); */ /* Removed transition */
 }
 .cart-remove:hover {
   color: red;
@@ -380,7 +368,7 @@ body.dark {
   color: var(--secondary-text-color);
   background: none;
   border: none;
-  transition: color 0.2s;
+  /* transition: color 0.2s; */ /* Removed transition */
 }
 .close-modal:hover {
   color: #e74c3c;
@@ -409,7 +397,7 @@ body.dark {
   cursor: pointer;
   padding: 0.18em 0.2em;
   border-radius: 6px;
-  transition: background 0.15s;
+  /* transition: background 0.15s; */ /* Removed transition */
 }
 #accessory-form label:hover {
   background: var(--secondary-color);
@@ -432,7 +420,7 @@ body.dark {
   font-size: 1.08em;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  /* transition: background 0.2s; */ /* Removed transition */
   box-shadow: 0 2px 8px rgba(44,62,80,0.08);
   margin-top: 1.2em;
   margin-bottom: 0.2em;
@@ -535,7 +523,7 @@ body.dark {
   font-size: 1em;
   background: #f8f8f8;
   color: var(--neutral-text-color);
-  transition: border 0.2s;
+  /* transition: border 0.2s; */ /* Removed transition */
 }
 #customer-form input[type="text"]:focus {
   border: 2px solid var(--secondary-text-color);
@@ -560,7 +548,7 @@ body.dark {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(44,62,80,0.08);
   letter-spacing: 0.5px;
-  transition: 0.2s, color 0.2s;
+  /* transition: 0.2s, color 0.2s; */ /* Removed transition */
 }
 #customer-form button[type="submit"]:hover {
   background: var(--secondary-color);
@@ -575,7 +563,7 @@ body.dark {
   color: var(--secondary-text-color);
   background: none;
   border: none;
-  transition: color 0.2s;
+  /* transition: color 0.2s; */ /* Removed transition */
   cursor: pointer;
   box-shadow: none;
   padding: 0;
@@ -769,7 +757,7 @@ body.dark {
   background: none;
   border: none;
   line-height: 1;
-  transition: color 0.2s;
+  /* transition: color 0.2s; */ /* Removed transition */
   z-index: 2;
 }
 .customer-close:hover {
@@ -803,7 +791,7 @@ body.dark {
   font-size: 1em;
   background: #f8f8f8;
   color: #888;
-  transition: border 0.2s;
+  /* transition: border 0.2s; */ /* Removed transition */
   font-weight: 400;
 }
 #customer-form input[type="date"]:focus,
@@ -917,7 +905,7 @@ body.dark {
   font-size: 1em;
   background: #f8f8f8;
   color: var(--neutral-text-color);
-  transition: border 0.2s;
+  /* transition: border 0.2s; */ /* Removed transition */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -961,7 +949,7 @@ body.dark {
   background: none;
   border: none;
   z-index: 2;
-  transition: color 0.2s;
+  /* transition: color 0.2s; */ /* Removed transition */
 }
 .customer-form-header .customer-close:hover {
   color: #e74c3c;

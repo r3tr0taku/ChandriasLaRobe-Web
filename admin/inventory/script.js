@@ -6,9 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
         modeSwitch = body.querySelector(".custom-toggle-switch"),
         modeText = body.querySelector(".custom-mode-text");
 
+    // --- Restore sidebar state from localStorage ---
+    if (localStorage.getItem("admin-sidebar-closed") === "true") {
+        sidebar.classList.add("close");
+    }
+
     // Sidebar toggle
     toggle.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
+        const isClosed = sidebar.classList.toggle("close");
+        localStorage.setItem("admin-sidebar-closed", isClosed);
     });
 
     // Search function
@@ -26,14 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.style.display = "none";
             }
         });
-    });
-
-    // Light/Dark Mode toggle
-    modeSwitch.addEventListener("click", () => {
-        body.classList.toggle("dark");
-        modeText.innerText = body.classList.contains("dark")
-            ? "Light Mode"
-            : "Dark Mode";
     });
 
     // Open modal

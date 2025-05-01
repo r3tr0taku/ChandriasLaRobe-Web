@@ -16,28 +16,18 @@
     --text-color: #808080;
     --secondary-color: hsl(346, 85%, 90%);
     --secondary-text-color: hsl(346, 100%, 74%);
-    
 
-    --tran-02: all 0.2s ease;
-    --tran-03: all 0.3s ease;
-    --tran-04: all 0.4s ease;
-    --tran-05: all 0.5s ease;
-}
 
-body.dark {
-    --body-color: #181914;
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
-    --text-color: #CCC;
-    --secondary-color: #000000;
-    --secondary-text-color: #ccc;
+    /* Set transitions to none */
+    --tran-02: none; /* all 0.2s ease; */
+    --tran-03: none; /* all 0.3s ease; */
+    --tran-04: none; /* all 0.4s ease; */
+    --tran-05: none; /* all 0.5s ease; */
 }
 
 body {
     height: 100vh;
     background: var(--body-color);
-    transition: var(--tran-05);
+    /* transition: var(--tran-05); */ /* Removed transition */
     overflow: hidden;
 }

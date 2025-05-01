@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
 
+    // --- Restore sidebar state from localStorage ---
+    if (localStorage.getItem("admin-sidebar-closed") === "true") {
+        sidebar.classList.add("close");
+    }
+
     // Sidebar toggle (chevron)
     toggle.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-    });
-
-    // Mode toggle
-    modeSwitch.addEventListener("click", () => {
-        body.classList.toggle("dark");
-        modeText.innerText = body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+        const isClosed = sidebar.classList.toggle("close");
+        localStorage.setItem("admin-sidebar-closed", isClosed);
     });
 });

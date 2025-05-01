@@ -35,19 +35,17 @@ $(document).ready(function () {
     $(document).ready(function () {
         const $body = $("body"),
             $sidebar = $body.find(".custom-sidebar"),
-            $toggle = $body.find(".custom-toggle"),
-            $modeSwitch = $body.find(".custom-toggle-switch"),
-            $modeText = $body.find(".custom-mode-text");
+            $toggle = $body.find(".custom-toggle");
+
+        // --- Restore sidebar state from localStorage ---
+        if (localStorage.getItem("admin-sidebar-closed") === "true") {
+            $sidebar.addClass("close");
+        }
 
         // Sidebar toggle (chevron)
         $toggle.on("click", function () {
-            $sidebar.toggleClass("close");
-        });
-
-        // Mode toggle
-        $modeSwitch.on("click", function () {
-            $body.toggleClass("dark");
-            $modeText.text($body.hasClass("dark") ? "Light Mode" : "Dark Mode");
+            const isClosed = $sidebar.toggleClass("close").hasClass("close");
+            localStorage.setItem("admin-sidebar-closed", isClosed);
         });
     });
 });

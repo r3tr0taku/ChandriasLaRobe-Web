@@ -16,29 +16,18 @@
     --text-color: #808080;
     --secondary-color: hsl(346, 85%, 90%);
     --secondary-text-color: hsl(346, 100%, 74%);
-    
 
-    --tran-02: all 0.2s ease;
-    --tran-03: all 0.3s ease;
-    --tran-04: all 0.4s ease;
-    --tran-05: all 0.5s ease;
-}
 
-body.dark {
-    --body-color: #181914;
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
-    --text-color: #CCC;
-    --secondary-color: #000000;
-    --secondary-text-color: #ccc;
+    /* Set transitions to none */
+    --tran-02: none; /* all 0.2s ease; */
+    --tran-03: none; /* all 0.3s ease; */
+    --tran-04: none; /* all 0.4s ease; */
+    --tran-05: none; /* all 0.5s ease; */
 }
 
 body {
     height: 100vh;
     background: var(--body-color);
-    transition: var(--tran-05);
     overflow-Y: visible;
 }
 
@@ -73,7 +62,7 @@ body {
     height: 100%;
     padding: 10px 14px;
     background: var(--sidebar-color);
-    transition: var(--tran-05);
+    /* transition: var(--tran-05); */ /* Removed transition */
     z-index: 100;
 }
 
@@ -87,7 +76,7 @@ body {
     font-size: 15px;
     font-weight: 500;
     color: var(--text-color);
-    transition: var(--tran-03);
+    /* transition: var(--tran-03); */ /* Removed transition */
     white-space: nowrap;
     opacity: 1;
 }
@@ -122,7 +111,7 @@ body {
 .sidebar li .icon,
 .sidebar li .text {
     color: var(--text-color);
-    transition: var(--tran-02);
+    /* transition: var(--tran-02); */ /* Removed transition */
 }
 
 .sidebar header {
@@ -169,15 +158,11 @@ header .image-text .header-text {
     color: var(--toggle-color);
     font-size: 20px;
     cursor: pointer;
-    transition: var(--tran-03);
+    /* transition: var(--tran-03); */ /* Removed transition */
 }
 
 .sidebar.close header .toggle {
     transform: translateY(-50%);
-}
-
-body.dark .sidebar header .toggle {
-    color: var(--text-color);
 }
 
 .sidebar .menu{
@@ -187,7 +172,7 @@ body.dark .sidebar header .toggle {
 .sidebar .search-box {
     background: var(--primary-color-light);
     border-radius: 6px;
-    transition: var(--tran-05);
+    /* transition: var(--tran-05); */ /* Removed transition */
 }
 
 .search-box input {
@@ -199,7 +184,7 @@ body.dark .sidebar header .toggle {
     outline: none;
     border: none;
     border-radius: 6px;
-    transition: var(--tran-05);
+    /* transition: var(--tran-05); */ /* Removed transition */
     color: var(--text-color);
 }
 
@@ -210,7 +195,7 @@ body.dark .sidebar header .toggle {
     align-items: center;
     text-decoration: none;
     border-radius: 6px;
-    transition: var(--tran-04)
+    /* transition: var(--tran-04) */ /* Removed transition */
 }
 
 .sidebar li a:hover {
@@ -220,11 +205,6 @@ body.dark .sidebar header .toggle {
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text {
     color: var(--secondary-text-color);
-}
-
-body.dark .sidebar li a:hover .icon,
-body.dark .sidebar li a:hover .text {
-    color: var(--text-color);
 }
 
 .menu-links .nav-link.active a {
@@ -247,7 +227,7 @@ body.dark .sidebar li a:hover .text {
     background: var(--primary-color-light);
     position: relative;
     border-radius: 6px;
-    transition: var(--tran-05);
+    /* transition: var(--tran-05); */ /* Removed transition */
 }
 
 .menu-bar .mode .moon-sun {
@@ -259,18 +239,10 @@ body.dark .sidebar li a:hover .text {
 
 .menu-bar .mode i {
     position: absolute;
-    transition: var(--tran-03);
+    /* transition: var(--tran-03); */ /* Removed transition */
 }
 
 .menu-bar .mode i.sun {
-    opacity: 0;
-}
-
-body.dark .menu-bar .mode i.sun {
-    opacity: 1;
-}
-
-body.dark .menu-bar .mode i.moon {
     opacity: 0;
 }
 
@@ -284,7 +256,7 @@ body.dark .menu-bar .mode i.moon {
     display: flex;
     border-radius: 6px;
     background: var(--primary-color-light);
-    transition: var(--tran-05);
+    /* transition: var(--tran-05); */ /* Removed transition */
 }
 
 .toggle-switch .switch {
@@ -306,11 +278,7 @@ body.dark .menu-bar .mode i.moon {
     transform: translateY(-50%);
     background: var(--sidebar-color);
     cursor: pointer;
-    transition: var(--tran-03);
-}
-
-body.dark .switch::before {
-    left: 24px;
+    /* transition: var(--tran-03); */ /* Removed transition */
 }
 
 .page-name {
@@ -319,7 +287,7 @@ body.dark .switch::before {
     height: 100vh;
     width: calc(100% - 250px);
     background: var(--body-color);
-    transition: var(--tran-05);
+    /* transition: var(--tran-05); */ /* Removed transition */
 }
 
 .page-name .text {

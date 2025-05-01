@@ -12,37 +12,26 @@
     --sidebar-color: #fff;
     --primary-color: hsl(346, 100%, 74%);
     --primary-color-light: #f6f5ff;
-    --toggle-color: #dddd;
+    --toggle-color: #dddd; /* Keep this if used elsewhere, otherwise remove */
     --text-color: #808080;
     --secondary-color: hsl(346, 85%, 90%);
     --secondary-text-color: hsl(346, 100%, 74%);
     --background-color: hsl(0, 0%, 100%);
     --blacknwhite: #000;
 
-    --tran-02: all 0.2s ease;
-    --tran-03: all 0.3s ease;
-    --tran-04: all 0.4s ease;
-    --tran-05: all 0.5s ease;
+    /* Set transitions to none */
+    --tran-02: none; /* all 0.2s ease; */
+    --tran-03: none; /* all 0.3s ease; */
+    --tran-04: none; /* all 0.4s ease; */
+    --tran-05: none; /* all 0.5s ease; */
 }
 
 body {
     height: 100vh !important;
     background: var(--body-color) !important;
-    transition: var(--tran-05) !important;
+    /* transition: var(--tran-05) !important; */ /* Removed transition */
     overflow: auto !important;
     overflow-x: hidden !important;
-}
-
-body.dark {
-    --body-color: #181914;
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
-    --text-color: #ccc;
-    --secondary-color: #000000;
-    --secondary-text-color: #ccc;
-    --blacknwhite: #fff;
 }
 
 /* ====== Sidebar ====== */
@@ -55,7 +44,7 @@ body.dark {
     height: 100%;
     padding: 10px 14px;
     background: var(--sidebar-color);
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
     z-index: 100;
 }
 
@@ -87,7 +76,7 @@ body.dark {
     font-size: 15px;
     font-weight: 500;
     color: var(--text-color);
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
     white-space: nowrap;
     opacity: 1;
 }
@@ -122,7 +111,7 @@ body.dark {
 .custom-sidebar li .custom-icon,
 .custom-sidebar li .custom-text {
     color: var(--text-color) !important;
-    transition: var(--tran-04) !important;
+    /* transition: var(--tran-04) !important; */ /* Removed transition */
 }
 
 .custom-sidebar header {
@@ -169,15 +158,11 @@ header .custom-image-text .custom-header-text {
     color: var(--toggle-color);
     font-size: 20px;
     cursor: pointer;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-sidebar.close header .custom-toggle {
     transform: translateY(-50%);
-}
-
-body.dark .custom-sidebar header .custom-toggle {
-    color: var(--text-color);
 }
 
 .custom-sidebar .custom-menu {
@@ -187,7 +172,7 @@ body.dark .custom-sidebar header .custom-toggle {
 .custom-sidebar .custom-search-box {
     background: var(--primary-color-light);
     border-radius: 6px;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-search-box input {
@@ -199,7 +184,7 @@ body.dark .custom-sidebar header .custom-toggle {
     outline: none;
     border: none;
     border-radius: 6px;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
     color: var(--text-color);
 }
 
@@ -210,7 +195,7 @@ body.dark .custom-sidebar header .custom-toggle {
     align-items: center !important;
     text-decoration: none !important;
     border-radius: 6px !important;
-    transition: var(--tran-04) !important;
+    /* transition: var(--tran-04) !important; */ /* Removed transition */
 }
 
 .custom-sidebar li a:hover {
@@ -220,11 +205,6 @@ body.dark .custom-sidebar header .custom-toggle {
 .custom-sidebar li a:hover .custom-icon,
 .custom-sidebar li a:hover .custom-text {
     color: var(--secondary-text-color) !important;
-}
-
-body.dark .custom-sidebar li a:hover .custom-icon,
-body.dark .custom-sidebar li a:hover .custom-text {
-    color: var(--text-color) !important;
 }
 
 .custom-menu-links .custom-nav-link.active a {
@@ -251,7 +231,7 @@ body.dark .custom-sidebar li a:hover .custom-text {
     background: var(--primary-color-light);
     position: relative;
     border-radius: 6px;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-menu-bar .custom-mode .custom-moon-sun {
@@ -263,18 +243,10 @@ body.dark .custom-sidebar li a:hover .custom-text {
 
 .custom-menu-bar .custom-mode i {
     position: absolute;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-menu-bar .custom-mode i.custom-sun {
-    opacity: 0;
-}
-
-body.dark .custom-menu-bar .custom-mode i.custom-sun {
-    opacity: 1;
-}
-
-body.dark .custom-menu-bar .custom-mode i.custom-moon {
     opacity: 0;
 }
 
@@ -288,7 +260,7 @@ body.dark .custom-menu-bar .custom-mode i.custom-moon {
     display: flex;
     border-radius: 6px;
     background: var(--primary-color-light);
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-toggle-switch .custom-switch {
@@ -310,11 +282,7 @@ body.dark .custom-menu-bar .custom-mode i.custom-moon {
     transform: translateY(-50%);
     background: var(--sidebar-color);
     cursor: pointer;
-    transition: var(--tran-04);
-}
-
-body.dark .custom-switch::before {
-    left: 24px;
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-page-name {
@@ -323,7 +291,7 @@ body.dark .custom-switch::before {
     height: 100vh;
     width: calc(100% - 250px);
     background: var(--body-color);
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-page-name .custom-text {
@@ -371,7 +339,7 @@ body.dark .custom-switch::before {
     position: relative;
     max-height: 95vh;
     overflow: auto;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-close-button {
@@ -381,7 +349,7 @@ body.dark .custom-switch::before {
     font-size: 2em;
     cursor: pointer;
     color: #e74c3c !important;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .custom-close-button:hover {
@@ -399,7 +367,7 @@ body.dark .custom-switch::before {
     background-color: #fff;
     font-size: 1rem;
     color: #212529;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
     box-sizing: border-box;
 }
 
@@ -460,7 +428,7 @@ body.dark .custom-switch::before {
     border-radius: 6px;
     border: 1px solid;
     cursor: pointer;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .w-full {
@@ -487,7 +455,7 @@ body.dark .custom-switch::before {
     display: none;
     align-items: center;
     font-size: 0.95rem;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
     z-index: 999;
 }
 
@@ -557,7 +525,7 @@ body.dark .custom-switch::before {
     display: flex;
     align-items: center;
     border-radius: 1rem;
-    border: 2px solid #222;
+    border: 1px solid #222;
     box-shadow: none;
     width: 100%;
     max-width: 600px;
@@ -643,7 +611,7 @@ body.dark .custom-switch::before {
     overflow: hidden;
     align-items: center;
     position: relative;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
     order: 0;
 }
 .card_article:hover {
@@ -733,7 +701,7 @@ body.dark .custom-switch::before {
 .card_color {
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-color);
+    color: var (--text-color);
     margin: 5px 0;
     display: flex;
     align-items: center;
@@ -748,7 +716,7 @@ body.dark .custom-switch::before {
     font-weight: 500;
     margin-top: 1rem;
     cursor: pointer;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 /* Icons */
@@ -770,7 +738,7 @@ body.dark .custom-switch::before {
     display: flex;
     flex-direction: column;
     column-gap: 0.5rem;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 
 .action-btn {
@@ -792,11 +760,11 @@ body.dark .custom-switch::before {
     position: absolute;
     right: 100%;
     transform: translateX(-50%);
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
     margin-right: 10px;
 }
 
@@ -834,7 +802,7 @@ body.dark .custom-switch::before {
 .action-btn::after {
     opacity: 0;
     pointer-events: none;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 .action-btn::before,
 .action-btn::after {
@@ -930,7 +898,7 @@ body.dark .custom-switch::before {
     justify-content: center;
     background: #fff;
     margin: 0;
-    transition: var(--tran-04);
+    /* transition: var(--tran-04); */ /* Removed transition */
 }
 .upload-label {
     display: flex;
@@ -970,7 +938,7 @@ body.dark .custom-switch::before {
   font-weight: 700;
   border: none;
   font-size: 1rem;
-  transition: var(--tran-04);
+  /* transition: var(--tran-04); */ /* Removed transition */
   border-radius: 0;
   outline: none;
   cursor: pointer;

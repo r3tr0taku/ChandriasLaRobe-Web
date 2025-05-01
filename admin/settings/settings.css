@@ -30,17 +30,6 @@ body {
     overflow: hidden !important;
 }
 
-body.dark {
-    --body-color: #181914;
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
-    --text-color: #ccc;
-    --secondary-color: #000000;
-    --secondary-text-color: #ccc;
-}
-
 /* ====== Sidebar ====== */
 
 .custom-sidebar {
@@ -155,10 +144,6 @@ header .custom-image-text .custom-header-text {
     transform: translateY(-50%);
 }
 
-body.dark .custom-sidebar header .custom-toggle {
-    color: var(--text-color);
-}
-
 .custom-sidebar .custom-menu {
     margin-top: 17px;
 }
@@ -199,11 +184,6 @@ body.dark .custom-sidebar header .custom-toggle {
 .custom-sidebar li a:hover .custom-icon,
 .custom-sidebar li a:hover .custom-text {
     color: var(--secondary-text-color) !important;
-}
-
-body.dark .custom-sidebar li a:hover .custom-icon,
-body.dark .custom-sidebar li a:hover .custom-text {
-    color: var(--text-color) !important;
 }
 
 .custom-menu-links .custom-nav-link.active a {
@@ -249,14 +229,6 @@ body.dark .custom-sidebar li a:hover .custom-text {
     opacity: 0;
 }
 
-body.dark .custom-menu-bar .custom-mode i.custom-sun {
-    opacity: 1;
-}
-
-body.dark .custom-menu-bar .custom-mode i.custom-moon {
-    opacity: 0;
-}
-
 .custom-menu-bar .custom-mode .custom-toggle-switch {
     position: absolute;
     right: 0px;
@@ -290,10 +262,6 @@ body.dark .custom-menu-bar .custom-mode i.custom-moon {
     background: var(--sidebar-color);
     cursor: pointer;
     transition: var(--tran-03);
-}
-
-body.dark .custom-switch::before {
-    left: 24px;
 }
 
 .custom-page-name {
@@ -335,4 +303,33 @@ body.dark .custom-switch::before {
 .custom-sidebar.close ~ .custom-page-name {
     left: 88px;
     width: calc(100% - 88px);
+}
+
+.settings-container {
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    /* transition: var(--tran-05) !important; */ /* Removed transition */
+}
+
+.settings-container .text {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    margin: 8px 40px;
+    /* transition: var(--tran-05); */ /* Removed transition */
+}
+
+.settings-container .settings-content .setting-option .icon,
+.settings-container .settings-content .setting-option .text {
+    color: var(--text-color);
+    /* transition: var(--tran-03); */ /* Removed transition */
+}
+
+.settings-container .settings-content .setting-option a:hover .icon,
+.settings-container .settings-content .setting-option a:hover .text {
+    color: var(--secondary-text-color);
+    /* transition: var(--tran-02) !important; */ /* Removed transition */
 }

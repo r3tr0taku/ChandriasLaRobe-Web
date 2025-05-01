@@ -36,7 +36,7 @@
   width: 100%;
   max-width: 260px;
   cursor: pointer;
-  transition: 0.3s;
+  /* transition: 0.3s; */ /* Removed transition */
   height: 250px;
   display: flex;
   justify-content: center;
@@ -77,7 +77,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s;
+  /* transition: all 0.2s; */ /* Removed transition */
 }
 
 .spinner-text {

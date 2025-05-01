@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     background: var(--body-color);
-    transition: var(--tran-05);
+    /* transition: var(--tran-05); */ /* Removed transition */
     overflow-Y: hidden !important;
     overflow-x: hidden !important;
 }

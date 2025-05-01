@@ -647,6 +647,121 @@ $(document).ready(function () {
         }
     });
 
+    // --- TAB & ADD BUTTON LOGIC ---
+    const addItemBtn = $("#add-item-btn");
+    const addProductModal = $("#addProductModal");
+    const addAdditionalModal = $("#addAdditionalModal");
+    const tabBtns = $(".tab-btn");
+
+    function setAddButtonForTab(tab) {
+        if (tab === "products") {
+            addItemBtn.text("Add Product");
+            addItemBtn.attr("data-open", "addProductModal");
+        } else if (tab === "accessories") {
+            addItemBtn.text("Add Additional");
+            addItemBtn.attr("data-open", "addAdditionalModal");
+        }
+    }
+
+    tabBtns.on("click", function() {
+        const tab = $(this).data("tab");
+        setAddButtonForTab(tab);
+    });
+
+    // Open correct modal when add button is clicked
+    addItemBtn.on("click", function(e) {
+        e.preventDefault();
+        const modalTarget = $(this).attr("data-open");
+        // Always close both modals before opening the target
+        addProductModal.removeClass("show");
+        addAdditionalModal.removeClass("show");
+        if (modalTarget === "addProductModal") {
+            addProductModal.addClass("show");
+        } else if (modalTarget === "addAdditionalModal") {
+            addAdditionalModal.addClass("show");
+        }
+        setBodyScrollLock(true);
+    });
+
+    // --- ADDITIONAL FORM SUBMISSION ---
+    $("#add-additional-btn").on("click", async function(e) {
+        e.preventDefault();
+        const imgFile = $("#add-additional-file-img")[0].files[0];
+        const name = $("#add-additional-name").val().trim();
+        const type = $("#add-additional-type").val().trim();
+        const price = $("#add-additional-price").val().trim();
+        if (!imgFile) {
+            showErrorModal("Please select an image.");
+            return;
+        }
+        if (!name) {
+            showErrorModal("Please enter a name.");
+            return;
+        }
+        if (!type) {
+            showErrorModal("Please enter a type.");
+            return;
+        }
+        if (!price || parseFloat(price) < 0) {
+            showErrorModal("Please enter a valid price.");
+            return;
+        }
+        // Show spinner
+        $("#spinner").removeClass("d-none");
+        $("#spinner-text").text("Uploading Image");
+        // Upload image
+        try {
+            const formData = new FormData();
+            formData.append("file", imgFile);
+            formData.append("upload_preset", "UPLOAD_IMG");
+            const response = await fetch("https://api.cloudinary.com/v1_1/dbtomr3fm/image/upload", {
+                method: "POST",
+                body: formData
+            });
+            const data = await response.json();
+            const imageUrl = data.secure_url;
+            // Save to Firestore (collection: accessories)
+            const additionalData = {
+                name,
+                type,
+                price,
+                imageUrl,
+                createdAt: new Date()
+            };
+            await addDoc(collection(chandriaDB, "accessories"), additionalData);
+            notyf.success("Additional item added!");
+            // Reset form
+            $("#add-additional-name").val("");
+            $("#add-additional-type").val("");
+            $("#add-additional-price").val("");
+            $("#add-additional-dropzone-img").css("background-image", "none");
+            $("#add-additional-upload-label-img").css("opacity", "1");
+            setTimeout(() => {
+                addAdditionalModal.removeClass("show");
+            }, 900);
+        } catch (err) {
+            showErrorModal("Failed to add additional item.");
+        }
+        $("#spinner").addClass("d-none");
+    });
+
+    // --- ADDITIONAL IMAGE PREVIEW ---
+    $("#add-additional-file-img").on("change", function () {
+        const file = this.files[0];
+        if (file && file.type.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                $("#add-additional-dropzone-img").css({
+                    "background-image": `url(${e.target.result})`,
+                    "background-size": "cover",
+                    "background-position": "center"
+                });
+                $("#add-additional-upload-label-img").css("opacity", "0");
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
     // Prevent background scroll when any modal is open (strict)
     function setBodyScrollLock(lock) {
         if (lock) {
@@ -660,11 +775,13 @@ $(document).ready(function () {
         }
     }
     // Open modal: lock scroll
-    $(document).on('click', '[data-open="addProductModal"], [data-open="viewProductModal"]', function() {
+    $(document).on('click', '[data-open="addProductModal"], [data-open="viewProductModal"], [data-open="addAdditionalModal"]', function() {
         setBodyScrollLock(true);
     });
     // Close modal: unlock scroll
-    $(document).on('click', '[data-close="addProductModal"], [data-close="viewProductModal"]', function() {
+    $(document).on('click', '[data-close]', function() {
+        var modalId = $(this).attr('data-close');
+        $('#' + modalId).removeClass('show');
         setBodyScrollLock(false);
     });
     // Also unlock scroll when clicking modal close X or background
@@ -673,6 +790,7 @@ $(document).ready(function () {
     });
     $(window).on('click', function(e) {
         if ($(e.target).hasClass('custom-modal')) {
+            $(e.target).removeClass('show');
             setBodyScrollLock(false);
         }
     });
