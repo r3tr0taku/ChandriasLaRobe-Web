@@ -79,7 +79,7 @@ $(document).ready(function () {
         isLoggingIn = true;
 
         // Disable the login button while attempting login
-        loginBtn.attr("disabled", true).text("Logging IN...");
+        loginBtn.attr("disabled", true).text("Logging In...");
 
         const email = $("#login-email").val().trim();
         const password = $("#login-password").val().trim();
