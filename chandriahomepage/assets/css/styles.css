@@ -204,6 +204,11 @@ table{
   font-weight: var(--weight-700);
   transition: all 0.2s var(--transition);
 }
+
+#nav-login {
+  display: none;
+}
+
 .header-search{
   width: 340px;
   position: relative;
@@ -298,10 +303,59 @@ table{
   line-height: 36px;
   font-family:var(--body-font) ;
 }
+
+#btn-rent {
+  width: 12em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
 .flex {
   display: flex;
   align-items: center;
   column-gap: .5rem;
+}
+
+.btn.close {
+  background-color: darkgray;
+  border: 2px solid darkgray;
+  color: var(--body-color);
+}
+
+.btn.disabled {
+  color: var(--body-color);
+  pointer-events: none;
+  opacity: 0.75;
+  background-color: lightgray;
+  border-color: lightgray;
+}
+
+.btn.close:hover{
+  background-color: transparent;
+  color: lightslategray;
+}
+
+.delete-btn {
+  padding: .5em 1.5em;
+  background-color: #f82b2bff;
+  border: 2px solid #f82b2bff;
+  border-radius: 5px;
+  
+  transition: all ease-in-out .4s;
+}
+
+.delete-btn .table-trash {
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: white;
+}
+
+.delete-btn .table-trash:hover {
+  color: darkgray;
 }
 /*=============== CATEGORIES ===============*/
 .categories{
@@ -539,6 +593,12 @@ table{
   border-color:  hsl(102, 44%, 37%);
   color: hsl(0, 0%, 100%);
 }
+
+.action-btn.cart-btn.selected {
+  background-color: hsl(0, 80%, 50%);
+  border-color: hsl(0, 70%, 45%);
+  color: white;
+}
 /*=============== DEALS ===============*/
 
 /*=============== FRESH ON THE RACK ===============*/
@@ -704,6 +764,7 @@ table{
   height: 26px;
   display: block;
   border-radius: .25rem;
+  border: 1px solid antiquewhite;
 }
 .size-link {
   border: 1px solid var(--border-color-alt);
@@ -832,22 +893,28 @@ margin-bottom: 3.35rem;
   border-bottom: 1px solid var(--border-color-alt);
 }
 .table tr th:nth-child(1), .table tr td:nth-child(1) {
-  width: 216px;
+  width: 210px;
 }
 .table tr th:nth-child(2), .table tr td:nth-child(2) {
-  width: 400px;
+  width: 350px;
 }
 .table tr th:nth-child(3), .table tr td:nth-child(3) {
-  width: 108px;
+  width: 180px;
 }
 .table tr th:nth-child(4), .table tr td:nth-child(4) {
-  width: 220px;
+  width: 100px;
 }
 .table tr th:nth-child(5), .table tr td:nth-child(5) {
-  width: 200px;
+  width: 210px;
 }
 .table tr th:nth-child(6), .table tr td:nth-child(6) {
-  width: 152px;
+  width: 150px;
+}
+.table tr th:nth-child(7), .table tr td:nth-child(7) {
+  width: 200px;
+}
+.table tr th:nth-child(8), .table tr td:nth-child(8) {
+  width: 140px;
 }
 .table-img{
   width: 80px;

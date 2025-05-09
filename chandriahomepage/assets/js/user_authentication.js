@@ -5,6 +5,7 @@ import {
     signInWithEmailAndPassword,
     sendPasswordResetEmail,
     getFirestore,
+    chandriaDB,
     collection,
     getDocs,
     getAuth,
@@ -15,19 +16,18 @@ import {
     query,
     where,
     setDoc,
-    doc
-} from "./chandrias-sdk.js";
+    doc,
+    updateProfile
+} from "./sdk/chandrias-sdk.js";
 
 $(document).ready(function () {
+    // INTIALIZING NOTYF
     const notyf = new Notyf({
         position: {
             x: "center",
             y: "top"
         }
     });
-
-    // INITIALIZE FIRESTORE
-    const chandriaDB = getFirestore(appCredential);
 
     // FLAG TO PREVENT IMMEDIATE REDIRECT AFTER LOGIN
     let isLoggingIn = false;
@@ -37,7 +37,7 @@ $(document).ready(function () {
         if (user && !isLoggingIn) {
             // Delay just a bit to allow UI elements to load before redirecting
             setTimeout(() => {
-                window.location.href = "../../test_Profile.html"; // Redirect to profile page if already logged in
+                window.location.href = "../../../index.html"; // Redirect to profile page if already logged in
             }, 800);
         }
     });
@@ -69,9 +69,9 @@ $(document).ready(function () {
         return message;
     };
 
-    // DOM VARIABLES
-    const loginBtn = $("#login-btn");
+    // #@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@#
     // LOGIN BUTTON FUNCTION
+    const loginBtn = $("#login-btn");
     loginBtn.on("click", async function (e) {
         e.preventDefault();
 
@@ -79,7 +79,7 @@ $(document).ready(function () {
         isLoggingIn = true;
 
         // Disable the login button while attempting login
-        loginBtn.attr("disabled", true).text("Logging In...");
+        loginBtn.attr("disabled", true).text("Logging IN...");
 
         const email = $("#login-email").val().trim();
         const password = $("#login-password").val().trim();
@@ -137,7 +137,7 @@ $(document).ready(function () {
 
             // Delay redirect to allow toast to show
             setTimeout(() => {
-                window.location.href = "../../test_Profile.html";
+                window.location.href = "../../../index.html";
             }, 1300);
             //
         } catch (error) {
@@ -162,6 +162,7 @@ $(document).ready(function () {
         }
     });
 
+    // #@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@#
     // CHECKING EMAIL FOR FORGOT PASSWORD
     async function emailExistsInFirestore(email) {
         const usersRef = collection(chandriaDB, "userAccounts");
@@ -170,6 +171,7 @@ $(document).ready(function () {
         return exists;
     }
 
+    // #@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@#
     // FORGOT BUTTON FUNCTION
     const forgotBtn = $("#submit-forgot-btn");
     forgotBtn.on("click", async function (e) {
@@ -217,6 +219,7 @@ $(document).ready(function () {
         }
     });
 
+    // #@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@#
     // TOGGLE BETWEEN FORGOT PASSWORD
     $("#forgot-link").on("click", function () {
         $("#form-box-login").addClass("hide");
@@ -229,12 +232,14 @@ $(document).ready(function () {
     // ----- END OF LOGIN FUNCTION -----
     // --------------------------------------------------------------------------------------------------------------------------------
 
-    // ----- START OF SIGNUP FUNCTION -----
+    // #@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@#
     // DOM VARIABLES
-    const $username = $("#signup-username"),
-        $email = $("#signup-email"),
-        $password = $("#signup-password"),
-        $passwordConfirm = $("#confirm-password");
+    const $fullname = $("#signup-fullname"),
+          $username = $("#signup-username"),
+          $email = $("#signup-email"),
+          $contact = $("#signup-contact"),
+          $password = $("#signup-password"),
+          $passwordConfirm = $("#confirm-password");
     const signUpBtn = $("#signUp-btn");
     // SIGN-UP BUTTON FUNCTION
     signUpBtn.on("click", async function (e) {
@@ -244,16 +249,38 @@ $(document).ready(function () {
         isLoggingIn = true;
 
         // VARIABLES
+        const fullname = $fullname.val();
         const username = $username.val().trim();
         const email = $email.val().trim();
+        const contact = $contact.val().trim();
         const password = $password.val().trim();
         const passwordConfirm = $passwordConfirm.val().trim();
 
         // DISABLING SIGN-UP BUTTON WHEN SIGNING-UP
         signUpBtn.attr("disabled", true).text("Signing Up...");
 
-        if (!username || !email || !password || !passwordConfirm) {
+        if (!fullname || !username || !email || !contact || !password || !passwordConfirm) {
             notyf.error("Please fill in all fields.");
+            signUpBtn.attr("disabled", false).text("Sign Up");
+            return;
+        }
+        
+        // FULLNAME VALIDATION
+        const fullnamePattern = /^([A-Z][a-z]+)( [A-Z][a-z]+)+$/;
+        if (!fullnamePattern.test(fullname)) {
+           notyf.open({
+                    type: "error",
+                    message: "Full name must be at least two words, only letters, and each starting with a capital letter.",
+                    duration: 5000
+                });
+            signUpBtn.attr("disabled", false).text("Sign Up");
+            return;
+        }
+        
+        // CONTACT NUMBER VALIDATION
+        const contactPattern = /^09\d{9}$/;
+        if (!contactPattern.test(contact)) {
+            notyf.error("Contact number must start with '09' and be exactly 11 digits.");
             signUpBtn.attr("disabled", false).text("Sign Up");
             return;
         }
@@ -337,16 +364,23 @@ $(document).ready(function () {
 
             // SEND VERIFICATION EMAIL
             await sendEmailVerification(userCredential.user);
-
-            // SAVING TO FIRESTORE
-            await setDoc(
-                doc(chandriaDB, "userAccounts", userCredential.user.uid),
-                {
-                    username: username,
-                    email: email,
-                    createdAt: new Date()
-                }
-            );
+            
+            // UPDATE FIREBASE USER PROFILE WITH FULL NAME
+              await updateProfile(userCredential.user, {
+                  displayName: fullname
+              });
+              
+              // SAVE ADDITIONAL USER INFO TO FIRESTORE
+              await setDoc(
+                  doc(chandriaDB, "userAccounts", userCredential.user.uid),
+                  {
+                      fullname: fullname,
+                      contact: contact,
+                      username: username,
+                      email: email,
+                      createdAt: new Date()
+                  }
+              );
 
             // MESSAGE IF SUCCESS
             notyf.open({
@@ -376,14 +410,15 @@ $(document).ready(function () {
                 // Fallback for unknown errors
                 notyf.error("Login failed. Please try again.");
             }
-        }
-
+        } finally {
         // ENABLING SIGN-UP BUTTON AFTER SUCCESS REGISTERING
         signUpBtn.attr("disabled", false).text("Sign Up");
+        }
     });
     // ----- END OF SIGNUP FUNCTION -----
     // --------------------------------------------------------------------------------------------------------------------------------
 
+    // #@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@##@#@#@#@#@#@#@#@#@#
     // TOGGLE BETWEEN LOGIN AND REGISTER
     const $container = $(".container");
     const $registerBtn = $(".register-btn");

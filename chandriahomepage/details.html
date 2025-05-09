@@ -1,590 +1,779 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-   <!--=============== FLATICON ===============-->
-   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+        <!--=============== FLATICON ===============-->
+        <link
+            rel="stylesheet"
+            href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css"
+        />
 
-   <!--=============== SWIPER CSS ===============-->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <!--=============== SWIPER CSS ===============-->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
 
+        <!-- NOTYF CDN -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+        />
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css" />
 
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+        <title>Chandria's La Robe</title>
+    </head>
+    <body>
+        <!--=============== HEADER ===============-->
+        <header class="header">
+            <nav class="nav container">
+                <a href="../index.html" class="nav-logo">
+                    <img
+                        src="assets/img/logo1.png"
+                        alt=""
+                        class="nav-logo-img"
+                    />
+                </a>
 
-    <title>Chandria's La Robe</title>
-  </head>
-  <body>
-    <!--=============== HEADER ===============-->
-    <header class="header">
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Home</a>
+                        </li>
 
-      <nav class="nav container">
-        <a href="../index.html" class="nav-logo">
-          <img src="assets/img/logo1.png" alt="" class="nav-logo-img">
-        </a>
+                        <li class="nav-item">
+                            <a href="shop.html" class="nav-link">Shop</a>
+                        </li>
 
-        <div class="nav-menu" id="nav-menu">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="../index.html" class="nav-link">Home</a>
-            </li>
+                        <li class="nav-item">
+                            <a href="accounts.html" class="nav-link">Profile</a>
+                        </li>
 
-            <li class="nav-item">
-              <a href="shop.html" class="nav-link ">Shop</a>
-            </li>
+                        <li class="nav-item">
+                            <a href="login-register.html" class="nav-link"
+                                >Login</a
+                            >
+                        </li>
+                    </ul>
 
-            <li class="nav-item">
-              <a href="accounts.html" class="nav-link">Profile</a>
-            </li>
-
-            
-
-            <li class="nav-item">
-              <a href="login-register.html" class="nav-link">Login</a>
-            </li>
-          </ul>
-
-          <div class="header-search">
-            <input type="text" placeholder="Search" class="form-input">
-            <button class="search-btn">
-              <img src="assets/img/search.png" alt="">
-
-            </button>
-          </div>
-        </div>
-
-        <div class="header-user-actions">
-          <a href="wishlist.html" class="header-action-btn">
-            <img src="assets/img/icon-heart.svg" alt="">
-            <span class="count">3</span>
-          </a>
-
-          <a href="cart.html" class="header-action-btn">
-            <img src="assets/img/icon-cart.svg" alt="">
-            <span class="count">3</span>
-          </a>
-          
-
-        </div>
-
-      </nav>
-    </header>
-
-    <!--=============== MAIN ===============-->
-    <main class="main">
-      <!--=============== BREADCRUMB ===============-->
-      <section class="breadcrumb">
-        <ul class="breadcrumb-list flex container">
-          <li><a href="../index.html" class="breadcrumb-link">Home</a></li>
-          <li><span class="breadcrum-link">></span></li>
-          <li><span class="breadcrum-link">Gown</span></li>
-          <li><span class="breadcrum-link">></span></li>
-          <li><span class="breadcrum-link">Colorful Patern Shirts </span></li>
-        </ul>
-      </section>
-
-      <!--=============== DETAILS ===============-->
-      <section class="details section-lg">
-        <div class="details-container container grid">
-          <div class="details-group">
-            <img src="assets/img/product-6-1.jpg" alt="" class="details-img"/>
-
-            <div class="details-small-images grid">
-              <img src="assets/img/product-6-2.jpg" alt="" class="details-small-img">
-              <img src="assets/img/product-6-1.jpg" alt="" class="details-small-img">
-              <img src="assets/img/product-6-2.jpg" alt="" class="details-small-img">
-            </div>
-          </div>
-          <div class="details-group">
-            <h3 class="details-title">Colorful Pattern Shirt</h3>
-            <p class="details-brand">Brand: <span>Giordano</span></p>
-
-            <div class="details-price flex">
-              <span class="new-price">₱ 900</span>
-              <span class="old-price">₱ 2500</span>
-              <span class="save-price">64% off</span>
-            </div>
-
-            <p class="short-description">A red gown is a long, often formal dress, typically worn for special occasions, that features the color red. Red gowns can be found in various styles, from elegant evening gowns to more playful, modern designs.</p>
-            
-            <ul class="product-list">
-              <li class="list-item flex">
-                <i class="fi fi-rs-clothes-hanger"></i> Free Fitting Service Before Rental
-              </li>
-
-            <li class="list-item flex">
-              <i class="fi fi-rs-sparkles"></i>  Pre-Cleaned & Sanitized
-            </li>
-
-            <li class="list-item flex">
-              <i class="fi fi-rs-running"></i> Ready-to-Wear in Perfect Condition
-            </li>
-
-            </ul>
-
-            <div class="details-color flex">
-              <span class="details-color-title">Available Colors</span>
-              <ul class="color-list">
-                <li>
-                  <a href="#" class="color-link" style="background-color: rgb(29, 29, 177);"></a>
-                </li>
-                <li>
-                  <a href="#" class="color-link" style="background-color: rgb(230, 230, 38);"></a>
-                </li>
-                <li>
-                  <a href="#" class="color-link" style="background-color: rgb(8, 105, 8);"></a>
-                </li>
-                <li>
-                  <a href="#" class="color-link" style="background-color: rgb(182, 25, 25);"></a>
-                </li>
-                <li>
-                  <a href="#" class="color-link" style="background-color: rgb(218, 214, 214);"></a>
-                </li>
-                <li>
-                  <a href="#" class="color-link" style="background-color: black;"></a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="details-size flex">
-              <span class="details-size-title">Available Sizes</span>
-              <ul class="size-list">
-                <li>
-                  <a href="#" class="size-link size-active">S</a>
-                </li>
-                
-                <li>
-                  <a href="#" class="size-link">M</a>
-                </li>
-                <li>
-                  <a href="#" class="size-link">L</a>
-                </li>
-                <li>
-                  <a href="#" class="size-link">XL</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="details-action">
-              <input type="number" class="quantity" min="0" value="3"/>
-              <a href="#" class="btn btn-sm"> Add to Rent List</a>
-              <a href="#" class="details-action-btn">
-                <i class="fi fi-rs-heart"></i>
-              </a>
-            </div>
-
-            <ul class="details-meta">
-              <li class="meta-list flex"><span>CODE:</span> 177013</li>
-              <li class="meta-list flex"><span>TAGS:</span> Cloth, Women, Dress</li>
-              <li class="meta-list flex"><span>STOCKS:</span> 150k in stocks</li>
-            </ul>
-          </div>
-          </div>
-        </div>
-      </section>
-
-      <!--=============== DETAILS TAB ===============-->
-      <section class="details-tab container">
-
-        <div class="detail-tabs">
-
-          <span class="detail-tab active-tab" data-target="#info">More Info</span>
-
-          <span class="detail-tab" data-target="#reviews">Reviews</span>
-        </div>
-
-        <div class="details-tabs-content">
-          <div class="details-tab-content active-tab" content id="info">
-            <table class="info-table">
-
-              <tr>
-                <th>Jacket Length</th>
-                <td>28" - 32" (varies by size)</td>
-              </tr>
-
-              <tr>
-                <th>Sleeve Length</th>
-                <td>23" - 26"</td>
-              </tr>
-
-              <tr>
-                <th>Material</th>
-                <td>80% Cotton, 20% Polyester</td>
-              </tr>
-
-              <tr>
-                <th>Lining Material</th>
-                <td>Satin / Viscose</td>
-              </tr>
-
-              <tr>
-                <th>Fit Type</th>
-                <td>Slim Fit, Regular Fit</td>
-              </tr>
-
-              <tr>
-                <th>Lapel Type</th>
-                <td>Notch Lapel</td>
-              </tr>
-
-              <tr>
-                <th>Number of Buttons	</th>
-                <td>Single Button
-                </td>
-              </tr>
-
-              <tr>
-                <th>Pocket Style</th>
-                <td>2 Flap Pockets, 1 Chest Pocket</td>
-              </tr>
-
-              <tr>
-                <th>Closure Type</th>
-                <td>Button Front</td>
-              </tr>
-
-              <tr>
-                <th>Back Vent</th>
-                <td>Single Vent / No Vent</td>
-              </tr>
-
-              <tr>
-                <th>Colors Available</th>
-                <td>Black, Gray, Navy, White, Red, Yellow, Green</td>
-              </tr>
-
-              <tr>
-                <th>Care Instructions</th>
-                <td>Dry Clean Only</td>
-              </tr>
-
-              <tr>
-                <th>Occasion</th>
-                <td>Business, Formal, Semi-Formal</td>
-              </tr>
-
-              <tr>
-                <th>Weight</th>
-                <td>Approx. 2.5 lbs</td>
-              </tr>
-
-            </table>
-          </div>
-
-          <div class="details-tab-content" content id="reviews">
-            <div class="reviews-container grid">
-
-            <div class="review-single">
-                <div>
-                <img src="assets/img/avatar-1.png" alt="" class="review-img">
-                <h4 class="review-title">Ichica Matsumoto</h4>
-              </div>
-
-              <div class="review-data">
-                <div class="review-rating">
-                  <i class="fi-rs-star"></i>
-                  <i class="fi-rs-star"></i>
-                  <i class="fi-rs-star"></i>
-                  <i class="fi-rs-star"></i>
-                  <i class="fi-rs-star"></i>
+                    <div class="header-search">
+                        <input
+                            type="text"
+                            placeholder="Search"
+                            class="form-input"
+                        />
+                        <button class="search-btn">
+                            <img src="assets/img/search.png" alt="" />
+                        </button>
+                    </div>
                 </div>
 
-                <p class="review-desctiption">I love it!!</p>
-                <span class="review-date">02/29/2004</span>
-
-              </div>
-            </div>
-
-            <div class="review-single">
-              <div>
-              <img src="assets/img/avatar-2.png" alt="" class="review-img">
-              <h4 class="review-title">Maria Nagai</h4>
-            </div>
-
-            <div class="review-data">
-              <div class="review-rating">
-                <i class="fi-rs-star"></i>
-                <i class="fi-rs-star"></i>
-                <i class="fi-rs-star"></i>
-                <i class="fi-rs-star"></i>
-                <i class="fi-rs-star"></i>
-              </div>
-
-              <p class="review-desctiption">Nice items and very affordable as inner shirts. Received complete items. Very fast delivery. Thanks to seller and rider</p>
-              <span class="review-date">02/29/2004</span>
-
-            </div>
-            </div>
-
-            <div class="review-single">
-            <div>
-            <img src="assets/img/avatar-3.png" alt="" class="review-img">
-            <h4 class="review-title">Eimi Fukuda</h4>
-          </div>
-
-          <div class="review-data">
-            <div class="review-rating">
-              <i class="fi-rs-star"></i>
-              <i class="fi-rs-star"></i>
-              <i class="fi-rs-star"></i>
-              <i class="fi-rs-star"></i>
-              <i class="fi-rs-star"></i>
-            </div>
-
-            <p class="review-desctiption">Items are well packed and secure also the quality of the fabric are good what you see is what you get perfect for its price!</p>
-            <span class="review-date">02/29/2004</span>
-
-          </div>
-            </div>
-
-          </div>
-
-          <div class="review-form">
-            <h4 class="review-form-title">Add Review</h4>
-
-            <div class="rate-product">
-              <i class="fi-rs-star"></i>
-              <i class="fi-rs-star"></i>
-              <i class="fi-rs-star"></i>
-              <i class="fi-rs-star"></i>
-              <i class="fi-rs-star"></i>
-            </div>
-
-            <form action="" class="form grid">
-              <textarea class="form-input textarea" placeholder="Write Comment"></textarea>
-
-              <div class="form-group grid">
-                <input type="text" placeholder="Name" class="form-input"/>
-
-                <input type="email" placeholder="Email" class="form-input"/>
-              </div>
-
-              <div class="form-btn">
-                <button class="btn">Submit Review</button>
-              </div>
-            </form>
-
-          </div>
-         </div>
-        </div>
-      </section>
-
-      <!--=============== PRODUCTS ===============-->
-      <section class="products container section-lg">
-        <h3 class="section-title">Related Products</h3>
-
-          <div class="products-container grid">       
-
-          <div class="product-item">
-            <div class="product-banner">
-             
-              <a href="details.html" class="product-images">
-              <img src="assets/img/product-2-1.jpg" alt="" class="product-img default">
-              
-              <img src="assets/img/product-2-2.jpg" alt="" class="product-img hover">
-              </a>
-
-              <div class="product-actions">
-                <a href="#" class="action-btn" aria-label="Quick View">
-                <i class="fi fi-rs-eye"></i>
-                </a>
-
-                <a href="#" class="action-btn" aria-label="Add to Rent List">
-                  <i class="fi fi-rs-heart"></i>
-                  </a>
-
-                  <a href="#" class="action-btn" aria-label="share">
-                    <i class="fi fi-rs-shuffle"></i>
+                <div class="header-user-actions">
+                    <a href="wishlist.html" class="header-action-btn">
+                        <img src="assets/img/icon-heart.svg" alt="" />
+                        <span class="count">3</span>
                     </a>
-              </div>
 
-              <div class="product-badge light-green">Hot</div>
-
-            </div>
-
-            <div class="product-content">
-              <span class="product-category">Clothing</span>
-              <a href="details.html">
-                <h3 class="product-title">Colorful Pattern Shirts</h3>
-              </a>
-              <div class="product-rating">
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-              </div>
-              <div class="product-price flex">
-                  <span class="new-price">₱ 1500/24hr</span>
-                  <span class="old-price">₱ 2300/24hr</span>
-              </div>
-
-              <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-                </a>
-            </div>
-          </div>
-
-          <div class="product-item">
-            <div class="product-banner">
-             
-              <a href="details.html" class="product-images">
-              <img src="assets/img/product-3-1.jpg" alt="" class="product-img default">
-              
-              <img src="assets/img/product-3-2.jpg" alt="" class="product-img hover">
-              </a>
-
-              <div class="product-actions">
-                <a href="#" class="action-btn" aria-label="Quick View">
-                <i class="fi fi-rs-eye"></i>
-                </a>
-
-                <a href="#" class="action-btn" aria-label="Add to Rent List">
-                  <i class="fi fi-rs-heart"></i>
-                  </a>
-
-                  <a href="#" class="action-btn" aria-label="share">
-                    <i class="fi fi-rs-shuffle"></i>
+                    <a href="cart.html" class="header-action-btn">
+                        <img src="assets/img/icon-cart.svg" alt="" />
+                        <span class="count">3</span>
                     </a>
-              </div>
+                </div>
+            </nav>
+        </header>
 
-              <div class="product-badge light-orange">Hot</div>
+        <!--=============== MAIN ===============-->
+        <main class="main">
+            <!--=============== BREADCRUMB ===============-->
+            <section class="breadcrumb">
+                <ul class="breadcrumb-list flex container">
+                    <li>
+                        <a href="../index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li><span class="breadcrum-link">></span></li>
+                    <li><span class="breadcrum-link">Gown</span></li>
+                    <li><span class="breadcrum-link">></span></li>
+                    <li>
+                        <span class="breadcrum-link"
+                            >Colorful Patern Shirts
+                        </span>
+                    </li>
+                </ul>
+            </section>
 
-            </div>
+            <!--=============== DETAILS ===============-->
+            <section class="details section-lg">
+                <div class="details-container container grid">
+                    <div class="details-group">
+                        <img
+                            src="assets/img/product-6-1.jpg"
+                            alt=""
+                            class="details-img frontImage"
+                        />
 
-            <div class="product-content">
-              <span class="product-category">Clothing</span>
-              <a href="details.html">
-                <h3 class="product-title">Colorful Pattern Shirts</h3>
-              </a>
-              <div class="product-rating">
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-              </div>
-              <div class="product-price flex">
-                  <span class="new-price">₱ 1500/24hr</span>
-                  <span class="old-price">₱ 2300/24hr</span>
-              </div>
+                        <div class="details-small-images grid">
+                            <img
+                                src="assets/img/product-6-2.jpg"
+                                alt=""
+                                class="details-small-img backImage"
+                            />
+                            <img
+                                src="assets/img/product-6-1.jpg"
+                                alt=""
+                                class="details-small-img frontImage"
+                            />
+                            <img
+                                src="assets/img/product-6-2.jpg"
+                                alt=""
+                                class="details-small-img backImage"
+                            />
+                        </div>
+                    </div>
+                    <div class="details-group">
+                        <h3 class="details-title" id="product-name">
+                            Colorful Pattern Shirt
+                        </h3>
+                        <!--             <p class="details-brand">Brand: <span>Giordano</span></p> -->
 
-              <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-                </a>
-            </div>
-          </div>
+                        <div class="details-price flex">
+                            <span class="new-price" id="product-price"
+                                >₱ 900</span
+                            >
+                            <!--<span class="old-price">₱ 2500</span>
+<span class="save-price">64% off</span> -->
+                        </div>
 
-          <div class="product-item">
-            <div class="product-banner">
-             
-              <a href="details.html" class="product-images">
-              <img src="assets/img/product-5-1.jpg" alt="" class="product-img default">
-              
-              <img src="assets/img/product-5-2.jpg" alt="" class="product-img hover">
-              </a>
+                        <p class="short-description" id="product-description">
+                            A red gown is a long, often formal dress, typically
+                            worn for special occasions, that features the color
+                            red. Red gowns can be found in various styles, from
+                            elegant evening gowns to more playful, modern
+                            designs.
+                        </p>
 
-              <div class="product-actions">
-                <a href="#" class="action-btn" aria-label="Quick View">
-                <i class="fi fi-rs-eye"></i>
-                </a>
+                        <ul class="product-list">
+                            <li class="list-item flex">
+                                <i class="fi fi-rs-clothes-hanger"></i> Free
+                                Fitting Service Before Rental
+                            </li>
 
-                <a href="#" class="action-btn" aria-label="Add to Rent List">
-                  <i class="fi fi-rs-heart"></i>
-                  </a>
+                            <li class="list-item flex">
+                                <i class="fi fi-rs-sparkles"></i> Pre-Cleaned
+                                and Sanitized
+                            </li>
 
-                  <a href="#" class="action-btn" aria-label="share">
-                    <i class="fi fi-rs-shuffle"></i>
-                    </a>
-              </div>
+                            <li class="list-item flex">
+                                <i class="fi fi-rs-running"></i> Ready-to-Wear
+                                in Perfect Condition
+                            </li>
+                        </ul>
 
-              <div class="product-badge light-pink">20%</div>
+                        <div class="details-color flex">
+                            <span class="details-color-title">Color</span>
+                            <ul class="color-list">
+                                <li>
+                                    <a
+                                        href="#"
+                                        class="color-link"
+                                        id="product-color"
+                                        style="
+                                            background-color: rgb(29, 29, 177);
+                                        "
+                                    ></a>
+                                </li>
+                            </ul>
+                        </div>
 
-            </div>
+                        <div class="details-size flex">
+                            <span class="details-size-title"
+                                >Available Sizes</span
+                            >
+                            <ul class="size-list" id="product-sizes">
+                                <li>
+                                    <a href="#" class="size-link size-active"
+                                        >S</a
+                                    >
+                                </li>
 
-            <div class="product-content">
-              <span class="product-category">Clothing</span>
-              <a href="details.html">
-                <h3 class="product-title">Colorful Pattern Shirts</h3>
-              </a>
-              <div class="product-rating">
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-              </div>
-              <div class="product-price flex">
-                  <span class="new-price">₱ 1500/24hr</span>
-                  <span class="old-price">₱ 2300/24hr</span>
-              </div>
+                                <li>
+                                    <a href="#" class="size-link">M</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="size-link">L</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="size-link">XL</a>
+                                </li>
+                            </ul>
+                        </div>
 
-              <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-                </a>
-            </div>
-          </div>
+                        <div class="details-action">
+                            <input
+                                type="number"
+                                class="quantity"
+                                min="0"
+                                value="1"
+                            />
+                            <button class="btn btn-sm">Add to Rent List</button>
+                            <!--               <a href="#" class="details-action-btn">
+  <i class="fi fi-rs-heart"></i>
+</a> -->
+                        </div>
 
-          <div class="product-item">
-            <div class="product-banner">
-             
-              <a href="details.html" class="product-images">
-              <img src="assets/img/product-6-1.jpg" alt="" class="product-img default">
-              
-              <img src="assets/img/product-6-2.jpg" alt="" class="product-img hover">
-              </a>
+                        <ul class="details-meta">
+                            <li class="meta-list flex">
+                                Product CODE:
+                                <span id="product-code">177013</span>
+                            </li>
+                            <li class="meta-list flex">
+                                Available STOCKS:
+                                <span id="product-stock">150k in stocks</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-              <div class="product-actions">
-                <a href="#" class="action-btn" aria-label="Quick View">
-                <i class="fi fi-rs-eye"></i>
-                </a>
+            <!--=============== DETAILS TAB ===============-->
+            <section class="details-tab container">
+                <div class="detail-tabs">
+                    <span class="detail-tab active-tab" data-target="#info"
+                        >More Info</span
+                    >
 
-                <a href="#" class="action-btn" aria-label="Add to Rent List">
-                  <i class="fi fi-rs-heart"></i>
-                  </a>
+                    <span class="detail-tab" data-target="#reviews"
+                        >Reviews</span
+                    >
+                </div>
 
-                  <a href="#" class="action-btn" aria-label="share">
-                    <i class="fi fi-rs-shuffle"></i>
-                    </a>
-              </div>
+                <div class="details-tabs-content">
+                    <div
+                        class="details-tab-content active-tab"
+                        content
+                        id="info"
+                    >
+                        <table class="info-table">
+                            <tr>
+                                <th>Jacket Length</th>
+                                <td>28" - 32" (varies by size)</td>
+                            </tr>
 
-              <div class="product-badge light-pink">10%</div>
+                            <tr>
+                                <th>Sleeve Length</th>
+                                <td>23" - 26"</td>
+                            </tr>
 
-            </div>
+                            <tr>
+                                <th>Material</th>
+                                <td>80% Cotton, 20% Polyester</td>
+                            </tr>
 
-            <div class="product-content">
-              <span class="product-category">Clothing</span>
-              <a href="details.html">
-                <h3 class="product-title">Colorful Pattern Shirts</h3>
-              </a>
-              <div class="product-rating">
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-                <i class="fi fi-rs-star"></i>
-              </div>
-              <div class="product-price flex">
-                  <span class="new-price">₱ 1500/24hr</span>
-                  <span class="old-price">₱ 2300/24hr</span>
-              </div>
+                            <tr>
+                                <th>Lining Material</th>
+                                <td>Satin / Viscose</td>
+                            </tr>
 
-              <a href="#" class="action-btn cart-btn" aria-label="Add to Rent List">
-                <i class="fi fi-rs-shopping-bag-add"></i>
-                </a>
-            </div>
-          </div>
+                            <tr>
+                                <th>Fit Type</th>
+                                <td>Slim Fit, Regular Fit</td>
+                            </tr>
 
-        </div>
-      </section>
+                            <tr>
+                                <th>Lapel Type</th>
+                                <td>Notch Lapel</td>
+                            </tr>
 
+                            <tr>
+                                <th>Number of Buttons</th>
+                                <td>Single Button</td>
+                            </tr>
 
-    <!--=============== SWIPER JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+                            <tr>
+                                <th>Pocket Style</th>
+                                <td>2 Flap Pockets, 1 Chest Pocket</td>
+                            </tr>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-  </body>
+                            <tr>
+                                <th>Closure Type</th>
+                                <td>Button Front</td>
+                            </tr>
+
+                            <tr>
+                                <th>Back Vent</th>
+                                <td>Single Vent / No Vent</td>
+                            </tr>
+
+                            <tr>
+                                <th>Colors Available</th>
+                                <td>
+                                    Black, Gray, Navy, White, Red, Yellow, Green
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Care Instructions</th>
+                                <td>Dry Clean Only</td>
+                            </tr>
+
+                            <tr>
+                                <th>Occasion</th>
+                                <td>Business, Formal, Semi-Formal</td>
+                            </tr>
+
+                            <tr>
+                                <th>Weight</th>
+                                <td>Approx. 2.5 lbs</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="details-tab-content" content id="reviews">
+                        <div class="reviews-container grid">
+                            <div class="review-single">
+                                <div>
+                                    <img
+                                        src="assets/img/avatar-1.png"
+                                        alt=""
+                                        class="review-img"
+                                    />
+                                    <h4 class="review-title">
+                                        Ichica Matsumoto
+                                    </h4>
+                                </div>
+
+                                <div class="review-data">
+                                    <div class="review-rating">
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                    </div>
+
+                                    <p class="review-desctiption">
+                                        I love it!!
+                                    </p>
+                                    <span class="review-date">02/29/2004</span>
+                                </div>
+                            </div>
+
+                            <div class="review-single">
+                                <div>
+                                    <img
+                                        src="assets/img/avatar-2.png"
+                                        alt=""
+                                        class="review-img"
+                                    />
+                                    <h4 class="review-title">Maria Nagai</h4>
+                                </div>
+
+                                <div class="review-data">
+                                    <div class="review-rating">
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                    </div>
+
+                                    <p class="review-desctiption">
+                                        Nice items and very affordable as inner
+                                        shirts. Received complete items. Very
+                                        fast delivery. Thanks to seller and
+                                        rider
+                                    </p>
+                                    <span class="review-date">02/29/2004</span>
+                                </div>
+                            </div>
+
+                            <div class="review-single">
+                                <div>
+                                    <img
+                                        src="assets/img/avatar-3.png"
+                                        alt=""
+                                        class="review-img"
+                                    />
+                                    <h4 class="review-title">Eimi Fukuda</h4>
+                                </div>
+
+                                <div class="review-data">
+                                    <div class="review-rating">
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                        <i class="fi-rs-star"></i>
+                                    </div>
+
+                                    <p class="review-desctiption">
+                                        Items are well packed and secure also
+                                        the quality of the fabric are good what
+                                        you see is what you get perfect for its
+                                        price!
+                                    </p>
+                                    <span class="review-date">02/29/2004</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-form">
+                            <h4 class="review-form-title">Add Review</h4>
+
+                            <div class="rate-product">
+                                <i class="fi-rs-star"></i>
+                                <i class="fi-rs-star"></i>
+                                <i class="fi-rs-star"></i>
+                                <i class="fi-rs-star"></i>
+                                <i class="fi-rs-star"></i>
+                            </div>
+
+                            <form action="" class="form grid">
+                                <textarea
+                                    class="form-input textarea"
+                                    placeholder="Write Comment"
+                                ></textarea>
+
+                                <div class="form-group grid">
+                                    <input
+                                        type="text"
+                                        placeholder="Name"
+                                        class="form-input"
+                                    />
+
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        class="form-input"
+                                    />
+                                </div>
+
+                                <div class="form-btn">
+                                    <button class="btn">Submit Review</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--=============== PRODUCTS ===============-->
+            <section class="products container section-lg">
+                <h3 class="section-title">Related Products</h3>
+
+                <div class="products-container grid">
+                    <div class="product-item">
+                        <div class="product-banner">
+                            <a href="details.html" class="product-images">
+                                <img
+                                    src="assets/img/product-2-1.jpg"
+                                    alt=""
+                                    class="product-img default"
+                                />
+
+                                <img
+                                    src="assets/img/product-2-2.jpg"
+                                    alt=""
+                                    class="product-img hover"
+                                />
+                            </a>
+
+                            <div class="product-actions">
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="Quick View"
+                                >
+                                    <i class="fi fi-rs-eye"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="Add to Rent List"
+                                >
+                                    <i class="fi fi-rs-heart"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="share"
+                                >
+                                    <i class="fi fi-rs-shuffle"></i>
+                                </a>
+                            </div>
+
+                            <div class="product-badge light-green">Hot</div>
+                        </div>
+
+                        <div class="product-content">
+                            <span class="product-category">Clothing</span>
+                            <a href="details.html">
+                                <h3 class="product-title">
+                                    Colorful Pattern Shirts
+                                </h3>
+                            </a>
+                            <div class="product-rating">
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                            </div>
+                            <div class="product-price flex">
+                                <span class="new-price">₱ 1500/24hr</span>
+                                <span class="old-price">₱ 2300/24hr</span>
+                            </div>
+
+                            <a
+                                href="#"
+                                class="action-btn cart-btn"
+                                aria-label="Add to Rent List"
+                            >
+                                <i class="fi fi-rs-shopping-bag-add"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-banner">
+                            <a href="details.html" class="product-images">
+                                <img
+                                    src="assets/img/product-3-1.jpg"
+                                    alt=""
+                                    class="product-img default"
+                                />
+
+                                <img
+                                    src="assets/img/product-3-2.jpg"
+                                    alt=""
+                                    class="product-img hover"
+                                />
+                            </a>
+
+                            <div class="product-actions">
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="Quick View"
+                                >
+                                    <i class="fi fi-rs-eye"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="Add to Rent List"
+                                >
+                                    <i class="fi fi-rs-heart"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="share"
+                                >
+                                    <i class="fi fi-rs-shuffle"></i>
+                                </a>
+                            </div>
+
+                            <div class="product-badge light-orange">Hot</div>
+                        </div>
+
+                        <div class="product-content">
+                            <span class="product-category">Clothing</span>
+                            <a href="details.html">
+                                <h3 class="product-title">
+                                    Colorful Pattern Shirts
+                                </h3>
+                            </a>
+                            <div class="product-rating">
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                            </div>
+                            <div class="product-price flex">
+                                <span class="new-price">₱ 1500/24hr</span>
+                                <span class="old-price">₱ 2300/24hr</span>
+                            </div>
+
+                            <a
+                                href="#"
+                                class="action-btn cart-btn"
+                                aria-label="Add to Rent List"
+                            >
+                                <i class="fi fi-rs-shopping-bag-add"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-banner">
+                            <a href="details.html" class="product-images">
+                                <img
+                                    src="assets/img/product-5-1.jpg"
+                                    alt=""
+                                    class="product-img default"
+                                />
+
+                                <img
+                                    src="assets/img/product-5-2.jpg"
+                                    alt=""
+                                    class="product-img hover"
+                                />
+                            </a>
+
+                            <div class="product-actions">
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="Quick View"
+                                >
+                                    <i class="fi fi-rs-eye"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="Add to Rent List"
+                                >
+                                    <i class="fi fi-rs-heart"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="share"
+                                >
+                                    <i class="fi fi-rs-shuffle"></i>
+                                </a>
+                            </div>
+
+                            <div class="product-badge light-pink">20%</div>
+                        </div>
+
+                        <div class="product-content">
+                            <span class="product-category">Clothing</span>
+                            <a href="details.html">
+                                <h3 class="product-title">
+                                    Colorful Pattern Shirts
+                                </h3>
+                            </a>
+                            <div class="product-rating">
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                            </div>
+                            <div class="product-price flex">
+                                <span class="new-price">₱ 1500/24hr</span>
+                                <span class="old-price">₱ 2300/24hr</span>
+                            </div>
+
+                            <a
+                                href="#"
+                                class="action-btn cart-btn"
+                                aria-label="Add to Rent List"
+                            >
+                                <i class="fi fi-rs-shopping-bag-add"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <div class="product-banner">
+                            <a href="details.html" class="product-images">
+                                <img
+                                    src="assets/img/product-6-1.jpg"
+                                    alt=""
+                                    class="product-img default"
+                                />
+
+                                <img
+                                    src="assets/img/product-6-2.jpg"
+                                    alt=""
+                                    class="product-img hover"
+                                />
+                            </a>
+
+                            <div class="product-actions">
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="Quick View"
+                                >
+                                    <i class="fi fi-rs-eye"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="Add to Rent List"
+                                >
+                                    <i class="fi fi-rs-heart"></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="action-btn"
+                                    aria-label="share"
+                                >
+                                    <i class="fi fi-rs-shuffle"></i>
+                                </a>
+                            </div>
+
+                            <div class="product-badge light-pink">10%</div>
+                        </div>
+
+                        <div class="product-content">
+                            <span class="product-category">Clothing</span>
+                            <a href="details.html">
+                                <h3 class="product-title">
+                                    Colorful Pattern Shirts
+                                </h3>
+                            </a>
+                            <div class="product-rating">
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                                <i class="fi fi-rs-star"></i>
+                            </div>
+                            <div class="product-price flex">
+                                <span class="new-price">₱ 1500/24hr</span>
+                                <span class="old-price">₱ 2300/24hr</span>
+                            </div>
+
+                            <a
+                                href="#"
+                                class="action-btn cart-btn"
+                                aria-label="Add to Rent List"
+                            >
+                                <i class="fi fi-rs-shopping-bag-add"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!-- NOTYF CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <!-- JQUERY CDN -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+        <!-- EXTERNAL SCRIPT -->
+        <script type="module" src="./assets/js/details.js"></script>
+    </body>
 </html>

@@ -1,218 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--=============== FLATICON ===============-->
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+        <!--=============== FLATICON ===============-->
+        <link
+            rel="stylesheet"
+            href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css"
+        />
 
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
- 
-    <!-- NOTYF CDN -->
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
-/>
-     <!--=============== CSS ===============-->
-     <link rel="stylesheet" href="assets/css/styles.css" />
- 
-     <title>Chandria's La Robe</title>
-  </head>
-  <body>
-    <!--=============== HEADER ===============-->
-    <header class="header">
+        <!--=============== SWIPER CSS ===============-->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
 
-      <nav class="nav container">
-        <a href="../index.html" class="nav-logo">
-          <img src="assets/img/logo1.png" alt="" class="nav-logo-img">
-        </a>
+        <!-- NOTYF CDN -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+        />
+        <!-- BOOTSTRAP CLOCKPICKER CSS -->
+        <link 
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.css" 
+        />
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css" />
 
-        <div class="nav-menu" id="nav-menu">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="../index.html" class="nav-link">Home</a>
-            </li>
+        <title>Chandria's La Robe</title>
+    </head>
+    <body>
+        <!--=============== HEADER ===============-->
+        <header class="header">
+            <nav class="nav container">
+                <a href="../index.html" class="nav-logo">
+                    <img
+                        src="assets/img/logo1.png"
+                        alt=""
+                        class="nav-logo-img"
+                    />
+                </a>
 
-            <li class="nav-item">
-              <a href="shop.html" class="nav-link ">Shop</a>
-            </li>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Home</a>
+                        </li>
 
-            <li class="nav-item">
-              <a href="accounts.html" class="nav-link">Profile</a>
-            </li>
+                        <li class="nav-item">
+                            <a href="shop.html" class="nav-link">Shop</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a href="./test_Profile.html" class="nav-link"
+                                >Profile</a
+                            >
+                        </li>
 
-            <li class="nav-item">
-              <a href="login-register.html" class="nav-link">Login</a>
-            </li>
-          </ul>
+                        <li class="nav-item">
+                            <a
+                                href="./user_authentication.html"
+                                class="nav-link"
+                                id="nav-login"
+                                >Login</a
+                            >
+                        </li>
+                    </ul>
 
-          <div class="header-search">
-            <input type="text" placeholder="Search" class="form-input">
-            <button class="search-btn">
-              <img src="assets/img/search.png" alt="">
+                    <div class="header-search">
+                        <input
+                            type="text"
+                            placeholder="Search"
+                            class="form-input"
+                        />
+                        <button class="search-btn">
+                            <img src="assets/img/search.png" alt="" />
+                        </button>
+                    </div>
+                </div>
 
-            </button>
-          </div>
-        </div>
+                <div class="header-user-actions">
+                    <a href="wishlist.html" class="header-action-btn">
+                        <img src="assets/img/icon-heart.svg" alt="" />
+                        <span class="count">0</span>
+                    </a>
 
-        <div class="header-user-actions">
-          <a href="wishlist.html" class="header-action-btn">
-            <img src="assets/img/icon-heart.svg" alt="">
-            <span class="count">3</span>
-          </a>
+                    <a href="cart.html" class="header-action-btn">
+                        <img src="assets/img/icon-cart.svg" alt="" />
+                        <span class="count" id="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </header>
 
-          <a href="cart.html" class="header-action-btn">
-            <img src="assets/img/icon-cart.svg" alt="">
-            <span class="count">3</span>
-          </a>
-          
+        <!--=============== MAIN ===============-->
+        <main class="main">
+            <!--=============== BREADCRUMB ===============-->
+            <section class="breadcrumb">
+                <ul class="breadcrumb-list flex container">
+                    <li>
+                        <a href="../index.html" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li><span class="breadcrum-link">></span></li>
+                    <li><span class="breadcrum-link">Shop</span></li>
+                    <li><span class="breadcrum-link">></span></li>
+                    <li><span class="breadcrum-link">Check Out</span></li>
+                </ul>
+            </section>
 
-        </div>
+            <!--=============== CHECKOUT ===============-->
+            <section class="checkout section-lg">
+                <h3 class="checkout-section-title">Appointment Details</h3>
+                <div class="checkout-container container grid">
+                    <div class="checkout-group">
+                        <form class="form grid" id="checkout-form">
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                class="form-input"
+                                id="customer-name"
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                class="form-input"
+                                id="customer-email"
+                            />
+                            <input
+                                type="tel"
+                                placeholder="Phone"
+                                class="form-input"
+                                id="customer-contact"
+                            />
+                            <input
+                                type="date"
+                                placeholder="Date"
+                                class="form-input"
+                                id="checkout-date"
+                            />
+                            <input
+                                type="time" 
+                                placeholder="Time"
+                                class="form-input"
+                                id="checkout-time"
+                            />
 
-      </nav>
-    </header>
+                            <select
+                                name="rental-duration"
+                                placeholder="Rent Duration"
+                                class="form-input"
+                                id="checkout-duration"
+                            >
+                                <option value="Select Rental Duration">
+                                    Select Rental Duration
+                                </option>
+                                <option value="1">1 Day</option>
+                                <option value="2">2 Days</option>
+                                <option value="3">3 Days</option>
+                            </select>
+                            <textarea
+                                name=""
+                                placeholder="Any special requests or notes..."
+                                cols="30"
+                                rows="10"
+                                class="form-input textarea"
+                                id="customer-request"
+                            ></textarea>
+                        </form>
+                    </div>
 
-    <!--=============== MAIN ===============-->
-    <main class="main">
-      <!--=============== BREADCRUMB ===============-->
-      <section class="breadcrumb">
-        <ul class="breadcrumb-list flex container">
-          <li><a href="../index.html" class="breadcrumb-link">Home</a></li>
-          <li><span class="breadcrum-link">></span></li>
-          <li><span class="breadcrum-link">Shop</span></li>
-          <li><span class="breadcrum-link">></span></li>
-          <li><span class="breadcrum-link">Check Out</span></li>
-        </ul>
-      </section>
+                    <div class="checkout-group">
+                        <table class="order-table">
+                            <tr>
+                                <th colspan="2">Products</th>
+                                <th>Total</th>
+                            </tr>
+                            <tbody id="checkout-cart">
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="assets/img/product-6-1.jpg"
+                                            alt=""
+                                            class="order-img"
+                                        />
+                                    </td>
 
-      <!--=============== CHECKOUT ===============-->
-      <section class="checkout section-lg">
-        <h3 class="checkout-section-title">Appointment Details</h3>
-        <div class="checkout-container container grid">
-          <div class="checkout-group">
-           
-            <form action="" class="form grid">
-              <input type="text" placeholder="Name" class="form-input" id="customer-name">
-              <input type="email" placeholder="Email" class="form-input" id="customer-email">
-              <input type="tel" placeholder="Phone" class="form-input">
-              <input type="date" placeholder="Date" class="form-input" id="checkout-date">
-              <input type="time" placeholder="Time" class="form-input" id="checkout-time">
+                                    <td>
+                                        <h3 class="table-title">
+                                            Colorful Pattern Shirt
+                                        </h3>
+                                        <p class="table-quantity">x 1</p>
+                                    </td>
 
-              <select name="rental-duration" placeholder="Rent Duration" class="form-input">
-                <option value="">Select Rental Duration</option>
-                <option value="24hrs">1 Day</option>
-                <option value="48hrs">2 Days</option>
-                <option value="72hrs">3 Days</option>
-              </select>
-              <textarea name="" placeholder="Any special requests or notes..." id="" cols="30" rows="10" class="form-input textarea"></textarea>
+                                    <td>
+                                        <span class="table-price"
+                                            >₱ 900.00</span
+                                        >
+                                    </td>
+                                </tr>
+                            </tbody>
 
+                            <tr>
+                                <td>
+                                    <span class="order-subtitle">Total</span>
+                                </td>
 
-            </form>
-          </div>
-
-          <div class="checkout-group">
-
-            <table class="order-table">
-              <tr>
-                <th colspan="2">
-                  Products
-                </th>
-                <th>
-                  Total
-                </th>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/img/product-6-1.jpg" alt="" class="order-img"/>
-                </td>
-
-                <td>
-                  <h3 class="table-title">Colorful Pattern Shirt</h3>
-                    <p class="table-quantity">x 1</p>
-                </td>
-
-                <td>
-                    <span class="table-price">₱ 900.00</span>
-                </td>
-
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/img/product-7-1.jpg" alt="" class="order-img"/>
-                </td>
-
-                <td>
-                  <h3 class="table-title              ">Colorful Pattern Shirt</h3>
-                    <p class="table-quantity">x 1</p>
-                </td>
-
-                <td>
-                  
-                    <span class="table-price">₱ 900.00</span>
-              
-                </td>
-
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/img/product-9-1.jpg" alt="" class="order-img"/>
-                </td>
-
-                <td>
-                  <h3 class="table-title              ">Colorful Pattern Shirt</h3>
-                    <p class="table-quantity">x 1</p>
-                </td>
-
-                <td>
-                  
-                    <span class="table-price">₱ 900.00</span>
-              
-                </td>
-
-              </tr>
-
-              <tr>
-                <td>
-                  <span class="order-subtitle">Total</span>
-                </td>
-
-                <td  colspan="2">
-                  <span class="order-grand-total">₱ 2700.00</span>
-                </td>
-              </tr>
-            </table>
-            <div class="place-rent">
-            <button class="btn btn-md" id="place-rent-btn">
-              <i class="fi fi-rs-order-history"></i> Place Rental
-            </button>
-          </div>
-            
-          </div>
-        </div>
-      </section>
-
-
-
-    <!--=============== SWIPER JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <!--=============== MAIN JS ===============-->
-        <script src="assets/js/main.js"></script>
-            <!-- NOTYF CDN -->
-            <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-                    <!-- JQUERY JS -->
+                                <td colspan="2">
+                                    <span class="order-grand-total"
+                                        >₱ 2700.00</span
+                                    >
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <div class="place-rent">
+                            <button class="btn btn-md" id="place-rent-btn">
+                                <i class="fi fi-rs-order-history"></i> Place
+                                Rental
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--=============== SWIPER JS ===============-->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!-- NOTYF CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+        <!-- JQUERY JS -->
         <script
-        src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"
-    ></script>
-    <!--=============== EXTERNAL SCRIPT ===============-->
-    <script type="module" src="./assets/script/checkout.js"></script>
-
-  </body>
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+        <!-- BOOTSTRAP CLOCKPICKER JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.js"></script>
+        <!--=============== EXTERNAL SCRIPT ===============-->
+        <script type="module" src="./assets/js/checkout.js"></script>
+    </body>
 </html>

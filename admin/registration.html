@@ -8,7 +8,7 @@
             content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
 
-        <title>Login Form</title>
+        <title>Signup Form</title>
 
         <!--BoxIcon CDN-->
         <link
@@ -21,20 +21,20 @@
             href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
         />
         <!-- EXTERNAL CSS -->
-        <link rel="stylesheet" href="./assets/css/styles.css" />
+        <link rel="stylesheet" href="./assets/css/registration.css" />
     </head>
 
     <body>
         <div class="container">
             <div class="form-box login">
-                <!-- LOGIN CONTAINER -->
+                <!-- SIGNUP CONTAINER -->
                 <form>
-                    <h1>Login</h1>
+                    <h1>Sign Up</h1>
                     <div class="input-box">
                         <input
                             type="text"
                             placeholder="Email"
-                            id="login-email"
+                            id="signup-email"
                             required
                         />
                         <i class="bx bxs-user"></i>
@@ -43,12 +43,12 @@
                         <input
                             type="password"
                             placeholder="Password"
-                            id="login-password"
+                            id="signup-password"
                             required
                         />
                         <i
                             class="bx bx-show eye-icon"
-                            id="toggle-login-password"
+                            id="toggle-signup-passwords"
                             style="
                                 cursor: pointer;
                                 position: absolute;
@@ -58,38 +58,28 @@
                             "
                         ></i>
                     </div>
-                    <button type="submit" class="btn" id="login-btn">
-                        Login
+                    <div class="input-box">
+                        <input
+                            type="password"
+                            placeholder="Confirm Password"
+                            id="confirm-password"
+                            required
+                        />
+                    </div>
+                    <button type="submit" class="btn" id="signUp-btn">
+                        Sign Up
                     </button>
                 </form>
             </div>
 
-            <div class="form-box register">
-                <form action="">
-                    <h1>Forgot Password</h1>
-                    <div class="input-box">
-                        <input
-                            type="text"
-                            placeholder="Email"
-                            id="forgot-email"
-                            required
-                        />
-                        <i class="bx bxs-user"></i>
-                    </div>
-                    <button type="submit" class="btn" id="submit-forgot-btn">
-                        Submit
-                    </button>
-                </form>
-            </div>
             <div class="toggle-box">
                 <div class="toggle-panel toggle-left">
-                    <h1>ADMIN ONLY</h1>
+                    <h1>OWNER ONLY</h1>
                     <p>Chandria's La Robe - Web System</p>
-                    <button class="btn register-btn">Forgot Password?</button>
                 </div>
             </div>
         </div>
-
+        
         <!-- NOTYF CDN -->
         <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
         <!-- JQUERY CDN -->
@@ -99,6 +89,6 @@
             crossorigin="anonymous"
         ></script>
         <!-- EXTERNAL SCRIPT -->
-        <script type="module" src="./assets/js/authentication-service.js"></script>
+        <script type="module" src="./assets/js/registration-service.js"></script>
     </body>
 </html>

@@ -1,0 +1,54 @@
+.cart-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10956;
+  
+  opacity: 0;
+  pointer-events: none;
+  
+  transition: all ease-in-out 0.25s;
+}
+
+.cart-modal-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-modal {
+  background-color: white;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 1.5em; /* Increased padding */
+  width: 90%; /* Use percentage for responsiveness */
+  max-width: 800px; /* Add a max-width for larger screens */
+  height: auto; /* Allow height to adjust to content */
+  max-height: 85vh; /* Use viewport height for max-height */
+  z-index: 10957;
+  overflow-y: auto; /* Add scroll for overflow */
+  display: flex; /* For centering content if needed, or for structure */
+  flex-direction: column; /* Stack modal content vertically */
+}
+
+.spinner {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 6px solid #ccc;
+  border-top-color: darkgray;
+  border-radius: 50%;
+  animation: spin 1s ease infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

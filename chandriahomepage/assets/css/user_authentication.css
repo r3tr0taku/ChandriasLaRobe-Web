@@ -92,6 +92,10 @@ form {
     margin: 30px 0;
 }
 
+.form-box.register .input-box {
+  margin: 20px 0;
+}
+
 .input-box input {
     width: 100%;
     padding: 13px 50px 13px 20px;
@@ -226,6 +230,18 @@ form {
     background: transparent;
     border: 2px solid #fff;
     box-shadow: none;
+}
+
+/* Remove arrows from number input */
+#signup-contact::-webkit-outer-spin-button,
+#signup-contact::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#signup-contact {
+  -moz-appearance: textfield;
+  appearance: textfield; /* Add standard property */
 }
 
 @media screen and (max-width: 650px) {

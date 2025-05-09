@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Chandria's La Robe - Web System</title>
+        
+        <!-- BOX-ICON CDN -->
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <!-- EXTERNAL CSS -->
+        <link rel="stylesheet" href="./assets/css/sidebar.css" />
+        <link rel="stylesheet" href="./assets/css/rental.css" />
+ 
+    </head>
+
+    <body>
+        <nav class="sidebar close">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="./assets/images/chandriaslogo.png" alt="logo" />
+                    </span>
+                </div>
+
+                <i class="bx bx-chevron-right toggle"></i>
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="./dashboard.html">
+                                <i class="bx bxs-dashboard icon"></i>
+                                <span class="text nav-text">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="./inventory.html">
+                                <i class="bx bxs-t-shirt icon"></i>
+                                <span class="text nav-text">Inventory</span>
+                            </a>
+                            <!-- <i class='bx bxs-chevron-down'></i> -->
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="./schedule.html">
+                                <i class="bx bxs-calendar icon"></i>
+                                <span class="text nav-text">Schedule</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link active">
+                            <a href="#">
+                                <i class="bx bxs-package icon"></i>
+                                <span class="text nav-text">Rental</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="./customer-logs.html">
+                                <i class="bx bxs-user icon"></i>
+                                <span class="text nav-text">Customer Logs</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="./settings.html">
+                                <i class="bx bxs-cog icon"></i>
+                                <span class="text nav-text">Settings</span>
+                            </a>
+                        </li>
+
+                        <!-- <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-wallet icon'></i>
+                            <span class="text nav-text">Transaction</span>
+                        </a>
+                    </li> -->
+                    </ul>
+                </div>
+
+                <div class="bottom-content"></div>
+            </div>
+        </nav>
+
+        <!-- Sidebar End; Start of Rental and Transaction Form -->
+
+        <section class="page-name">
+            <div class="page-header">
+                <div class="text">Rental</div>
+                <form class="pos-search-bar">
+                    <input type="text" placeholder="Search" />
+                    <i class="bx bx-search search-icon"></i>
+                </form>
+            </div>
+            <div class="pos-tabs">
+                <button class="tab-btn active" data-tab="products">
+                    Products
+                </button>
+                <button class="tab-btn" data-tab="accessories">
+                    Additional
+                </button>
+            </div>
+            <div class="pos-layout">
+                <div class="pos-products tab-content active" id="products">
+                    <!-- Product cards here -->
+                </div>
+                <div class="pos-accessories tab-content" id="accessories">
+                    <!-- Accessories cards here -->
+                </div>
+                <div class="pos-cart-summary">
+                    <div class="cart-title">Cart Summary</div>
+                    <div class="cart-scroll">
+                        <div class="cart-items"></div>
+                        <div class="cart-details"></div>
+                    </div>
+                    <div class="cart-bottom-bar">
+                        <div class="cart-total">
+                            <span>Total</span>
+                            <span id="cart-total-amount"></span>
+                        </div>
+                        <button
+                            class="cart-checkout-btn"
+                            id="cart-checkout-btn"
+                        >
+                            Proceed
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessory Selection Modal -->
+        <div id="accessory-modal" class="modal" style="display: none">
+            <div class="modal-content">
+                <span
+                    class="close-modal"
+                    style="cursor: pointer; float: right; font-size: 1.5em"
+                    >&times;</span
+                >
+                <h3>Select Accessory Types</h3>
+                <form id="accessory-form">
+                    <label
+                        ><input type="checkbox" id="select-all-accessories" />
+                        <strong>Select All</strong></label
+                    ><br />
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="accessoryType"
+                            value="Bracelet"
+                        />
+                        Bracelet</label
+                    ><br />
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="accessoryType"
+                            value="Earrings"
+                        />
+                        Earrings</label
+                    ><br />
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="accessoryType"
+                            value="Necklace"
+                        />
+                        Necklace</label
+                    ><br />
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="accessoryType"
+                            value="Rings"
+                        />
+                        Rings</label
+                    ><br />
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="accessoryType"
+                            value="Crown"
+                        />
+                        Crown</label
+                    ><br />
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="accessoryType"
+                            value="Bag"
+                        />
+                        Bag</label
+                    ><br />
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="accessoryType"
+                            value="Gloves"
+                        />
+                        Gloves</label
+                    ><br />
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="accessoryType"
+                            value="Pins"
+                        />
+                        Pins</label
+                    ><br />
+                </form>
+                <button id="save-accessory-types">Save</button>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div
+            id="error-modal"
+            class="modal"
+            style="display: none; z-index: 10000"
+        >
+            <div
+                class="modal-content"
+                style="max-width: 350px; text-align: center"
+            >
+                <span
+                    class="close-modal error-close"
+                    style="cursor: pointer; float: right; font-size: 1.5em"
+                    >&times;</span
+                >
+                <h3 style="color: #e74c3c; margin-bottom: 1em">Error</h3>
+                <div
+                    id="error-modal-message"
+                    style="margin-bottom: 1.5em; color: #c0392b"
+                ></div>
+                <button
+                    id="error-modal-ok"
+                    style="
+                        padding: 0.5em 1.5em;
+                        background: #e74c3c;
+                        color: #fff;
+                        border: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                    "
+                >
+                    OK
+                </button>
+            </div>
+        </div>
+
+        <!-- Customer Form Modal -->
+        <div id="customer-modal" class="modal" style="display: none">
+            <div class="customer-modal-content customer-modal-flex">
+                <span class="close-modal customer-close" title="Close">
+                    <i class="bx bx-x"></i>
+                </span>
+                <div class="customer-modal-scroll">
+                    <form
+                        id="customer-form"
+                        autocomplete="off"
+                        class="customer-form-grid"
+                    >
+                        <div class="customer-form-header">
+                            <h2>Rental Information</h2>
+                        </div>
+                        <div class="customer-form-row">
+                            <label
+                                >Client First Name<br /><input
+                                    type="text"
+                                    id="client-first-name"
+                                    required
+                            /></label>
+                            <label
+                                >Client Last Name<br /><input
+                                    type="text"
+                                    id="client-last-name"
+                                    required
+                            /></label>
+                        </div>
+                        <div class="customer-form-row">
+                            <label
+                                >Client Contact Number<input
+                                    type="text"
+                                    id="client-contact"
+                            /></label>
+                            <label
+                                >Product Code<br /><input
+                                    type="text"
+                                    id="client-product-code"
+                                    readonly
+                            /></label>
+                        </div>
+                        <div class="customer-form-row">
+                            <label
+                                >Additional<br /><input
+                                    type="text"
+                                    id="client-additional"
+                                    readonly
+                            /></label>
+                            <label
+                                >Event Date<br /><input
+                                    type="date"
+                                    id="event-date"
+                                    required
+                            /></label>
+                        </div>
+                        <div class="customer-form-row">
+                            <label
+                                >Event Type<br />
+                                <select id="event-type" required>
+                                    <option value="">Select Event Type</option>
+                                    <option value="Sagala">Sagala</option>
+                                    <option value="Grad Ball">Grad Ball</option>
+                                    <option value="Debut">Debut</option>
+                                    <option value="Prom">Prom</option>
+                                    <option value="Other Indoor Events">
+                                        Other Indoor Events
+                                    </option>
+                                    <option value="Other Outdoor Events">
+                                        Other Outdoor Events
+                                    </option>
+                                </select>
+                            </label>
+                            <label
+                                >Rental Fee<br /><input
+                                    type="text"
+                                    id="client-rental-fee"
+                                    readonly
+                            /></label>
+                        </div>
+                        <div class="customer-form-row">
+                            <label
+                                >Total Payment<br /><input
+                                    type="number"
+                                    id="total-payment"
+                                    min="0"
+                                    step="0.01"
+                                    required
+                            /></label>
+                            <label
+                                >Remaining Balance<br /><input
+                                    type="number"
+                                    id="remaining-balance"
+                                    readonly
+                            /></label>
+                        </div>
+                        <div class="customer-form-row">
+                            <label
+                                >Payment Method<br />
+                                <select id="payment-method" required>
+                                    <option value="">Select Method</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Gcash">GCash</option>
+                                    <option value="Maya">Maya</option>
+                                    <option value="GoTyme">GoTyme</option>
+                                </select>
+                            </label>
+                            <label
+                                >Payment Type<br />
+                                <select id="payment-type" required>
+                                    <option value="">
+                                        Select Payment Type
+                                    </option>
+                                    <option value="full">Full Payment</option>
+                                    <option value="down">Down Payment</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="customer-form-row">
+                            <label style="flex: 1 1 100%"
+                                >Reference No.<br /><input
+                                    type="text"
+                                    id="reference-no"
+                                    style="width: 100%"
+                            /></label>
+                        </div>
+                        <div class="customer-form-row">
+                            <label
+                                >Region<br />
+                                <select id="client-region" required></select>
+                            </label>
+                            <label
+                                >City<br />
+                                <select id="client-city" required></select>
+                            </label>
+                        </div>
+                        <div class="customer-form-row customer-form-address">
+                            <label
+                                >Address<br /><input
+                                    type="text"
+                                    id="client-address"
+                                    required
+                            /></label>
+                        </div>
+                        <div class="customer-form-row customer-form-notes">
+                            <label
+                                >Additional Notes / Repair<br /><textarea
+                                    id="client-notes"
+                                    rows="2"
+                                ></textarea>
+                            </label>
+                        </div>
+                        <button type="submit" id="customer-form-submit">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- JQUERY JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"
+        ></script>
+        <!-- EXTERNAL SCRIPT -->
+        <script type="module" src="./assets/js/rental-service.js"></script>
+        <script type="module" src="./assets/js/rental-subscript.js"></script>
+    </body>
+</html>

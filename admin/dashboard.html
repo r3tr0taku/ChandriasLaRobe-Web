@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Chandria's La Robe - Web System</title>
+    <link rel="stylesheet" href="./assets/css/sidebar.css" />
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="./assets/images/chandriaslogo.png" alt="logo">
+                </span>
+                </div>
+
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <ul class="menu-links">
+                    <li class="nav-link active">
+                        <a href="#">
+                            <i class='bx bxs-dashboard icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./inventory.html">
+                            <i class='bx bxs-t-shirt icon'></i>
+                            <span class="text nav-text">Inventory</span>
+                        </a>
+                        <!-- <i class='bx bxs-chevron-down'></i> -->
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./schedule.html">
+                            <i class='bx bxs-calendar icon'></i>
+                            <span class="text nav-text">Schedule</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./rental.html">
+                            <i class='bx bxs-package icon'></i>
+                            <span class="text nav-text">Rental</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-user icon'></i>
+                            <span class="text nav-text">Customer Logs</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="./settings.html">
+                            <i class="bx bxs-cog icon"></i>
+                            <span class="text nav-text"
+                                >Settings</span
+                            >
+                        </a>
+                    </li>
+
+                    <!-- <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-wallet icon'></i>
+                            <span class="text nav-text">Transaction</span>
+                        </a>
+                    </li> -->
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="page-name">
+        <div class="text">Dashboard</div>
+    </section>
+
+    <script type="module" src="./assets/js/dashboard-service.js"></script>
+
+</body>
+</html>
