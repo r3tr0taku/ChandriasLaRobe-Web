@@ -244,6 +244,33 @@ form {
   appearance: textfield; /* Add standard property */
 }
 
+.back-btn {
+  color: #222 !important;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  position: fixed;
+  left: 2rem;
+  top: 2rem;
+  transition: color 0.2s;
+}
+.back-btn i {
+  font-size: 1.5rem;
+  color: #222 !important;
+  transition: color 0.2s;
+}
+.back-btn:hover {
+  color: #ff9aaf !important;
+}
+.back-btn:hover i {
+  color: #ff9aaf !important;
+}
+
 @media screen and (max-width: 650px) {
     .container {
         height: calc(100vh - 40px);

@@ -38,9 +38,8 @@
               <a href="chandriahomepage/accounts.html" class="nav-link">Profile</a>
             </li>
 
-
             <li class="nav-item">
-              <a href="/chandriahomepage/user_authentication.html" class="nav-link">Login</a>
+              <a id="login-logout-link" href="/chandriahomepage/user_authentication.html" class="nav-link">Login</a>
             </li>
           </ul>
 
@@ -1714,5 +1713,27 @@
         ></script>
         <!-- EXTERNAL SCRIPT -->
         <script type="module" src="chandriahomepage/assets/script/index.js"></script>
+
+        <script type="module">
+import { getAuth, onAuthStateChanged, signOut } from "./chandriahomepage/assets/js/sdk/chandrias-sdk.js";
+const auth = getAuth();
+const loginLogoutLink = document.getElementById('login-logout-link');
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    loginLogoutLink.textContent = "Logout";
+    loginLogoutLink.href = "#";
+    loginLogoutLink.onclick = (e) => {
+      e.preventDefault();
+      signOut(auth).then(() => {
+        window.location.reload();
+      });
+    };
+  } else {
+    loginLogoutLink.textContent = "Login";
+    loginLogoutLink.href = "/chandriahomepage/user_authentication.html";
+    loginLogoutLink.onclick = null;
+  }
+});
+</script>
   </body>
 </html>
