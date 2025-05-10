@@ -7,6 +7,7 @@
 
     <title>Chandria's La Robe - Web System</title>
     <link rel="stylesheet" href="./assets/css/sidebar.css" />
+    <link rel="stylesheet" href="./assets/css/dashboard.css" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -89,11 +90,76 @@
         </div>
     </nav>
 
-    <section class="page-name">
-        <div class="text">Dashboard</div>
-    </section>
+     <main class="main-content">
+        <header class="main-header">
+            <h1><span class="brand">Dashboard</span></h1>
+            <div class="header-right">
+                <div class="user-info">
+                    <span>Hey, <b>Retrotaku</b><br><span class="role">Employee</span></span>
+                    <span class="user-avatar"><i class='bx bxs-user-circle'></i></span>
+                </div>
+            </div>
+        </header>
+        <div class="dashboard-layout">
+            <div class="dashboard-main">
+                <section class="dashboard-cards-row">
+                    <div class="dashboard-card">
+                        <div class="card-title">ACTIVE RENTALS</div>
+                        <div class="card-main">17 <span>Items out</span></div>
+                        <div class="card-sub">4 <span>Due Today</span></div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-title">ACTIVE RENTALS</div>
+                        <div class="card-main">17 <span>Items out</span></div>
+                        <div class="card-sub">4 <span>Due Today</span></div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-title">ACTIVE RENTALS</div>
+                        <div class="card-main">17 <span>Items out</span></div>
+                        <div class="card-sub">4 <span>Due Today</span></div>
+                    </div>
+                </section>                
+                <section class="dashboard-table">
+                    <div class="table-header">
+                        <div class="table-title">Recent Rentals</div>
+                        <div class="table-search">
+                            <i class='bx bx-search'></i>
+                            <input type="text" placeholder="Search">
+                            <i class='bx bx-x'></i>
+                        </div>
+                    </div>
+                    <div class="table-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Rentee Name</th>
+                                    <th>Transaction Code</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rentals-table-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
 
-    <script type="module" src="./assets/js/dashboard-service.js"></script>
-
+            <section class="dashboard-appointments">
+                <div class="appointments-title">Recent Appointment</div>
+                <div class="appointments-search">
+                    <i class='bx bx-search'></i>
+                    <input type="text" id="appointment-search" placeholder="Search">
+                    <i class='bx bx-x clear-search' id="clear-search"></i>
+                </div>
+                <ul class="appointments-list" id="appointments-list">
+                    <!-- Populated by JS -->
+                </ul>
+            </section>
+        </div>
+    </main>
+    <script src="./assets/js/dashboard-service.js"></script>
 </body>
 </html>
