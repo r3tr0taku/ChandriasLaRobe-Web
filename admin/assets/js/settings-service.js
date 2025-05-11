@@ -23,7 +23,7 @@ $(document).ready(function () {
         if (confirm("Are you sure you want to Log-out?")) {
             signOut(auth)
                 .then(() => {
-                    window.location.href = "../../authentication.html"; // Redirect to login page after logout
+                    window.location.href = "authentication.html"; // Use direct path for redirect
                 })
                 .catch(error => {
                     console.error("Error signing out:", error);
