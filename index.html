@@ -503,7 +503,7 @@
                         </a>
                   </div>
 
-                  <div class="product-badge light-pink">10%</div>
+                  <div class="product-badge light-pink">10%</</div>
 
                 </div>
 
@@ -1759,6 +1759,25 @@ if (logoutYes && logoutNo && logoutModal) {
     if (e.target === logoutModal) logoutModal.style.display = 'none';
   };
 }
+</script>
+
+<script type="module">
+import { getAuth, onAuthStateChanged } from "./chandriahomepage/assets/js/sdk/chandrias-sdk.js";
+window.addEventListener("DOMContentLoaded", () => {
+  const profileLink = document.querySelector('a.nav-link[href="chandriahomepage/accounts.html"]');
+  if (!profileLink) return;
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    profileLink.onclick = (e) => {
+      e.preventDefault();
+      if (user) {
+        window.location.href = "chandriahomepage/test_Profile.html";
+      } else {
+        window.location.href = "/chandriahomepage/user_authentication.html";
+      }
+    };
+  });
+});
 </script>
   </body>
 </html>
