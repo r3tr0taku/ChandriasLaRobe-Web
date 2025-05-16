@@ -26,6 +26,18 @@
         <!-- EXTERNAL CSS -->
         <link rel="stylesheet" href="./assets/css/inventory.css" />
 
+        <style>
+            /* Custom primary color for checkbox */
+            #with-inclusions-checkbox {
+              accent-color: #ff9aaf; /* Use your primary color here */
+            }
+            .with-inclusions-row {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              margin: 1rem 0 0.5rem 0;
+            }
+        </style>
     </head>
 
     <body>
@@ -684,14 +696,14 @@
                         placeholder="Name"
                         required
                     />
-                    <!-- Type -->
+                    <!-- Type (renamed to Additional Code) -->
                     <input
                         type="text"
-                        id="add-additional-type"
-                        placeholder="Type"
+                        id="add-additional-code"
+                        placeholder="Additional Code"
                         required
                     />
-                    <!-- Price Input -->
+                    <!-- Price Input (unchanged) -->
                     <div class="price-input">
                         <div class="price-symbol">₱</div>
                         <input
@@ -701,7 +713,24 @@
                         />
                         <div class="price-suffix">.00</div>
                     </div>
-                    <!-- Modal Buttons -->
+                    <!-- With Inclusions Checkbox -->
+                    <div class="with-inclusions-row">
+                      <label class="with-inclusions-label">
+                        <input type="checkbox" id="with-inclusions-checkbox" />
+                        <span>With Inclusions?</span>
+                      </label>
+                    </div>
+                    <!-- Inclusions Fields (hidden by default) -->
+                    <div id="inclusions-container"></div>
+                    <div id="inclusion-btn-row">
+                        <button type="button" id="add-inclusion-btn">
+                            <i class='bx bx-plus'></i> Add More
+                        </button>
+                        <button type="button" id="remove-inclusion-btn">
+                            <i class='bx bx-trash'></i> Remove
+                        </button>
+                    </div>
+
                     <div class="modal-buttons">
                         <button
                             class="custom-btn"
@@ -782,5 +811,87 @@
         <!-- EXTERNAL SCRIPT -->
         <script type="module" src="./assets/js/inventory-service.js"></script>
         <script type="module" src="./assets/js/inventory-subscript.js"></script>
+        <script>
+// Inclusions logic for Add Additional Modal
+(function() {
+    const checkbox = document.getElementById('with-inclusions-checkbox');
+    const container = document.getElementById('inclusions-container');
+    const addBtn = document.getElementById('add-inclusion-btn');
+    const removeBtn = document.getElementById('remove-inclusion-btn');
+    const btnRow = document.getElementById('inclusion-btn-row');
+    const errorModal = document.getElementById('error-modal');
+    const errorMsg = document.getElementById('error-modal-message');
+    const errorOk = document.getElementById('error-modal-ok');
+    if (!checkbox || !container || !addBtn || !removeBtn || !btnRow) return;
+
+    function updateRemoveBtnState() {
+        if (container.childElementCount <= 1) {
+            removeBtn.disabled = true;
+            removeBtn.style.opacity = 0.6;
+            removeBtn.style.cursor = 'not-allowed';
+        } else {
+            removeBtn.disabled = false;
+            removeBtn.style.opacity = 1;
+            removeBtn.style.cursor = 'pointer';
+        }
+    }
+
+    function addInclusionField() {
+        const field = document.createElement('input');
+        field.type = 'text';
+        field.placeholder = 'Name';
+        field.className = 'inclusion-field';
+        field.style.marginBottom = '0.5rem';
+        field.style.width = '100%';
+        field.style.borderRadius = '6px';
+        field.style.border = '1px solid #ccc';
+        field.style.padding = '0.5rem';
+        container.appendChild(field);
+        updateRemoveBtnState();
+    }
+
+    function removeInclusionField() {
+        if (container.childElementCount <= 1) {
+            // Show error modal
+            if (errorModal && errorMsg && errorOk) {
+                errorMsg.textContent = 'Cannot remove the last inclusion field.';
+                errorModal.style.display = 'flex';
+                errorOk.onclick = function() {
+                    errorModal.style.display = 'none';
+                };
+                // Also allow closing with X
+                const closeBtn = errorModal.querySelector('.custom-close-button');
+                if (closeBtn) closeBtn.onclick = function() { errorModal.style.display = 'none'; };
+            }
+            return;
+        }
+        container.removeChild(container.lastElementChild);
+        updateRemoveBtnState();
+        // If all fields are removed (shouldn't happen, but for safety)
+        if (container.childElementCount === 0) {
+            checkbox.checked = false;
+            container.style.display = 'none';
+            btnRow.style.display = 'none';
+        }
+    }
+
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            container.style.display = 'flex';
+            btnRow.style.display = 'flex';
+            if (container.childElementCount === 0) addInclusionField();
+        } else {
+            container.style.display = 'none';
+            btnRow.style.display = 'none';
+            container.innerHTML = '';
+        }
+        updateRemoveBtnState();
+    });
+    addBtn.addEventListener('click', addInclusionField);
+    removeBtn.addEventListener('click', removeInclusionField);
+    // On page load, ensure remove is disabled
+    updateRemoveBtnState();
+})();
+</script>
     </body>
 </html>
